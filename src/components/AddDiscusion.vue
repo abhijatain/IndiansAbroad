@@ -26,24 +26,19 @@ async function add() {
 </script>
 
 <template>
-    <!-- Button trigger modal -->
-    
-<button  class="btn btn-outline-success align-items-center" data-bs-toggle="modal" data-bs-target="#exampleModal" style="margin-bottom:1rem">
-  Add Post
+
+
+<button class="btn btn-outline-success" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+  Create Post
 </button>
 
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Add Post</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <div class="card border-0" style="width: 100%;">
-        <div class="card-body">
-            <div class="mb-3">
+<div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel" style="width: 100%;height: 100%;">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="offcanvasExampleLabel">Edit Preview</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    <div class="mb-3">
             <label for="exampleFormControlInput1" class="form-label">Title</label>
             <input type="text" class="form-control" id="exampleFormControlInput1" v-model="title">
             </div>
@@ -66,7 +61,6 @@ async function add() {
                     <select class="ql-background"></select>
                   </span>
                   
-                  
                   <span class="ql-formats">
                     <button class="ql-list" value="ordered"></button>
                     <button class="ql-list" value="bullet"></button>
@@ -79,27 +73,21 @@ async function add() {
                   </span>
                   <span class="ql-formats">
                     <button class="ql-link"></button>
+                    <button class="ql-image"></button>
+                    <button class="ql-video"></button>
                   </span>
                   <span class="ql-formats">
                     <button class="ql-clean"></button>
                   </span>
-                  
                 </template>
             </Editor>
             </div>
             <div class="mb-3">
-            <label for="exampleFormControlInput1" class="form-label">Image Link</label>
-            <input type="text" class="form-control" id="exampleFormControlInput1" v-model="image">
+              <button type="button" class="btn btn-danger " >Discard</button>
+              <button type="button" class="btn btn-success " @click="add">Publish</button>
             </div>
             
-        </div>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-success" @click="add">Add</button>
-      </div>
-    </div>
   </div>
 </div>
+   
 </template>

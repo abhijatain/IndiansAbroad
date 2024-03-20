@@ -1,5 +1,4 @@
 <script setup>
-import Card from 'primevue/card';
 import AddDiscusion from '../components/AddDiscusion.vue'
 import {ref , onMounted} from 'vue'
 import { useRoute } from 'vue-router'
@@ -55,8 +54,8 @@ function share(art) {
 </script>
 
 <template>
-   <div class="container " style="margin-top:6rem">
-    <div class="d-flex align-items-center justify-content-between">
+   <div class="container " style="margin-top:4rem">
+    <div class="d-flex align-items-center justify-content-between p-2">
 	<AddDiscusion />
     <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
             <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked>
@@ -65,7 +64,7 @@ function share(art) {
             <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
             <label class="btn btn-outline-secondary" for="btnradio2">Popular</label>
         </div></div>
-   <div class="card border-0 shadow" style="margin-bottom: 2rem;">
+   <div class="card border-0 shadow-lg" style="margin-bottom: 1rem;">
 					<!-- Card body START -->
 					<div class="card-body">
                         <div class="d-flex align-items-center justify-content-between">
@@ -109,7 +108,7 @@ function share(art) {
 					
 					
 				</div>
-                <div class="card border-0 shadow" style="margin-bottom: 2rem;">
+                <div class="card border-0 shadow" style="margin-bottom: 1rem;">
 					<!-- Card body START -->
 					<div class="card-body">
                         <div class="d-flex align-items-center justify-content-between">
@@ -153,7 +152,7 @@ function share(art) {
 					
 					
 				</div>
-                <div class="card border-0 shadow" style="margin-bottom: 2rem;">
+                <div class="card border-0 shadow" style="margin-bottom: 1rem;">
 					<!-- Card body START -->
 					<div class="card-body">
                         <div class="d-flex align-items-center justify-content-between">
@@ -197,7 +196,7 @@ function share(art) {
 					
 					
 				</div>
-                <div class="card border-0 shadow" style="margin-bottom: 2rem;">
+                <div class="card border-0 shadow" style="margin-bottom: 1rem;">
 					<!-- Card body START -->
 					<div class="card-body">
                         <div class="d-flex align-items-center justify-content-between">
