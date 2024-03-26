@@ -35,7 +35,7 @@ async function handleFileChange() {
   const file = fileInput.value.files[0];
   
   if (file) {
-    const res = await fetch(`http://127.0.0.1:5000/upload/image`, {
+    const res = await fetch(`https://community-app-india.onrender.com/upload/image`, {
                     method: "POST",
                     Allow: ['GET', 'POST'],
                     headers : {
