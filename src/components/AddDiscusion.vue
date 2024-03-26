@@ -1,10 +1,11 @@
 <script setup>
+import { resolveFocusPosition } from '@tiptap/vue-3';
 import Editor from 'primevue/editor';
 
 import {ref} from 'vue'
 let title = ref('')
 let value = ref('')
-let image = ref(null)
+let fileInput = ref(null)
 
 async function add() {
     const res = await fetch(`https://community-app-india.onrender.com/api/discusion`, {
@@ -17,11 +18,37 @@ async function add() {
                     body : JSON.stringify({
                         "title" : title.value,
                         "data" : value.value,
-                        "image" : image.value
                       }),
                 })
                 const data = await res.json()
                 console.log(data)
+}
+
+function clicked() {
+  document.getElementById("formFile").click()
+  //value.value += `<img src="https://cdn.statcdn.com/Infographic/images/normal/30803.jpeg" >`
+}
+
+async function handleFileChange() {
+  let formData = new FormData();
+  formData.append('image',fileInput.value.files[0]);
+  const file = fileInput.value.files[0];
+  
+  if (file) {
+    const res = await fetch(`http://127.0.0.1:5000/upload/image`, {
+                    method: "POST",
+                    Allow: ['GET', 'POST'],
+                    headers : {
+                        "Authentication-Token" : localStorage.getItem('auth-token'),
+                        //'Content-Type': 'application/json'
+                    },
+                    body : formData
+                })
+    const data = await res.json()
+    if ( res.ok){
+      value.value += `<img src=${data.url} >`
+    }
+      }
 }
 </script>
 
@@ -44,7 +71,7 @@ async function add() {
             </div>
             <div class="mb-3">
             <label for="exampleFormControlTextarea1" class="form-label">Content</label>
-            <Editor v-model="value" editorStyle="height: 320px">
+            <Editor v-model="value" editorStyle="height: 55vh">
                 <template v-slot:toolbar>
                   <span class="ql-formats">
                     <select class="ql-font"></select>
@@ -72,20 +99,24 @@ async function add() {
                     <select class="ql-align"></select>
                   </span>
                   <span class="ql-formats">
-                    <button class="ql-link"></button>
-                    <button class="ql-image"></button>
                     <button class="ql-video"></button>
+                    <button class="ql-link"></button>
+                    <button  @click="clicked"> <i class="fa-solid fa-image"></i></button>
+                    
                   </span>
                   <span class="ql-formats">
                     <button class="ql-clean"></button>
                   </span>
                 </template>
             </Editor>
+            <input ref="fileInput"  type="file" id="formFile" accept="image/*" hidden @change="handleFileChange">
             </div>
+            <div class="offcanvas-body">
             <div class="mb-3">
               <button type="button" class="btn btn-danger " >Discard</button>
               <button type="button" class="btn btn-success " @click="add">Publish</button>
             </div>
+          </div>
             
   </div>
 </div>
