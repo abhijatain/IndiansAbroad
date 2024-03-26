@@ -43,7 +43,7 @@ function share(art) {
         navigator.share({
         text: art.title,
         url : art.source,
-        title : 'Independent'
+        title : 'Independent',
     })
     }else{
         navigator.clipboard.writeText('Copied')

@@ -2,6 +2,7 @@
     <div style="margin-top:4rem;">
     <TopScroller v-if="route.params.id == 'all' || !route.params.id"/>
    <CheckBox @filter-data="(data) => filter_articles(data)" v-if="route.params.id == 'all' || !route.params.id"/>
+    
     <div class="container ">
         <div class="row d-flex justify-content-center" >  
             <div class="card  mb-5 shadow-lg"  v-for="(art,index) in articles" :key="art.id" style="max-width: 95%;">

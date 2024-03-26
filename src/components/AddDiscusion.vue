@@ -46,7 +46,7 @@ async function handleFileChange() {
                 })
     const data = await res.json()
     if ( res.ok){
-      value.value += `<img src=${data.url} >`
+      value.value += `<img src=${data.url} referrerpolicy="no-referrer">`
     }
       }
 }

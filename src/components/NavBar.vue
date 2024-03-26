@@ -1,5 +1,5 @@
 <script setup>
-import {ref} from 'vue'
+import {ref,onMounted} from 'vue'
 import { useRouter } from 'vue-router'
 
 let islogin = localStorage.getItem('auth-token')
@@ -18,6 +18,15 @@ function search() {
     alert('To search add content')
   }
 }
+
+function lightTheme() {  
+    let bodyTag = document.querySelector('body');
+    bodyTag.dataset.bsTheme = 'light'
+}
+function darkTheme() {  
+    let bodyTag = document.querySelector('body');
+    bodyTag.dataset.bsTheme = 'dark'
+}
 </script>
 
 <template>
@@ -25,9 +34,18 @@ function search() {
     <div class="container-fluid d-grid gap-3 align-items-center" style="grid-template-columns: 1fr 2fr;">
       <div >
         <div class="flex-shrink-0 ">
-          <a href="#" class="d-block link-body-emphasis text-decoration-none " >
-            <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle">
-          </a>
+          <div class="dropdown">
+          
+            <button data-bs-toggle="dropdown" class="rounded border-0" aria-expanded="false"><i class="fa-solid fa-circle-half-stroke" ></i></button>
+          
+          <ul class="dropdown-menu" >
+            
+            
+            <li @click="lightTheme" class="p-2">Light Mode</li>
+            <li @click="darkTheme" class="p-2"> Dark Mode</li>
+          </ul>
+        </div>
+          
         </div>
        
       </div>
@@ -44,7 +62,7 @@ function search() {
               </div>
         </form>
 
-        <i class="fa-solid fa-bars" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation"></i>
+        <button class="rounded border-0" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation"><i class="fa-solid fa-bars" ></i></button>
                 <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel" style="width: 60vw">
                     <div class="offcanvas-header">
                       
