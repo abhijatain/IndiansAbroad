@@ -1,5 +1,5 @@
 <script setup>
-import { resolveFocusPosition } from '@tiptap/vue-3';
+
 import Editor from 'primevue/editor';
 
 import {ref} from 'vue'
