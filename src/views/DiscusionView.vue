@@ -54,7 +54,7 @@ function share(art) {
 </script>
 
 <template>
-   <div  style="margin-top:4rem">
+   <div class="container" style="margin-top:4rem">
     <div class="d-flex align-items-center justify-content-between p-2">
 	<AddDiscusion />
     <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
@@ -64,7 +64,7 @@ function share(art) {
             <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
             <label class="btn btn-outline-secondary" for="btnradio2">Popular</label>
         </div></div>
-   <div class="card  shadow-lg" style="margin-bottom: 1rem">
+   <div class="card border  border-3 shadow" style="margin-bottom: 1rem;margin-top: 1rem;">
 					<!-- Card body START -->
 					<div class="card-body">
                         <div class="d-flex align-items-center justify-content-between">
@@ -108,7 +108,7 @@ function share(art) {
 					
 					
 				</div>
-                <div class="card border-0 shadow" style="margin-bottom: 1rem;">
+                <div class="card border border-3 border-info-subtle shadow" style="margin-bottom: 1rem;">
 					<!-- Card body START -->
 					<div class="card-body">
                         <div class="d-flex align-items-center justify-content-between">
@@ -152,7 +152,7 @@ function share(art) {
 					
 					
 				</div>
-                <div class="card border-0 shadow" style="margin-bottom: 1rem;">
+                <div class="card border border-3 border-success-subtle shadow" style="margin-bottom: 1rem;">
 					<!-- Card body START -->
 					<div class="card-body">
                         <div class="d-flex align-items-center justify-content-between">
@@ -196,7 +196,7 @@ function share(art) {
 					
 					
 				</div>
-                <div class="card border-0 shadow" style="margin-bottom: 1rem;">
+                <div class="card border border-3 border-warning-subtle shadow" style="margin-bottom: 1rem;">
 					<!-- Card body START -->
 					<div class="card-body">
                         <div class="d-flex align-items-center justify-content-between">
@@ -240,7 +240,7 @@ function share(art) {
 					
 					
 				</div>
-                <div class="card rounded" style="margin-bottom: 2rem;">
+                <div class="card border border-3 border-danger-subtle shadow" style="margin-bottom: 2rem;">
 					<!-- Card body START -->
 					<div class="card-body">
                         <div class="d-flex align-items-center justify-content-between">
