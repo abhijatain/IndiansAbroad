@@ -1,7 +1,10 @@
 <template>
     
     <div class="block">
-        
+        <div class="form-floating " style="margin-bottom: 1rem;">
+            <textarea class="form-control rounded-3" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px;width: 100%" v-model="content" @keyup.enter="comment"></textarea>
+            <label for="floatingTextarea2">{{msg}} <i v-if="msg != 'Comment here'" class="fa-solid fa-xmark p-2"></i></label>
+        </div>
         <div class="mt-2" >
             <div class="comment">
                 <div class="user-banner">
@@ -48,7 +51,7 @@
                                     <i class="fa-regular fa-heart p-2"></i>
                                 </div>
                                 <div class="divider"></div>
-                                <a href="#">Reply</a>
+                                <a >Reply</a>
                                 <div class="divider"></div>
                                 <span class="is-mute">18 sec</span>
                             </div>
@@ -119,13 +122,7 @@
        
         
     </div>
-    <div class="sticky-bottom" >
-        <div class="form-floating">
-            <textarea class="form-control rounded-3" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px;width: 100%" v-model="content" @keyup.enter="comment"></textarea>
-            <label for="floatingTextarea2">{{msg}} <i v-if="msg != 'Comment here'" class="fa-solid fa-xmark p-2"></i></label>
-        </div>
-        
-    </div>
+    
     </template>
         
 <script setup>

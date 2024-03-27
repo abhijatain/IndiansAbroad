@@ -5,6 +5,7 @@ import Editor from 'primevue/editor';
 import {ref} from 'vue'
 let title = ref('')
 let value = ref('')
+let image = ref(null)
 let fileInput = ref(null)
 
 async function add() {
@@ -18,6 +19,7 @@ async function add() {
                     body : JSON.stringify({
                         "title" : title.value,
                         "data" : value.value,
+                        "image": image.value
                       }),
                 })
                 const data = await res.json()
@@ -65,10 +67,53 @@ async function handleFileChange() {
     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
   </div>
   <div class="offcanvas-body">
+    
     <div class="mb-3">
             <label for="exampleFormControlInput1" class="form-label">Title</label>
             <input type="text" class="form-control" id="exampleFormControlInput1" v-model="title">
-            </div>
+    </div>
+    <div class="mb-3">
+      <label for="exampleFormControlInput1" class="form-label">Tags</label>
+      <form class="row gy-2 gx-3 align-items-center">
+          <div class="col-auto">
+        <label class="visually-hidden" for="autoSizingSelect">Preference</label>
+        <select class="form-select" id="autoSizingSelect">
+          <option selected>Choose...</option>
+          <option value="1">One</option>
+          <option value="2">Two</option>
+          <option value="3">Three</option>
+        </select>
+      </div>
+      <div class="col-auto">
+        <label class="visually-hidden" for="autoSizingSelect">Preference</label>
+        <select class="form-select" id="autoSizingSelect">
+          <option selected>Choose...</option>
+          <option value="1">One</option>
+          <option value="2">Two</option>
+          <option value="3">Three</option>
+        </select>
+      </div>
+      <div class="col-auto">
+        <label class="visually-hidden" for="autoSizingSelect">Preference</label>
+        <select class="form-select" id="autoSizingSelect">
+          <option selected>Choose...</option>
+          <option value="1">One</option>
+          <option value="2">Two</option>
+          <option value="3">Three</option>
+        </select>
+      </div>
+      <div class="col-auto">
+        <label class="visually-hidden" for="autoSizingSelect">Preference</label>
+        <select class="form-select" id="autoSizingSelect">
+          <option selected>Choose...</option>
+          <option value="1">One</option>
+          <option value="2">Two</option>
+          <option value="3">Three</option>
+        </select>
+      </div>
+    </form>
+    </div>
+    
             <div class="mb-3">
             <label for="exampleFormControlTextarea1" class="form-label">Content</label>
             <Editor v-model="value" editorStyle="height: 55vh">

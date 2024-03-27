@@ -1,11 +1,17 @@
 <template>
-    <div class="mt-5 p-2">
+    <div class="container mt-5 p-5" >
+        <h1>Tags</h1>
+        <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Name</label>
+        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com" v-model="tag">
+        </div>
+        <button @click="add_tag" class="mb-5">Add</button>
             <h1>Categories</h1>
         <div class="mb-3">
         <label for="exampleFormControlInput1" class="form-label">Name</label>
         <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com" v-model="category">
         </div>
-        <button @click="add_category" >Add</button>
+        <button @click="add_category" class="mb-5">Add</button>
         <h1>Article</h1>
         <div class="mb-3">
         <label for="exampleFormControlInput1" class="form-label">Title</label>
@@ -36,7 +42,7 @@
 <script setup>
 import { ref, onMounted } from 'vue'
 let categories = ref([])
-
+let tag = ref(null)
 let category = ref(null)
 let title = ref(null)
 let summary = ref(null)
@@ -102,5 +108,25 @@ async function add_category() {
         alert('exists category')
     }
   
+}
+
+async function add_tag() {
+    
+        const res = await fetch(`https://community-app-india.onrender.com/create/tag`, {
+                    method: "POST",
+                    Allow: ['GET', 'POST'],
+                    headers : {
+                        "Authentication-Token" : localStorage.getItem('auth-token'),
+                        'Content-Type': 'application/json'
+                    },
+                    body : JSON.stringify({
+                        "name" : tag.value
+                      }),
+                })
+                const data = await res.json()
+    if (res.ok){
+        alert(data.message)
+    }
+    
 }
 </script>

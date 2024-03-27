@@ -5,6 +5,7 @@ import { useRouter } from 'vue-router'
 let islogin = localStorage.getItem('auth-token')
 const router = useRouter()
 let content = ref('')
+let darkMode = ref(false)
 
 function logout() {
   localStorage.removeItem('auth-token')
@@ -20,10 +21,12 @@ function search() {
 }
 
 function lightTheme() {  
+    darkMode.value = !darkMode.value
     let bodyTag = document.querySelector('body');
     bodyTag.dataset.bsTheme = 'light'
 }
 function darkTheme() {  
+    darkMode.value = !darkMode.value
     let bodyTag = document.querySelector('body');
     bodyTag.dataset.bsTheme = 'dark'
 }
@@ -34,18 +37,8 @@ function darkTheme() {
     <div class="container-fluid d-grid gap-3 align-items-center" style="grid-template-columns: 1fr 2fr;">
       <div >
         <div class="flex-shrink-0 ">
-          <div class="dropdown">
-          
-            <button data-bs-toggle="dropdown" class="rounded border-0" aria-expanded="false"><i class="fa-solid fa-circle-half-stroke" ></i></button>
-          
-          <ul class="dropdown-menu" >
-            
-            
-            <li @click="lightTheme" class="p-2">Light Mode</li>
-            <li @click="darkTheme" class="p-2"> Dark Mode</li>
-          </ul>
-        </div>
-          
+            <i v-if='darkMode' class="fa-solid fa-moon fa-xl" @click="lightTheme"></i>
+            <i v-else class="fa-solid fa-sun fa-xl" @click="darkTheme"></i>
         </div>
        
       </div>
