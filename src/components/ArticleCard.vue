@@ -114,7 +114,7 @@ onMounted(async () => {
 async function like(id,index) {
     await store.dispatch('likeArticle',id).then(() => {
         console.log(1)
-        articles.filter(art => art.id == id)[0].has_liked = articles.filter(art => art.id == id)[0].has_liked
+        articles.filter(art => art.id == id)[0].has_liked = !articles.filter(art => art.id == id)[0].has_liked
     })
     
 }
