@@ -11,9 +11,9 @@ export default defineConfig({
       { 
         registerType: 'autoUpdate',
         manifest: {
-          name: 'My Awesome App',
-          short_name: 'MyApp',
-          description: 'My Awesome App description',
+          name: 'Bharat Guild',
+          short_name: 'BG',
+          description: 'Indians Community',
           theme_color: '#ffffff',
           icons: [
             {
