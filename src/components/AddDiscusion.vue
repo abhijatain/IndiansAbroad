@@ -63,7 +63,11 @@ async function handleFileChange() {
 
 <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel" style="width: 100%;height: 100%;">
   <div class="offcanvas-header">
-    <h5 class="offcanvas-title" id="offcanvasExampleLabel">Edit Preview</h5>
+    
+    <button type="button" class="btn btn-success m-1" @click="add">Publish</button>
+    <button type="button" class="btn btn-secondary m-1" >Preview</button>
+    <button type="button" class="btn btn-secondary m-1" @click="add">Edit</button>
+  
     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
   </div>
   <div class="offcanvas-body">
@@ -157,10 +161,7 @@ async function handleFileChange() {
             <input ref="fileInput"  type="file" id="formFile" accept="image/*" hidden @change="handleFileChange">
             </div>
             <div class="offcanvas-body">
-            <div class="mb-3">
-              <button type="button" class="btn btn-danger " >Discard</button>
-              <button type="button" class="btn btn-success " @click="add">Publish</button>
-            </div>
+           
           </div>
             
   </div>
