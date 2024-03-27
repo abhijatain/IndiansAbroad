@@ -27,25 +27,25 @@ export default defineConfig({
               type: 'image/png'
             },{
               "src": "/pwa-192x192.png",
-              "sizes": "192x192",
+              "sizes": "144x144",
               "type": "image/png",
               "purpose": "any"
             },
             {
               "src": "/pwa-512x512.png",
-              "sizes": "512x512",
+              "sizes": "144x144",
               "type": "image/png",
               "purpose": "any"
             },
             {
               "src": "/pwa-maskable-192x192.png",
-              "sizes": "192x192",
+              "sizes": "144x144",
               "type": "image/png",
               "purpose": "maskable"
             },
             {
               "src": "/pwa-maskable-512x512.png",
-              "sizes": "512x512",
+              "sizes": "144x144",
               "type": "image/png",
               "purpose": "maskable"
             }
