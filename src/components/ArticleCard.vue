@@ -5,7 +5,7 @@
     
     <div class="container ">
         <div class="row d-flex justify-content-center" >  
-            <div class="card  mb-5 shadow-lg"  v-for="(art,index) in articles" :key="art.id" style="max-width: 95%;">
+            <div class="card  mb-5 shadow-lg"  v-for="(art,index) in articles" :key="index" style="max-width: 95%;">
                 <div class="card-header">
                     Featured
                 </div>
@@ -19,10 +19,8 @@
                     </p><br>
                     <div class="d-flex justify-content-between"> 
                         <div>
-                            <div v-if="!login">
-                                
-                            </div>
-                            <i v-else-if="art.has_liked" class="fa-solid fa-heart p-2 fa-lg" @click="like(art.id,index)" style="color: red;"></i>
+                            
+                            <i v-if="art.has_liked" class="fa-solid fa-heart p-2 fa-lg" @click="like(art.id,index)" style="color: red;"></i>
                             <i v-else class="fa-regular fa-heart p-2 fa-lg" @click="like(art.id,index)"></i>
                             <i data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom" aria-controls="offcanvasBottom" class="fa-regular fa-comment fa-lg p-2"></i>
                             <div class="offcanvas offcanvas-bottom" tabindex="-1" id="offcanvasBottom" aria-labelledby="offcanvasBottomLabel" style="height: 70vh">
@@ -115,14 +113,15 @@ onMounted(async () => {
 
 async function like(id,index) {
     await store.dispatch('likeArticle',id).then(() => {
-        articles.value[index].has_liked = !articles.value[index].has_liked
+        console.log(1)
+        articles.filter(art => art.id == id)[0].has_liked = articles.filter(art => art.id == id)[0].has_liked
     })
     
 }
 
 async function save(id,index) {
     await store.dispatch('saveArticle',id).then(() => {
-        articles.value[index].has_saved = !articles.value[index].has_saved
+        articles.filter(art => art.id == id)[0].has_saved = !articles.filter(art => art.id == id)[0].has_saved
     })
 }
 
