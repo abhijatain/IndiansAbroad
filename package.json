@@ -8,6 +8,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "dompurify": "^3.0.11",
     "primevue": "^3.50.0",
     "quill": "^1.3.7",
     "register-service-worker": "^1.7.2",

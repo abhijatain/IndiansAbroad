@@ -67,17 +67,19 @@ function share(art) {
    <div class="card border  border-3 shadow" style="margin-bottom: 1rem;margin-top: 1rem;">
 					<!-- Card body START -->
 					<div class="card-body">
-                        <div class="d-flex align-items-center justify-content-between">
-							<div class="d-flex align-items-center">
+						
+						<div class="col d-flex flex-column position-static">
+							<div class="d-flex align-items-center justify-content-between">
+							<div class="d-flex align-items-center mb-2">
 								<!-- Avatar -->
 								<div class="avatar avatar-story me-2">
-									<a href="#!"> <img class="avatar-img rounded-circle"  height="32px"  src="https://randomuser.me/api/portraits/men/86.jpg" alt=""> </a>
+									<a href="#!"> <img class="avatar-img rounded-circle"  height="42px"  src="https://randomuser.me/api/portraits/men/86.jpg" alt=""> </a>
 								</div>
 								<!-- Info -->
 								<div>
-									<div class="nav nav-divider">
-										<h6 class="nav-item card-title mb-0">Lori Ferguson</h6>
-										<span class="nav-item small" style="margin-left:1rem"> 2hr ago</span>
+									<div class="">
+										<h6 class="card-title mb-0">Lori Ferguson</h6>
+										<span class="nav-item small" > 2hr ago</span>
 									</div>
 									
 								</div>
@@ -86,10 +88,63 @@ function share(art) {
 							<!-- Card feed action dropdown END -->
 						</div>
                         <div class="p-2">
-                            <span class="badge  text-bg-primary " style="margin-right: .5rem;">canada</span>
-                            <span class="badge  text-bg-secondary " style="margin-right: .5rem;">abroad</span>
-                            <span class="badge text-bg-success " style="margin-right: .5rem;">success</span>
-                            <span class="badge  text-bg-info " style="margin-right: .5rem;">info</span>
+                            <span  style="margin-right: .5rem;"><span class="text-success">#</span>canada</span>
+                            <span  style="margin-right: .5rem;"><span class="text-primary">#</span>abroad</span>
+                            <span  style="margin-right: .5rem;"><span class="text-warning">#</span>success</span>
+                            <span  style="margin-right: .5rem;"><span class="text-danger">#</span>info</span>
+                        </div>
+						<router-link to='/' class=" p-2">
+							<p>
+								I'm thrilled to share that I've completed a graduate certificate course in project management with the president's honor roll.
+							</p>
+							
+							
+						</router-link>
+                        
+						<!-- Card img -->
+						
+						<div class="d-flex justify-content-between"> 
+                                <div>
+                                <i  class="fa-solid fa-heart p-2 fa-lg" style="color: red;"></i>
+                                <i class="fa-solid fa-share p-2 fa-lg"></i>
+                                </div>
+                            <div>
+                                <i  class="fa-solid fa-bookmark p-2 fa-lg" ></i>
+                            </div>
+                        </div>
+						</div>
+					</div>
+					
+					
+				</div>
+				<div class="card border  border-3 shadow" style="margin-bottom: 1rem;margin-top: 1rem;">
+					<!-- Card body START -->
+					<div class="card-body">
+						
+						<div class="col d-flex flex-column position-static">
+							<div class="d-flex align-items-center justify-content-between">
+							<div class="d-flex align-items-center mb-2">
+								<!-- Avatar -->
+								<div class="avatar avatar-story me-2">
+									<a href="#!"> <img class="avatar-img rounded-circle"  height="42px"  src="https://randomuser.me/api/portraits/men/86.jpg" alt=""> </a>
+								</div>
+								<!-- Info -->
+								<div>
+									<div class="">
+										<h6 class="card-title mb-0">Lori Ferguson</h6>
+										<span class="nav-item small" > 2hr ago</span>
+									</div>
+									
+								</div>
+							</div>
+							
+							<!-- Card feed action dropdown END -->
+						</div>
+                        <div class="p-2">
+                            <span  style="margin-right: .5rem;"><span class="text-success">#</span>canada</span>
+                            <span  style="margin-right: .5rem;"><span class="text-primary">#</span>abroad</span>
+                            <span  style="margin-right: .5rem;"><span class="text-warning">#</span>success</span>
+                            <span  style="margin-right: .5rem;"><span class="text-danger">#</span>info</span>
                         </div>
 						<p class=" p-2">I'm thrilled to share that I've completed a graduate certificate course in project management with the president's honor roll.</p>
                         
@@ -104,6 +159,54 @@ function share(art) {
                                 <i  class="fa-solid fa-bookmark p-2 fa-lg" ></i>
                             </div>
                         </div>
+						</div>
+					</div>
+					
+					
+				</div>
+				<div class="card border  border-3 shadow" style="margin-bottom: 1rem;margin-top: 1rem;">
+					<!-- Card body START -->
+					<div class="card-body">
+						
+						<div class="col d-flex flex-column position-static">
+							<div class="d-flex align-items-center justify-content-between">
+							<div class="d-flex align-items-center mb-2">
+								<!-- Avatar -->
+								<div class="avatar avatar-story me-2">
+									<a href="#!"> <img class="avatar-img rounded-circle"  height="42px"  src="https://randomuser.me/api/portraits/men/86.jpg" alt=""> </a>
+								</div>
+								<!-- Info -->
+								<div>
+									<div class="">
+										<h6 class="card-title mb-0">Lori Ferguson</h6>
+										<span class="nav-item small" > 2hr ago</span>
+									</div>
+									
+								</div>
+							</div>
+							
+							<!-- Card feed action dropdown END -->
+						</div>
+                        <div class="p-2">
+                            <span  style="margin-right: .5rem;"><span class="text-success">#</span>canada</span>
+                            <span  style="margin-right: .5rem;"><span class="text-primary">#</span>abroad</span>
+                            <span  style="margin-right: .5rem;"><span class="text-warning">#</span>success</span>
+                            <span  style="margin-right: .5rem;"><span class="text-danger">#</span>info</span>
+                        </div>
+						<p class=" p-2">I'm thrilled to share that I've completed a graduate certificate course in project management with the president's honor roll.</p>
+                        
+						<!-- Card img -->
+						
+						<div class="d-flex justify-content-between"> 
+                                <div>
+                                <i  class="fa-solid fa-heart p-2 fa-lg" style="color: red;"></i>
+                                <i class="fa-solid fa-share p-2 fa-lg"></i>
+                                </div>
+                            <div>
+                                <i  class="fa-solid fa-bookmark p-2 fa-lg" ></i>
+                            </div>
+                        </div>
+						</div>
 					</div>
 					
 					
@@ -112,7 +215,7 @@ function share(art) {
 					<!-- Card body START -->
 					<div class="card-body">
                         <div class="d-flex align-items-center justify-content-between">
-							<div class="d-flex align-items-center">
+							<div class="d-flex align-items-center mb-2">
 								<!-- Avatar -->
 								<div class="avatar avatar-story me-2">
 									<a href="#!"> <img class="avatar-img rounded-circle"  height="32px"  src="https://randomuser.me/api/portraits/men/86.jpg" alt=""> </a>
@@ -130,10 +233,10 @@ function share(art) {
 							<!-- Card feed action dropdown END -->
 						</div>
                         <div class="p-2">
-                            <span class="badge  text-bg-primary " style="margin-right: .5rem;">canada</span>
-                            <span class="badge  text-bg-secondary " style="margin-right: .5rem;">abroad</span>
-                            <span class="badge text-bg-success " style="margin-right: .5rem;">success</span>
-                            <span class="badge  text-bg-info " style="margin-right: .5rem;">info</span>
+                            <span  style="margin-right: .5rem;"><span class="text-success">#</span>canada</span>
+                            <span  style="margin-right: .5rem;"><span class="text-primary">#</span>abroad</span>
+                            <span  style="margin-right: .5rem;"><span class="text-warning">#</span>success</span>
+                            <span  style="margin-right: .5rem;"><span class="text-secondary">#</span>info</span>
                         </div>
 						<p class=" p-2">I'm thrilled to share that I've completed a graduate certificate course in project management with the president's honor roll.</p>
                         
@@ -388,4 +491,11 @@ function share(art) {
 				</div>
             </div>
 </template>
+
+<style scoped>
+a {
+  color: inherit; /* Inherit color from parent */
+  text-decoration: none; /* Remove underline */
+}
+</style>
 

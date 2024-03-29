@@ -46,6 +46,7 @@ function changeTheme() {
     <div class="container-fluid d-grid gap-3 align-items-center" style="grid-template-columns: 1fr 2fr;">
       <div >
         <div class="flex-shrink-0 ">
+            
             <div>
               <input type="checkbox" class="checkbox" id="checkbox" @click="changeTheme">
               <label for="checkbox" class="checkbox-label">

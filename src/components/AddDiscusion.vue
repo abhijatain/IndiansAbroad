@@ -5,7 +5,6 @@ import Editor from 'primevue/editor';
 import {ref} from 'vue'
 let title = ref('')
 let value = ref('')
-let image = ref(null)
 let fileInput = ref(null)
 
 async function add() {
@@ -19,7 +18,6 @@ async function add() {
                     body : JSON.stringify({
                         "title" : title.value,
                         "data" : value.value,
-                        "image": image.value
                       }),
                 })
                 const data = await res.json()

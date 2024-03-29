@@ -1,9 +1,13 @@
 <script setup>
 import CommentSection from '../components/CommentSection.vue'
+import 'quill/dist/quill.core.css';
+import 'quill/dist/quill.snow.css';
+import DOMPurify from 'dompurify'
 import { ref,onMounted } from 'vue'
 import { useRoute } from 'vue-router'
 
 let discusions = ref([])
+let html_content = ref('')
 const route = useRoute()
 
 onMounted(async () => {
@@ -20,48 +24,65 @@ onMounted(async () => {
         const data = await res.json()
         if (res.ok) {
             discusions.value.push(...data)
+            html_content.value = sanitizeHtml(data[0].content)
         }
 })
+
+function sanitizeHtml(html){
+    return DOMPurify.sanitize(html);
+}
 </script>
 
 <template>
+    
 <div class="container " style="margin-top:4rem">
+    
     <div v-for="d in discusions">
-        <img src="https://cdn.statcdn.com/Infographic/images/normal/30803.jpeg"  class="card-img">
-        <div class="mt-2 p-2">
-            <i  class="fa-solid fa-heart p-2 fa-lg" style="color: red;"> </i><span class="nav-item small"> 20 </span>
-            <a class="link-body-emphasis link-offset-2 link-underline-opacity-0 link-underline-opacity-75-hover" href="#section1"> <i  class="fa-regular fa-comment p-2 fa-lg" ></i><span class="nav-item small" > 100 </span></a>             
-            <i class="fa-solid fa-share p-2 fa-lg"></i><span class="nav-item small" > 23 </span>                   
+
+        <div class="ql-editor">
+            <p><strong class="ql-size-huge">{{d.title}}</strong></p>
         </div>
-        <div class="p-2">
-            <span class="badge  text-bg-primary " style="margin-right: .5rem;">canada</span>
-            <span class="badge  text-bg-secondary " style="margin-right: .5rem;">abroad</span>
-            <span class="badge text-bg-success " style="margin-right: .5rem;">success</span>
-            <span class="badge  text-bg-info " style="margin-right: .5rem;">info</span>
-        </div>
-        <div class="d-flex align-items-center mt-2 p-2">
-                                    <!-- Avatar -->
-            <div class="avatar avatar-story me-2">
-                <a href="#!"> <img class="avatar-img rounded-circle"  height="32px"  src="https://randomuser.me/api/portraits/men/86.jpg" alt=""> </a>
-            </div>
+        
+        <div style="padding:12px 15px">
+                            <span  style="margin-right: .5rem;"><span class="text-success">#</span>canada</span>
+                            <span  style="margin-right: .5rem;"><span class="text-primary">#</span>abroad</span>
+                            <span  style="margin-right: .5rem;"><span class="text-warning">#</span>success</span>
+                            <span  style="margin-right: .5rem;"><span class="text-danger">#</span>info</span>
+                        </div>
+       
                                     <!-- Info -->
             <div>
-                <div class="nav nav-divider">
-                    <h6 class="nav-item card-title mb-0">{{d.username}}</h6>
-                    <span class="nav-item small" style="margin-left:1rem"> {{d.date}}</span>
-                </div>                           
+                <div class="d-flex align-items-center mb-2" style="padding:12px 15px">
+								<!-- Avatar -->
+								<div class="avatar avatar-story me-2">
+									<a href="#!"> <img class="avatar-img rounded-circle"  height="42px"  src="https://randomuser.me/api/portraits/men/86.jpg" alt=""> </a>
+								</div>
+								<!-- Info -->
+								<div>
+									<div class="">
+										<h6 class="card-title mb-0">{{d.username}}</h6>
+										<span class="nav-item small" > 2hr ago</span>
+									</div>
+									
+								</div>
+							</div>
+                                         
             </div>
+        
+       
+        <div style="width: 100%;" v-html="html_content" class="ql-editor">
+            
         </div>
-        <div class="mt-2 p-2 bold-lg">
-            <h1>{{d.title}}</h1>
-        </div>
-        <div>
-            {{ d.content }}
-        </div>
+        
     </div>
-    <h1 id="section1" >
-        Comments Section
-    </h1>
-    <CommentSection/>
+   
 </div>
 </template>
+
+<style scoped>
+.display-4 {
+    font-size: calc(1.475rem + 2.7vw);
+    font-weight: 300;
+    line-height: 1.2;
+}
+</style>

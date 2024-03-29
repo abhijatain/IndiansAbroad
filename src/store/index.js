@@ -82,7 +82,7 @@ export default createStore({
     },
 
 
-     // Discusion async operation
+     // Discussion async operation
     async getDiscusions({ commit,state }) {
      
       const res = await fetch(`https://community-app-india.onrender.com/api/discusion/all`, {
