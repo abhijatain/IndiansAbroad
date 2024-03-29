@@ -56,7 +56,7 @@ async function handleFileChange() {
 
 
 <button class="btn btn-outline-success" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
-  Create Post
+  <i class="fa-solid fa-pen-to-square" style="color: #337357;"></i>
 </button>
 
 <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel" style="width: 100%;height: 100%;">
