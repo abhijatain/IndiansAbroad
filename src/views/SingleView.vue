@@ -1,5 +1,6 @@
 <script setup>
 import CommentSection from '../components/CommentSection.vue'
+import Editor from 'primevue/editor';
 import 'quill/dist/quill.core.css';
 import 'quill/dist/quill.snow.css';
 import DOMPurify from 'dompurify'
@@ -44,10 +45,10 @@ function sanitizeHtml(html){
         </div>
         
         <div style="padding:12px 15px">
-                            <span  style="margin-right: .5rem;"><span class="text-success">#</span>canada</span>
-                            <span  style="margin-right: .5rem;"><span class="text-primary">#</span>abroad</span>
-                            <span  style="margin-right: .5rem;"><span class="text-warning">#</span>success</span>
-                            <span  style="margin-right: .5rem;"><span class="text-danger">#</span>info</span>
+            <span class="badge" style="margin-right: .5rem;background-color: #FF204E;">canada</span>
+                            <span class="badge" style="margin-right: .5rem;background-color: #A0153E;">abroad</span>
+                            <span class="badge" style="margin-right: .5rem;background-color: #5D0E41;">success</span>
+                            <span class="badge" style="margin-right: .5rem;background-color: #00224D;">info</span>
                         </div>
        
                                     <!-- Info -->
@@ -69,8 +70,8 @@ function sanitizeHtml(html){
                                          
             </div>
         
-       
-        <div style="width: 100%;" v-html="html_content" class="ql-editor">
+            
+        <div  v-html="html_content" class="ql-editor card border-0">
             
         </div>
         

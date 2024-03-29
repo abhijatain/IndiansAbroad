@@ -94,20 +94,20 @@ function changeTheme() {
                     </router-link><hr>
                     <ul class="navbar-nav justify-content-end flex-grow-1 pe-3 mt-2">
                       <li class="nav-item">
-                            <router-link to="/discusion" class="nav-link active" ><i class="fa-regular fa-comments" style="color: #006d8f;"></i> Discusions</router-link>
+                            <router-link to="/discusion" class="nav-link active" ><i class="fa-regular fa-comments" style="color: #A0153E;"></i> Discusions</router-link>
                         </li>
                         <li class="nav-item">
-                        <router-link to="/article/all" class="nav-link active" aria-current="page" ><i class="fa-regular fa-newspaper" style="color: #006d8f;"></i> News</router-link>
+                        <router-link to="/article/all" class="nav-link active" aria-current="page" ><i class="fa-regular fa-newspaper" style="color: #A0153E;"></i> News</router-link>
                         </li>
                         
                         <li class="nav-item" v-if="islogin">
-                            <router-link to="/saved" class="nav-link active" href="#"><i class="fa-solid fa-bookmark" style="color: #006d8f;"></i> Saved</router-link>
+                            <router-link to="/saved" class="nav-link active" href="#"><i class="fa-solid fa-bookmark" style="color: #A0153E;"></i> Saved</router-link>
                         </li>
                         <li class="nav-item" v-if="!islogin">
-                            <a to="/saved" class="nav-link disabled" href="#"><i class="fa-solid fa-bookmark" style="color: #006d8f;"></i> Saved</a>
+                            <a to="/saved" class="nav-link disabled" href="#"><i class="fa-solid fa-bookmark" style="color: #A0153E;"></i> Saved</a>
                         </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="#"><i class="fa-solid fa-handshake-angle" style="color: #006d8f;"></i> Help</a>
+                        <a class="nav-link active" href="#"><i class="fa-solid fa-handshake-angle" style="color: #A0153E;"></i> Help</a>
                     </li>
                     </ul>
                     
@@ -126,7 +126,7 @@ function changeTheme() {
 }
 
 .checkbox-label {
-  background-color: #1679a0;
+  background-color: #A0153E;
   width: 50px;
   height: 26px;
   border-radius: 50px;

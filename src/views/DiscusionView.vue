@@ -88,10 +88,10 @@ function share(art) {
 							<!-- Card feed action dropdown END -->
 						</div>
                         <div class="p-2">
-                            <span  style="margin-right: .5rem;"><span class="text-success">#</span>canada</span>
-                            <span  style="margin-right: .5rem;"><span class="text-primary">#</span>abroad</span>
-                            <span  style="margin-right: .5rem;"><span class="text-warning">#</span>success</span>
-                            <span  style="margin-right: .5rem;"><span class="text-danger">#</span>info</span>
+                            <span class="badge" style="margin-right: .5rem;background-color: #0C0C0C;">canada</span>
+                            <span class="badge" style="margin-right: .5rem;background-color: #481E14;">abroad</span>
+                            <span class="badge" style="margin-right: .5rem;background-color: #9B3922;">success</span>
+                            <span class="badge" style="margin-right: .5rem;background-color: #F2613F;">info</span>
                         </div>
 						<router-link to='/' class=" p-2">
 							<p>
@@ -141,10 +141,10 @@ function share(art) {
 							<!-- Card feed action dropdown END -->
 						</div>
                         <div class="p-2">
-                            <span  style="margin-right: .5rem;"><span class="text-success">#</span>canada</span>
-                            <span  style="margin-right: .5rem;"><span class="text-primary">#</span>abroad</span>
-                            <span  style="margin-right: .5rem;"><span class="text-warning">#</span>success</span>
-                            <span  style="margin-right: .5rem;"><span class="text-danger">#</span>info</span>
+                            <span class="badge" style="margin-right: .5rem;background-color: #5E1675;">canada</span>
+                            <span class="badge" style="margin-right: .5rem;background-color: #EE4266;">abroad</span>
+                            <span class="badge" style="margin-right: .5rem;background-color: #e1b216;">success</span>
+                            <span class="badge" style="margin-right: .5rem;background-color: #337357;">info</span>
                         </div>
 						<p class=" p-2">I'm thrilled to share that I've completed a graduate certificate course in project management with the president's honor roll.</p>
                         
@@ -188,10 +188,10 @@ function share(art) {
 							<!-- Card feed action dropdown END -->
 						</div>
                         <div class="p-2">
-                            <span  style="margin-right: .5rem;"><span class="text-success">#</span>canada</span>
-                            <span  style="margin-right: .5rem;"><span class="text-primary">#</span>abroad</span>
-                            <span  style="margin-right: .5rem;"><span class="text-warning">#</span>success</span>
-                            <span  style="margin-right: .5rem;"><span class="text-danger">#</span>info</span>
+                            <span class="badge" style="margin-right: .5rem;background-color: #FF204E;">canada</span>
+                            <span class="badge" style="margin-right: .5rem;background-color: #A0153E;">abroad</span>
+                            <span class="badge" style="margin-right: .5rem;background-color: #5D0E41;">success</span>
+                            <span class="badge" style="margin-right: .5rem;background-color: #00224D;">info</span>
                         </div>
 						<p class=" p-2">I'm thrilled to share that I've completed a graduate certificate course in project management with the president's honor roll.</p>
                         
@@ -277,10 +277,10 @@ function share(art) {
 							<!-- Card feed action dropdown END -->
 						</div>
                         <div class="p-2">
-                            <span class="badge  text-bg-primary " style="margin-right: .5rem;">canada</span>
-                            <span class="badge  text-bg-secondary " style="margin-right: .5rem;">abroad</span>
-                            <span class="badge text-bg-success " style="margin-right: .5rem;">success</span>
-                            <span class="badge  text-bg-info " style="margin-right: .5rem;">info</span>
+							<span class="badge" style="margin-right: .5rem;background-color: #0C0C0C;">canada</span>
+                            <span class="badge" style="margin-right: .5rem;background-color: #481E14;">abroad</span>
+                            <span class="badge" style="margin-right: .5rem;background-color: #9B3922;">success</span>
+                            <span class="badge" style="margin-right: .5rem;background-color: #F2613F;">info</span>
                         </div>
 						<p class=" p-2">I'm thrilled to share that I've completed a graduate certificate course in project management with the president's honor roll.</p>
                         
@@ -321,10 +321,10 @@ function share(art) {
 							<!-- Card feed action dropdown END -->
 						</div>
                         <div class="p-2">
-                            <span class="badge  text-bg-primary " style="margin-right: .5rem;">canada</span>
-                            <span class="badge  text-bg-secondary " style="margin-right: .5rem;">abroad</span>
-                            <span class="badge text-bg-success " style="margin-right: .5rem;">success</span>
-                            <span class="badge  text-bg-info " style="margin-right: .5rem;">info</span>
+                            <span class="badge" style="margin-right: .5rem;background-color: #5E1675;">canada</span>
+                            <span class="badge" style="margin-right: .5rem;background-color: #EE4266;">abroad</span>
+                            <span class="badge" style="margin-right: .5rem;background-color: #e1b216;">success</span>
+                            <span class="badge" style="margin-right: .5rem;background-color: #337357;">info</span>
                         </div>
 						<p class=" p-2">I'm thrilled to share that I've completed a graduate certificate course in project management with the president's honor roll.</p>
                         
@@ -365,10 +365,10 @@ function share(art) {
 							<!-- Card feed action dropdown END -->
 						</div>
                         <div class="p-2">
-                            <span class="badge  text-bg-primary " style="margin-right: .5rem;">canada</span>
-                            <span class="badge  text-bg-secondary " style="margin-right: .5rem;">abroad</span>
-                            <span class="badge text-bg-success " style="margin-right: .5rem;">success</span>
-                            <span class="badge  text-bg-info " style="margin-right: .5rem;">info</span>
+                            <span class="badge" style="margin-right: .5rem;background-color: #FF204E;">canada</span>
+                            <span class="badge" style="margin-right: .5rem;background-color: #A0153E;">abroad</span>
+                            <span class="badge" style="margin-right: .5rem;background-color: #5D0E41;">success</span>
+                            <span class="badge" style="margin-right: .5rem;background-color: #00224D;">info</span>
                         </div>
 						<p class=" p-2">I'm thrilled to share that I've completed a graduate certificate course in project management with the president's honor roll.</p>
                         
