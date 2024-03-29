@@ -71,7 +71,7 @@ function sanitizeHtml(html){
             </div>
         
             
-        <div  v-html="html_content" class="ql-editor card border-0">
+        <div  v-html="d.content" class="ql-editor card border-0">
             
         </div>
         
