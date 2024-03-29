@@ -133,7 +133,7 @@ function changeTheme() {
 }
 
 .checkbox-label {
-  background-color: #F2613F;
+  background-color: #1779a0;
   width: 50px;
   height: 26px;
   border-radius: 50px;
