@@ -43,8 +43,7 @@ function changeTheme() {
 
 <template>
     <nav class="navbar bg-dark-subtle fixed-top p-2">
-    <div class="container-fluid d-grid gap-3 align-items-center" style="grid-template-columns: 1fr 2fr;">
-      <div >
+    <div class="container-fluid  align-items-center" style="grid-template-columns: 1fr 2fr;">
         <div class="flex-shrink-0 ">
             
             <div>
@@ -57,19 +56,20 @@ function changeTheme() {
             </div>
         </div>
        
-      </div>
-
-      <div class="d-flex align-items-center">
-        <form class="w-100 me-3" role="search">
-            <div class="input-group">
-                <span class="input-group-text" id="basic-addon1">
+      <router-link to="/"> 
+          <img class="avatar-img rounded-circle"  height="36px"  src="../assets/BharatGuildLogo.jpg" alt="Bharat Guild" >
+        </router-link>
+      <div class="d-flex align-items-center justify-content-end">
+        
+           
+                <span class="input-group-text" id="basic-addon1" style="margin-right: 1rem;">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16" @click="search">
                         <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"></path>
                     </svg>
                 </span>
-                <input v-model="content" type="text" class="form-control" placeholder="search" aria-label="Input group example" aria-describedby="basic-addon1">
-              </div>
-        </form>
+                
+              
+       
 
         <button class="rounded border-0" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation"><i class="fa-solid fa-bars" ></i></button>
                 <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel" style="width: 60vw">
