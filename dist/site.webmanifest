@@ -37,5 +37,6 @@
   "display": "standalone",
   "background_color": "#FFFFFF",
   "theme_color": "#FFFFFF",
-  "prefer_related_applications": true
+  "prefer_related_applications": true,
+  "oreintation":"portrait"
 }
