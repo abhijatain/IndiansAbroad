@@ -67,7 +67,7 @@ async function handleFileChange() {
     
     <div class="mb-5">
             <h1>
-            <input type="text" placeholder="Your Post Title" class="border-0 w-100 arvo-bold p-2" id="exampleFormControlInput1" v-model="title" style="height: auto;">
+            <textarea type="text" role="textbox" placeholder="Your Post Title" class="border-0 w-100 arvo-bold p-2 "  v-model="title" style="height: auto;"></textarea>
           </h1>
     </div>
     <div class="mb-5">
