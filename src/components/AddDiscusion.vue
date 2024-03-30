@@ -65,7 +65,7 @@ async function handleFileChange() {
   </div>
   <div class="offcanvas-body">
     
-    <div class="mb-5">
+    <div class="mb-3">
             <h1>
             <textarea type="text" role="textbox" placeholder="Your Post Title" class="border-0 w-100 arvo-bold p-2 "  v-model="title" style="height: auto;"></textarea>
           </h1>

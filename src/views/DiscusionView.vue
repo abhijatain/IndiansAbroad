@@ -2,6 +2,7 @@
 import AddDiscusion from '../components/AddDiscusion.vue'
 import {ref , onMounted} from 'vue'
 import { useRoute } from 'vue-router'
+import Loader from '../components/LoadingCard.vue'
 
 let discusions = ref([])
 const route = useRoute()
@@ -64,6 +65,18 @@ function share(art) {
             <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
             <label class="btn btn-outline-secondary" for="btnradio2">Popular</label>
         </div></div>
+		<div class="card border  border-3 shadow p-2" style="margin-bottom: 1rem;margin-top: 1rem;">
+			<Loader />
+		</div>
+		<div class="card border  border-3 shadow p-2" style="margin-bottom: 1rem;margin-top: 1rem;">
+			<Loader />
+		</div>
+		<div class="card border  border-3 shadow p-2" style="margin-bottom: 1rem;margin-top: 1rem;">
+			<Loader />
+		</div>
+					
+					
+				
    <div class="card border  border-3 shadow" style="margin-bottom: 1rem;margin-top: 1rem;">
 					<!-- Card body START -->
 					<div class="card-body">
