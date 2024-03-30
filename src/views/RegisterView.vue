@@ -1,6 +1,10 @@
 <template>
     <div class="container " style="margin-top: 12vh">
-        
+        <div class="text-center" v-if="clicked">
+        <div class="spinner-border" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+      </div>
         <p v-bind:class="{'text-danger' : danger,'text-success' : success}">{{msg}}</p>
     <form class="p-4">
         
@@ -50,6 +54,7 @@ const cred = ref({
 let msg = ref('')
 let success = ref(true)
 let danger = ref(false)
+let clicked = ref(false)
 
 async function register() {
     if (!validEmail()) {
@@ -61,6 +66,7 @@ async function register() {
                 success.value = false
                 msg.value = 'Password length must be 8 or more'
     }else {
+        clicked.value = true
                 const res = await fetch('https://community-app-india.onrender.com/register',{
                     method:'POST',
                     headers: {
@@ -70,13 +76,19 @@ async function register() {
                 })
                 
                 const data = await res.json()
+                if (res.ok){
+                    clicked.value = false
+                }
                 if (data.state == 0) {
+                    
                     danger.value = true
                     success.value = false
                 }else {
+                    
                     danger = false
                     success = true
                 }
+                
                 msg.value = data.msg 
             }
 }

@@ -1,6 +1,10 @@
 <template>
     <div class="container " style="margin-top: 12vh">
-        
+      <div class="text-center" v-if="clicked">
+        <div class="spinner-border" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+      </div>
         <p v-bind:class="{'text-danger' : !success}">{{msg}}</p>
     <div class="p-4">
         
@@ -47,10 +51,10 @@ const cred = ref({
 
 let msg = ref('')
 let success = ref(true)
-
+let clicked = ref(false)
 
 async function login() {
-    
+    clicked.value = true
     const res = await fetch(`https://community-app-india.onrender.com/user_login`,{
                 method:'POST',
                 mode: 'cors', 
@@ -61,6 +65,7 @@ async function login() {
                 body : JSON.stringify(cred.value),
             })
             if (res.ok) {
+              clicked.value = false
                 const data = await res.json()
                 if (data.state == 0 ){
                     localStorage.setItem('auth-token', data.token)

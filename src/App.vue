@@ -12,6 +12,7 @@ let has_changed_route = ref(0)
 onMounted(async() => {
   if (store.state.isDataLoaded == false){
     await store.dispatch('getArticles')
+    await store.dispatch('getDiscusions')
   }
   
 })

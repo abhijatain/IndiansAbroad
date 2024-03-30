@@ -30,6 +30,8 @@ function clicked() {
 }
 
 async function handleFileChange() {
+  let data = value.value
+  value.value += `<br><h2>Uploading...., Wait for image to show and then type</h2>`
   let formData = new FormData();
   formData.append('image',fileInput.value.files[0]);
   const file = fileInput.value.files[0];
@@ -46,6 +48,7 @@ async function handleFileChange() {
                 })
     const data = await res.json()
     if ( res.ok){
+      value.value = data.value
       value.value += `<img src=${data.url} referrerpolicy="no-referrer">`
     }
       }

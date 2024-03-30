@@ -7,7 +7,7 @@ export default createStore({
       discusions:[],
       token : localStorage.getItem('auth-token'),
       isDataLoaded: false,
-      isDataLoadedDiscusion: false
+      isDiscusionLoaded: false
     };
   },
   mutations: {
@@ -96,7 +96,7 @@ export default createStore({
     const data = await res.json()
     if (res.ok) {
       commit('add_discusions',data);
-      state.isDataLoadedDiscusion = true
+      state.isDiscusionLoaded = true
     }
     },
 

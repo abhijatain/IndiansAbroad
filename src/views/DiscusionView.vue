@@ -3,10 +3,24 @@ import AddDiscusion from '../components/AddDiscusion.vue'
 import {ref , onMounted} from 'vue'
 import { useRoute } from 'vue-router'
 import Loader from '../components/LoadingCard.vue'
+import { useStore } from 'vuex'
 
 let discusions = ref([])
+const store = useStore()
 const route = useRoute()
 let id = ref('')
+let loaded = ref(false)
+
+onMounted(async() => {
+	function updateData() {
+            if (store.state.isDiscusionLoaded) {
+                discusions.value.push(...store.state.discusions)
+                clearInterval(intervalId);
+                loaded.value = true
+            }
+        }
+    const intervalId = setInterval(updateData, 1000);
+})
 
 async function like(id,index) {
     await fetch('https://community-app-india.onrender.com/like/discusion',{
@@ -43,7 +57,7 @@ function share(art) {
     if(navigator.share) {
         navigator.share({
         text: art.title,
-        url : art.source,
+        url : art.id,
         title : 'Independent',
     })
     }else{
@@ -65,21 +79,90 @@ function share(art) {
             <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
             <label class="btn btn-outline-secondary" for="btnradio2">Popular</label>
         </div></div>
-		<div class="card border  border-3 shadow p-2" style="margin-bottom: 1rem;margin-top: 1rem;">
+		<div v-if="!loaded" class="card border  border-3 shadow p-2" style="margin-bottom: 1rem;margin-top: 1rem;">
 			<Loader />
 		</div>
-		<div class="card border  border-3 shadow p-2" style="margin-bottom: 1rem;margin-top: 1rem;">
+		<div v-if="!loaded" class="card border  border-3 shadow p-2" style="margin-bottom: 1rem;margin-top: 1rem;">
 			<Loader />
 		</div>
-		<div class="card border  border-3 shadow p-2" style="margin-bottom: 1rem;margin-top: 1rem;">
+		<div v-if="!loaded" class="card border  border-3 shadow p-2" style="margin-bottom: 1rem;margin-top: 1rem;">
+			<Loader />
+		</div>
+		<div v-if="!loaded" class="card border  border-3 shadow p-2" style="margin-bottom: 1rem;margin-top: 1rem;">
+			<Loader />
+		</div>
+		<div v-if="!loaded" class="card border  border-3 shadow p-2" style="margin-bottom: 1rem;margin-top: 1rem;">
 			<Loader />
 		</div>
 					
 					
 				
-   <div class="card border  border-3 shadow" style="margin-bottom: 1rem;margin-top: 1rem;">
+   <div class="card border  border-3 shadow rounded" style="margin-bottom: 1rem;margin-top: 1rem;" v-for="(d,index) in discusions" :key="index">
 					<!-- Card body START -->
-					<div class="card-body">
+		<div class="card-body">
+			
+			<div class="d-flex flex-row justify-content-between align-items-center">
+				<div>
+						<div class="col d-flex flex-column position-static">
+							<div class="d-flex align-items-center justify-content-between">
+							<div class="d-flex align-items-center mb-2">
+								<!-- Avatar -->
+								<div class="avatar avatar-story me-2">
+									<a href="#!"> <img class="avatar-img rounded-circle"  height="42px"  src="https://images.unsplash.com/photo-1510227272981-87123e259b17?ixlib=rb-0.3.5&q=80&fm=jpg&crop=faces&fit=crop&h=200&w=200&s=3759e09a5b9fbe53088b23c615b6312e" alt=""> </a>
+								</div>
+								<!-- Info -->
+								<div>
+									<div class="">
+										<h6 class="card-title mb-0">Abhijeet Singh</h6>
+										<span class="nav-item small" > 28 March 2024</span>
+									</div>
+									
+								</div>
+							</div>
+							
+							<!-- Card feed action dropdown END -->
+						</div>
+                        
+						<router-link :to="`/discusion/${d.id}`" class=" p-2">
+							<h5 class="barlow-semibold">
+								{{ d.title }}
+							</h5>
+							
+							
+						</router-link>
+						</div>
+				</div>
+				<div class="">
+					<img src="https://miro.medium.com/v2/da:true/resize:fill:400:268/0*axOYB0WNLkM2gS0q" height="100" width="100">
+				</div>
+			</div>
+						<!-- Card img -->
+						
+						<div class="d-flex justify-content-between"> 
+                                <div>
+									<div class="p-2">
+										<span class="badge" style="margin-right: .5rem;background-color: #5E1675;">canada</span>
+                            <span class="badge" style="margin-right: .5rem;background-color: #EE4266;">abroad</span>
+                            <span class="badge" style="margin-right: .5rem;background-color: #e1b216;">success</span>
+                            <span class="badge" style="margin-right: .5rem;background-color: #337357;">info</span>
+								
+							</div>
+                                </div>
+                            <div class="p-2">
+								<i class="fa-solid fa-share p-2 fa-lg" @click='share(d)'></i>
+                                <i  class="fa-solid fa-bookmark p-2 fa-lg" ></i>
+                            </div>
+                        </div>
+						
+				</div>
+					
+					
+					
+					
+				</div>
+				<div class="card border  border-3 shadow rounded" style="margin-bottom: 1rem;margin-top: 1rem;">
+					<!-- Card body START -->
+					<div class="card-body ">
 						
 						<div class="col d-flex flex-column position-static">
 							<div class="d-flex align-items-center justify-content-between">
@@ -102,54 +185,9 @@ function share(art) {
 						</div>
                         <div class="p-2">
                             <span class="badge" style="margin-right: .5rem;background-color: #0C0C0C;">canada</span>
-                            <span class="badge" style="margin-right: .5rem;background-color: #481E14;">abroad</span>
-                            <span class="badge" style="margin-right: .5rem;background-color: #9B3922;">success</span>
-                            <span class="badge" style="margin-right: .5rem;background-color: #F2613F;">info</span>
-                        </div>
-						<router-link to='/' class=" p-2">
-							<p>
-								I'm thrilled to share that I've completed a graduate certificate course in project management with the president's honor roll.
-							</p>
-							
-							
-						</router-link>
-                        
-						<!-- Card img -->
-						
-						
-						</div>
-					</div>
-					
-					
-				</div>
-				<div class="card border  border-3 shadow" style="margin-bottom: 1rem;margin-top: 1rem;">
-					<!-- Card body START -->
-					<div class="card-body">
-						
-						<div class="col d-flex flex-column position-static">
-							<div class="d-flex align-items-center justify-content-between">
-							<div class="d-flex align-items-center mb-2">
-								<!-- Avatar -->
-								<div class="avatar avatar-story me-2">
-									<a href="#!"> <img class="avatar-img rounded-circle"  height="42px"  src="https://randomuser.me/api/portraits/men/86.jpg" alt=""> </a>
-								</div>
-								<!-- Info -->
-								<div>
-									<div class="">
-										<h6 class="card-title mb-0">Lori Ferguson</h6>
-										<span class="nav-item small" > 2hr ago</span>
-									</div>
-									
-								</div>
-							</div>
-							
-							<!-- Card feed action dropdown END -->
-						</div>
-                        <div class="p-2">
-                            <span class="badge" style="margin-right: .5rem;background-color: #5E1675;">canada</span>
-                            <span class="badge" style="margin-right: .5rem;background-color: #EE4266;">abroad</span>
-                            <span class="badge" style="margin-right: .5rem;background-color: #e1b216;">success</span>
-                            <span class="badge" style="margin-right: .5rem;background-color: #337357;">info</span>
+								<span class="badge" style="margin-right: .5rem;background-color: #481E14;">abroad</span>
+								<span class="badge" style="margin-right: .5rem;background-color: #9B3922;">success</span>
+								<span class="badge" style="margin-right: .5rem;background-color: #F2613F;">info</span>
                         </div>
 						<p class=" p-2">I'm thrilled to share that I've completed a graduate certificate course in project management with the president's honor roll.</p>
                         
@@ -494,5 +532,114 @@ a {
   color: inherit; /* Inherit color from parent */
   text-decoration: none; /* Remove underline */
 }
+
+.barlow-thin {
+  font-family: "Barlow", sans-serif;
+  font-weight: 100;
+  font-style: normal;
+}
+
+.barlow-extralight {
+  font-family: "Barlow", sans-serif;
+  font-weight: 200;
+  font-style: normal;
+}
+
+.barlow-light {
+  font-family: "Barlow", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.barlow-regular {
+  font-family: "Barlow", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.barlow-medium {
+  font-family: "Barlow", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.barlow-semibold {
+  font-family: "Barlow", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+}
+
+.barlow-bold {
+  font-family: "Barlow", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.barlow-extrabold {
+  font-family: "Barlow", sans-serif;
+  font-weight: 800;
+  font-style: normal;
+}
+
+.barlow-black {
+  font-family: "Barlow", sans-serif;
+  font-weight: 900;
+  font-style: normal;
+}
+
+.barlow-thin-italic {
+  font-family: "Barlow", sans-serif;
+  font-weight: 100;
+  font-style: italic;
+}
+
+.barlow-extralight-italic {
+  font-family: "Barlow", sans-serif;
+  font-weight: 200;
+  font-style: italic;
+}
+
+.barlow-light-italic {
+  font-family: "Barlow", sans-serif;
+  font-weight: 300;
+  font-style: italic;
+}
+
+.barlow-regular-italic {
+  font-family: "Barlow", sans-serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.barlow-medium-italic {
+  font-family: "Barlow", sans-serif;
+  font-weight: 500;
+  font-style: italic;
+}
+
+.barlow-semibold-italic {
+  font-family: "Barlow", sans-serif;
+  font-weight: 600;
+  font-style: italic;
+}
+
+.barlow-bold-italic {
+  font-family: "Barlow", sans-serif;
+  font-weight: 700;
+  font-style: italic;
+}
+
+.barlow-extrabold-italic {
+  font-family: "Barlow", sans-serif;
+  font-weight: 800;
+  font-style: italic;
+}
+
+.barlow-black-italic {
+  font-family: "Barlow", sans-serif;
+  font-weight: 900;
+  font-style: italic;
+}
+
 </style>
 
