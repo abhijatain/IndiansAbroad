@@ -103,15 +103,7 @@ function share(art) {
                         
 						<!-- Card img -->
 						
-						<div class="d-flex justify-content-between"> 
-                                <div>
-                                <i  class="fa-solid fa-heart p-2 fa-lg" style="color: red;"></i>
-                                <i class="fa-solid fa-share p-2 fa-lg"></i>
-                                </div>
-                            <div>
-                                <i  class="fa-solid fa-bookmark p-2 fa-lg" ></i>
-                            </div>
-                        </div>
+						
 						</div>
 					</div>
 					
@@ -150,15 +142,7 @@ function share(art) {
                         
 						<!-- Card img -->
 						
-						<div class="d-flex justify-content-between"> 
-                                <div>
-                                <i  class="fa-solid fa-heart p-2 fa-lg" style="color: red;"></i>
-                                <i class="fa-solid fa-share p-2 fa-lg"></i>
-                                </div>
-                            <div>
-                                <i  class="fa-solid fa-bookmark p-2 fa-lg" ></i>
-                            </div>
-                        </div>
+						
 						</div>
 					</div>
 					

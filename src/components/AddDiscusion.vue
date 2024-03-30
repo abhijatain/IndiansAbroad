@@ -4,7 +4,7 @@ import Editor from 'primevue/editor';
 
 import {ref} from 'vue'
 let title = ref('')
-let value = ref('')
+let value = ref('Type Your Content here')
 let fileInput = ref(null)
 
 async function add() {
@@ -61,26 +61,21 @@ async function handleFileChange() {
 
 <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel" style="width: 100%;height: 100%;">
   <div class="offcanvas-header">
-    
-    <button type="button" class="btn btn-success m-1" @click="add">Publish</button>
-    <button type="button" class="btn btn-secondary m-1" >Preview</button>
-    <button type="button" class="btn btn-secondary m-1" @click="add">Edit</button>
-  
     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
   </div>
   <div class="offcanvas-body">
     
-    <div class="mb-3">
-            <label for="exampleFormControlInput1" class="form-label">Title</label>
-            <input type="text" class="form-control" id="exampleFormControlInput1" v-model="title">
+    <div class="mb-5">
+            <h1>
+            <input type="text" placeholder="Your Post Title" class="border-0 w-100 arvo-bold p-2" id="exampleFormControlInput1" v-model="title">
+          </h1>
     </div>
-    <div class="mb-3">
-      <label for="exampleFormControlInput1" class="form-label">Tags</label>
+    <div class="mb-5">
       <form class="row gy-2 gx-3 align-items-center">
           <div class="col-auto">
-        <label class="visually-hidden" for="autoSizingSelect">Preference</label>
-        <select class="form-select" id="autoSizingSelect">
-          <option selected>Choose...</option>
+        
+        <select class="form-select border-0 bg-primary-subtle" id="autoSizingSelect" style="background-color: #FFAF45; width: 25vw;">
+          <option selected>Country</option>
           <option value="1">One</option>
           <option value="2">Two</option>
           <option value="3">Three</option>
@@ -88,8 +83,8 @@ async function handleFileChange() {
       </div>
       <div class="col-auto">
         <label class="visually-hidden" for="autoSizingSelect">Preference</label>
-        <select class="form-select" id="autoSizingSelect">
-          <option selected>Choose...</option>
+        <select class="form-select border-0  bg-warning-subtle" id="autoSizingSelect" style="background-color: #FB6D48; width: 25vw;">
+          <option selected>Tag2</option>
           <option value="1">One</option>
           <option value="2">Two</option>
           <option value="3">Three</option>
@@ -97,8 +92,8 @@ async function handleFileChange() {
       </div>
       <div class="col-auto">
         <label class="visually-hidden" for="autoSizingSelect">Preference</label>
-        <select class="form-select" id="autoSizingSelect">
-          <option selected>Choose...</option>
+        <select class="form-select border-0  bg-danger-subtle" id="autoSizingSelect" style="background-color: #D74B76; width: 25vw;">
+          <option selected>Tag3</option>
           <option value="1">One</option>
           <option value="2">Two</option>
           <option value="3">Three</option>
@@ -106,8 +101,8 @@ async function handleFileChange() {
       </div>
       <div class="col-auto">
         <label class="visually-hidden" for="autoSizingSelect">Preference</label>
-        <select class="form-select" id="autoSizingSelect">
-          <option selected>Choose...</option>
+        <select class="form-select border-0  bg-success-subtle" id="autoSizingSelect" style="background-color: #673F69; width: 25vw;">
+          <option selected>Tag4</option>
           <option value="1">One</option>
           <option value="2">Two</option>
           <option value="3">Three</option>
@@ -117,8 +112,8 @@ async function handleFileChange() {
     </div>
     
             <div class="mb-3">
-            <label for="exampleFormControlTextarea1" class="form-label">Content</label>
-            <Editor v-model="value" editorStyle="height: 55vh">
+           
+            <Editor v-model="value" editorStyle="height: 60vh;" >
                 <template v-slot:toolbar>
                   <span class="ql-formats">
                     <select class="ql-font"></select>
@@ -159,10 +154,32 @@ async function handleFileChange() {
             <input ref="fileInput"  type="file" id="formFile" accept="image/*" hidden @change="handleFileChange">
             </div>
             <div class="offcanvas-body">
-           
+              <div class="fixed-bottom p-2 bg-dark">
+                <button type="button" class="btn btn-primary m-1" @click="add">Publish</button>
+              <button type="button" class="btn btn-secondary m-1" >Preview</button>
+              <button type="button" class="btn btn-secondary m-1" @click="add">Edit</button>
+              </div>
+              
           </div>
             
   </div>
 </div>
    
 </template>
+
+<style scoped>
+.arvo-regular {
+  font-family: "Arvo", serif;
+  font-weight: 550;
+  font-style: normal;
+}
+
+.arvo-bold {
+  font-family: "Arvo", serif;
+  font-weight: 700;
+  font-style: normal;
+}
+.ql-editor {
+  border: 0;
+}
+</style>

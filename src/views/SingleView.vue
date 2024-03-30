@@ -39,9 +39,25 @@ function sanitizeHtml(html){
 <div class="container " style="margin-top:4rem">
     
     <div v-for="d in discusions">
-
-        <div class="ql-editor">
-            <p><strong class="ql-size-huge">{{d.title}}</strong></p>
+        <div class="card border-0 shadow bg-primary-subtle">
+                <div class="d-flex align-items-center mb-2" style="padding:12px 15px">
+								<!-- Avatar -->
+								<div class="avatar avatar-story me-2">
+									<a href="#!"> <img class="avatar-img rounded-circle"  height="42px"  src="https://randomuser.me/api/portraits/men/86.jpg" alt=""> </a>
+								</div>
+								<!-- Info -->
+								<div>
+									<div class=" " >
+										<h6 class="card-title mb-0 ">Abhijeet Singh </h6>
+										<span class=" text-body-secondary" style="font-size: 12px;">Posted on March 2022</span>
+									</div>
+									
+								</div>
+							</div>
+                                         
+            </div>
+        <div >
+            <h1 class="arvo-bold p-2 ">{{d.title}}</h1>
         </div>
         
         <div style="padding:12px 15px">
@@ -52,23 +68,7 @@ function sanitizeHtml(html){
                         </div>
        
                                     <!-- Info -->
-            <div>
-                <div class="d-flex align-items-center mb-2" style="padding:12px 15px">
-								<!-- Avatar -->
-								<div class="avatar avatar-story me-2">
-									<a href="#!"> <img class="avatar-img rounded-circle"  height="42px"  src="https://randomuser.me/api/portraits/men/86.jpg" alt=""> </a>
-								</div>
-								<!-- Info -->
-								<div>
-									<div class="">
-										<h6 class="card-title mb-0">{{d.username}}</h6>
-										<span class="nav-item small" > 2hr ago</span>
-									</div>
-									
-								</div>
-							</div>
-                                         
-            </div>
+            
         
             
         <div  v-html="d.content" class="ql-editor card border-0">
@@ -76,14 +76,65 @@ function sanitizeHtml(html){
         </div>
         
     </div>
-   
+    <div class="fixed-bottom p-3 card">
+        <div class="d-flex justify-content-between"> 
+                            <div>
+                                <i  class="fa-solid fa-heart p-2 fa-lg"  style="color: red;"></i><span> 63</span>
+                            </div>
+                            <div>
+                                <i data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom" aria-controls="offcanvasBottom" class="fa-regular fa-comment fa-lg p-2"></i>
+                                <span> 23</span>
+                                <div class="offcanvas offcanvas-bottom" tabindex="-1" id="offcanvasBottom" aria-labelledby="offcanvasBottomLabel" style="height: 70vh">
+                                <div class="offcanvas-header">
+                                    <h5 class="offcanvas-title" id="offcanvasBottomLabel">Comments</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                                </div>
+                                <div class="offcanvas-body small" style="padding: 0;">
+                                    <CommentSection id="1" />  
+                                </div>
+
+                                </div>
+                            </div>
+                           
+                            <div>
+                                <i class="fa-solid fa-share p-2 fa-lg"></i>
+                                <span> 30</span>
+                            </div>
+                            
+                        
+                            <i  class="fa-regular fa-bookmark p-2 fa-lg"></i>
+                        
+                    </div>
+    </div>
 </div>
 </template>
 
 <style scoped>
-.display-4 {
-    font-size: calc(1.475rem + 2.7vw);
-    font-weight: 300;
-    line-height: 1.2;
+
+
+.arvo-regular {
+  font-family: "Arvo", serif;
+  font-weight: 550;
+  font-style: normal;
 }
+
+.arvo-bold {
+  font-family: "Arvo", serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.arvo-regular-italic {
+  font-family: "Arvo", serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.arvo-bold-italic {
+  font-family: "Arvo", serif;
+  font-weight: 700;
+  font-style: italic;
+}
+
+
 </style>
