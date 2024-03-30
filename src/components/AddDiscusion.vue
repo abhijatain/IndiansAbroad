@@ -67,14 +67,14 @@ async function handleFileChange() {
     
     <div class="mb-5">
             <h1>
-            <input type="text" placeholder="Your Post Title" class="border-0 w-100 arvo-bold p-2" id="exampleFormControlInput1" v-model="title">
+            <input type="text" placeholder="Your Post Title" class="border-0 w-100 arvo-bold p-2" id="exampleFormControlInput1" v-model="title" style="height: auto;">
           </h1>
     </div>
     <div class="mb-5">
       <form class="row gy-2 gx-3 align-items-center">
           <div class="col-auto">
         
-        <select class="form-select border-0 bg-primary-subtle" id="autoSizingSelect" style="background-color: #FFAF45; width: 25vw;">
+        <select class="form-select border-0 text-white" id="autoSizingSelect" style="background-color: #FFAF45; width: 25vw;">
           <option selected>Country</option>
           <option value="1">One</option>
           <option value="2">Two</option>
@@ -83,7 +83,7 @@ async function handleFileChange() {
       </div>
       <div class="col-auto">
         <label class="visually-hidden" for="autoSizingSelect">Preference</label>
-        <select class="form-select border-0  bg-warning-subtle" id="autoSizingSelect" style="background-color: #FB6D48; width: 25vw;">
+        <select class="form-select border-0 text-white" id="autoSizingSelect" style="background-color: #FB6D48; width: 25vw;">
           <option selected>Tag2</option>
           <option value="1">One</option>
           <option value="2">Two</option>
@@ -92,7 +92,7 @@ async function handleFileChange() {
       </div>
       <div class="col-auto">
         <label class="visually-hidden" for="autoSizingSelect">Preference</label>
-        <select class="form-select border-0  bg-danger-subtle" id="autoSizingSelect" style="background-color: #D74B76; width: 25vw;">
+        <select class="form-select border-0 text-white" id="autoSizingSelect" style="background-color: #D74B76; width: 25vw;">
           <option selected>Tag3</option>
           <option value="1">One</option>
           <option value="2">Two</option>
@@ -101,7 +101,7 @@ async function handleFileChange() {
       </div>
       <div class="col-auto">
         <label class="visually-hidden" for="autoSizingSelect">Preference</label>
-        <select class="form-select border-0  bg-success-subtle" id="autoSizingSelect" style="background-color: #673F69; width: 25vw;">
+        <select class="form-select border-0 text-white" id="autoSizingSelect" style="background-color: #673F69; width: 25vw;">
           <option selected>Tag4</option>
           <option value="1">One</option>
           <option value="2">Two</option>
