@@ -96,18 +96,15 @@ function share(art) {
 		</div>
 					
 					
-				
-   <div class="card border  border-3 shadow rounded" style="margin-bottom: 1rem;margin-top: 1rem;" v-for="(d,index) in discusions" :key="index">
-					<!-- Card body START -->
-		<div class="card-body">
-			
-			<div class="d-flex flex-row justify-content-between align-items-center">
+		<ul class="list-group list-group-flush" style="margin-top: 1rem;padding:0" >
+			<li class="list-group-item" v-for="(d,index) in discusions" :key="index" style="margin-bottom: 1rem;padding: 12px 0px">
+				<div class="d-flex flex-row justify-content-between align-items-center">
 				<div>
 						<div class="col d-flex flex-column position-static">
 							<div class="d-flex align-items-center justify-content-between">
 							<div class="d-flex align-items-center mb-2">
 								<!-- Avatar -->
-								<div class="avatar avatar-story me-2">
+								<div class="avatar avatar-story me-2 ">
 									<a href="#!"> <img class="avatar-img rounded-circle"  height="42px"  src="https://images.unsplash.com/photo-1510227272981-87123e259b17?ixlib=rb-0.3.5&q=80&fm=jpg&crop=faces&fit=crop&h=200&w=200&s=3759e09a5b9fbe53088b23c615b6312e" alt=""> </a>
 								</div>
 								<!-- Info -->
@@ -133,7 +130,68 @@ function share(art) {
 						</div>
 				</div>
 				<div class="">
-					<img src="https://miro.medium.com/v2/da:true/resize:fill:400:268/0*axOYB0WNLkM2gS0q" height="100" width="100">
+					<img v-if="index%2 != 0" src="https://miro.medium.com/v2/resize:fill:200:200/1*TYNsHKGvELRsgalw4UwIdg.png" height="100" width="100">
+					<img v-else src="https://miro.medium.com/v2/da:true/resize:fill:400:268/0*axOYB0WNLkM2gS0q" height="100" width="100">
+				</div>
+				</div>
+						<!-- Card img -->
+						
+						<div class="d-flex justify-content-between"> 
+                                <div>
+									<div class="p-2">
+										<span class="badge" style="margin-right: .5rem;background-color: #5E1675;">canada</span>
+                            <span class="badge" style="margin-right: .5rem;background-color: #EE4266;">abroad</span>
+                            <span class="badge" style="margin-right: .5rem;background-color: #e1b216;">success</span>
+                            <span class="badge" style="margin-right: .5rem;background-color: #337357;">info</span>
+								
+							</div>
+                                </div>
+                            <div class="p-2">
+								<i class="fa-solid fa-share p-2 fa-lg" @click='share(d)'></i>
+                                <i  class="fa-solid fa-bookmark p-2 fa-lg" ></i>
+                            </div>
+                        </div>
+			</li>
+			
+		</ul>
+   <div class="card border  border-3 shadow rounded" style="margin-bottom: 1rem;margin-top: 1rem;" v-for="(d,index) in discusions" :key="index">
+					<!-- Card body START -->
+		<div class="card-body">
+			
+			<div class="d-flex flex-row justify-content-between align-items-center">
+				<div>
+						<div class="col d-flex flex-column position-static">
+							<div class="d-flex align-items-center justify-content-between">
+							<div class="d-flex align-items-center mb-2">
+								<!-- Avatar -->
+								<div class="avatar avatar-story me-2 ">
+									<a href="#!"> <img class="avatar-img rounded-circle"  height="42px"  src="https://images.unsplash.com/photo-1510227272981-87123e259b17?ixlib=rb-0.3.5&q=80&fm=jpg&crop=faces&fit=crop&h=200&w=200&s=3759e09a5b9fbe53088b23c615b6312e" alt=""> </a>
+								</div>
+								<!-- Info -->
+								<div>
+									<div class="">
+										<h6 class="card-title mb-0">Abhijeet Singh</h6>
+										<span class="nav-item small" > 28 March 2024</span>
+									</div>
+									
+								</div>
+							</div>
+							
+							<!-- Card feed action dropdown END -->
+						</div>
+                        
+						<router-link :to="`/discusion/${d.id}`" class=" p-2">
+							<h5 class="barlow-semibold">
+								{{ d.title }}
+							</h5>
+							
+							
+						</router-link>
+						</div>
+				</div>
+				<div class="">
+					<img v-if="index%2 != 0" src="https://miro.medium.com/v2/resize:fill:200:200/1*TYNsHKGvELRsgalw4UwIdg.png" height="100" width="100">
+					<img v-else src="https://miro.medium.com/v2/da:true/resize:fill:400:268/0*axOYB0WNLkM2gS0q" height="100" width="100">
 				</div>
 			</div>
 						<!-- Card img -->
