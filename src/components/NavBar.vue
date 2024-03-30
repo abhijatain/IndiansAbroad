@@ -81,12 +81,12 @@ function changeTheme() {
         <button class="rounded border-0" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation"><i class="fa-solid fa-bars" ></i></button>
                 <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel" style="width: 60vw">
                     <div class="offcanvas-header">
-                      
-                    <h6 class="offcanvas-title" id="offcanvasNavbarLabel">Voyage Community</h6>
+                      <img class="avatar-img rounded-circle"  height="38px"  src="../assets/BharatGuildLogo.jpg" alt="Bharat Guild" >
+                    <h3 class="offcanvas-title arvo-bold" id="offcanvasNavbarLabel">Bharat Guild</h3>
                     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                     </div>
                     <div class="offcanvas-body">
-                    <p>Your Gateway to Global Opportunities: Exploring Abroad Made Simple</p>
+                    <p class="arvo-regular">Your Gateway to Global Opportunities: Exploring Abroad Made Simple</p>
                     <router-link to="/" v-if="islogin">
                         <button type="button" class="btn btn-outline-primary" style="width: 100%">Profile</button>
                     </router-link>
@@ -162,5 +162,17 @@ function changeTheme() {
 
 .checkbox:checked + .checkbox-label .ball {
   transform: translateX(24px);
+}
+
+.arvo-regular {
+  font-family: "Arvo", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.arvo-bold {
+  font-family: "Arvo", serif;
+  font-weight: 700;
+  font-style: normal;
 }
 </style>
