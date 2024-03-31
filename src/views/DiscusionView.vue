@@ -4,6 +4,8 @@ import {ref , onMounted} from 'vue'
 import { useRoute } from 'vue-router'
 import Loader from '../components/LoadingCard.vue'
 import { useStore } from 'vuex'
+import { useTimeAgo } from '@vueuse/core'
+
 
 let discusions = ref([])
 const store = useStore()

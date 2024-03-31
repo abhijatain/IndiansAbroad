@@ -1,8 +1,9 @@
 <script setup>
-
+import { useTextareaAutosize } from '@vueuse/core'
 import Editor from 'primevue/editor';
-
 import {ref} from 'vue'
+
+const { textarea, input } = useTextareaAutosize()
 let title = ref('')
 let value = ref('Type Your Content here')
 let fileInput = ref(null)
@@ -53,7 +54,9 @@ async function handleFileChange() {
     }
       }
 }
+
 </script>
+
 
 <template>
 
@@ -67,10 +70,17 @@ async function handleFileChange() {
     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
   </div>
   <div class="offcanvas-body">
-    
+   
     <div class="mb-3">
             <h1>
-            <textarea type="text" role="textbox" placeholder="Your Post Title" class="border-0 w-100 arvo-bold p-2 "  v-model="title" style="height: auto;"></textarea>
+              <textarea
+                  ref="textarea"
+                  v-model="title"
+                  class="resize-none border-0 arvo-bold p-2"
+                  placeholder="Your Post Title"
+                  style="width: 90vw"
+                />
+            
           </h1>
     </div>
     <div class="mb-5">
@@ -115,7 +125,7 @@ async function handleFileChange() {
     </div>
     
             <div class="mb-3">
-           
+             
             <Editor v-model="value" editorStyle="height: 60vh;" >
                 <template v-slot:toolbar>
                   <span class="ql-formats">
@@ -151,7 +161,9 @@ async function handleFileChange() {
                   </span>
                   <span class="ql-formats">
                     <button class="ql-clean"></button>
+                   
                   </span>
+            
                 </template>
             </Editor>
             <input ref="fileInput"  type="file" id="formFile" accept="image/*" hidden @change="handleFileChange">
@@ -171,6 +183,15 @@ async function handleFileChange() {
 </template>
 
 <style scoped>
+
+textarea {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+textarea::-webkit-scrollbar {
+  display: none;
+}
 .arvo-regular {
   font-family: "Arvo", serif;
   font-weight: 550;

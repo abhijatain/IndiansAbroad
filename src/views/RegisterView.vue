@@ -21,6 +21,10 @@
             Sign up with Google
           </button>
           <hr class="my-4">
+          <div>
+            Latitude: {{ coords.latitude }}
+            Longitude: {{ coords.longitude }}
+          </div>
           <div class="form-floating mb-3">
             <input type="text" class="form-control rounded-3" id="floatingUsername" placeholder="username" v-model='cred.username'>
             <label for="floatingInput">Username</label>
@@ -44,6 +48,9 @@
   
 <script setup>
 import { ref } from 'vue'
+import { useGeolocation } from '@vueuse/core'
+
+const { coords, locatedAt, error, resume, pause } = useGeolocation()
 
 const cred = ref({
     email : null,

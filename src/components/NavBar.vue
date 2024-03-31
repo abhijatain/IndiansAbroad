@@ -1,11 +1,20 @@
 <script setup>
 import {ref,onMounted} from 'vue'
 import { useRouter } from 'vue-router'
+import { usePreferredDark } from '@vueuse/core'
+
+const isDark = usePreferredDark()
 
 let islogin = localStorage.getItem('auth-token')
 const router = useRouter()
 let content = ref('')
 let darkMode = ref(false)
+
+onMounted(() => {
+  if(isDark) {
+    document.getElementById("checkbox").click()
+  }
+})
 
 function logout() {
   localStorage.removeItem('auth-token')
