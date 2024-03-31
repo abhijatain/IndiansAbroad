@@ -56,6 +56,16 @@ const router = createRouter({
       path: '/discusion/:id',
       name: 'single',
       component: () => import('../views/SingleView.vue')
+    },
+    {
+      path: '/notifications',
+      name: 'notfications',
+      component: () => import('../views/NotificationView.vue')
+    },
+    {
+      path: '/help',
+      name: 'help',
+      component: () => import('../views/HelpView.vue')
     }
   ]
 })

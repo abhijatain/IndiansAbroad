@@ -97,7 +97,7 @@ function share(art) {
 			<Loader />
 		</div>
 					
-				
+			
 		<div class="card border-0 shadow-lg rounded" style="margin-bottom: 1rem;margin-top: 1rem;" v-for="(d,index) in discusions" :key="index">
 					<!-- Card body START -->
 		<div class="card-body" style="padding:12px">
@@ -151,7 +151,7 @@ function share(art) {
 							</div>
                                 </div>
                             <div class="p-2">
-								<i class="fa-solid fa-share p-2 fa-lg" @click='share(d)'></i>
+								
                                 <i  class="fa-solid fa-bookmark p-2 fa-lg" ></i>
                             </div>
                         </div>
@@ -213,7 +213,7 @@ function share(art) {
 							</div>
                                 </div>
                             <div class="p-2">
-								<i class="fa-solid fa-share p-2 fa-lg" @click='share(d)'></i>
+								
                                 <i  class="fa-solid fa-bookmark p-2 fa-lg" ></i>
                             </div>
                         </div>
@@ -540,7 +540,7 @@ function share(art) {
 							<div class="d-flex align-items-center">
 								<!-- Avatar -->
 								<div class="avatar avatar-story me-2">
-									<a href="#!"> <img class="avatar-img rounded-circle"  height="32px"  src="https://randomuser.me/api/portraits/men/86.jpg" alt=""> </a>
+									 <img class="avatar-img rounded-circle"  height="32px"  src="https://randomuser.me/api/portraits/men/86.jpg" alt=""> 
 								</div>
 								<!-- Info -->
 								<div>

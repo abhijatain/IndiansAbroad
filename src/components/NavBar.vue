@@ -73,25 +73,23 @@ function changeTheme() {
       
        
       <div class="d-flex align-items-center ">
-      
-        <form class="me-3" role="search" style="width:40vw">
-          <div  class="input-group">
-            <span class="input-group-text" id="basic-addon1">
-              <svg  xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
-                <path  d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"></path>
-              </svg>
+
+            <span class="input-group-text me-3" style="padding:1px 6px">
+              <router-link to="/help" class=" link-body-emphasis">
+                <i class="fa-solid fa-magnifying-glass"></i>
+              </router-link>
             </span>
-            <input  type="text" class="form-control" placeholder="search" aria-label="Input group example" aria-describedby="basic-addon1">
-          </div>
-        </form>
-        
-        
+            <span class="input-group-text me-3" style="padding:1px 6px">
+              <router-link to="/notifications" class=" link-body-emphasis">
+                  <i class="fa-solid fa-bell"></i>
+              </router-link>
+            </span>
 
         <button class="rounded border-0" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation"><i class="fa-solid fa-bars" ></i></button>
                 <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel" style="width: 60vw">
-                    <div class="offcanvas-header">
-                      <img class="avatar-img rounded-circle"  height="38px"  src="../assets/BharatGuildLogo.jpg" alt="Bharat Guild" >
-                    <h3 class="offcanvas-title arvo-bold" id="offcanvasNavbarLabel">Bharat Guild</h3>
+                    <div class="offcanvas-header" >
+                     
+                    <h4 class="offcanvas-title arvo-bold" id="offcanvasNavbarLabel">Bharat Guild</h4>
                     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                     </div>
                     <div class="offcanvas-body">
@@ -108,25 +106,35 @@ function changeTheme() {
                     <router-link to="/login" v-if="!islogin">
                         <button type="button" class="btn btn-outline-secondary mt-2" style="width: 100%">Login</button>
                     </router-link><hr>
-                    <ul class="navbar-nav justify-content-end flex-grow-1 pe-3 mt-2">
-                      <router-link to="/discusion" class="nav-link active">
-                            <i class="fa-regular fa-comments" style="color: #A0153E;"></i> Discusions
-                      </router-link>
-                      <router-link to="/article/all" class="nav-link active">
-                        <i class="fa-regular fa-newspaper" style="color: #A0153E;"></i> News
-                      </router-link>
+                    <ul class="nav nav-pills flex-column mb-auto">
+                      <li class="nav-item">
+                        <router-link to="/discusion" class="nav-link link-body-emphasis">
+                            <i class="fa-regular fa-comments me-2" ></i>
+                            Discusions
+                        </router-link>
                         
-                        <router-link to="/saved" class="nav-link active" v-if="islogin">
-                          <i class="fa-solid fa-bookmark" style="color: #A0153E;"></i> Saved
+                      </li>
+                      <li>
+                        <router-link to="/article/all" class="nav-link link-body-emphasis">
+                          <i class="fa-regular fa-newspaper me-2" ></i> News
                         </router-link>
-                        <router-link to="/" class="nav-link active" v-if="!islogin">
-                            <a to="/saved" class="nav-link disabled" href="#"><i class="fa-solid fa-bookmark" style="color: #A0153E;"></i> Saved</a>
+                      </li>
+                      <li>
+                        <router-link to="/saved" class="nav-link link-body-emphasis" v-if="islogin">
+                            <i class="fa-solid fa-bookmark me-2" ></i> Saved
                         </router-link>
-                    <router-link to="/" class="nav-link active">
-                        <a class="nav-link active" href="#"><i class="fa-solid fa-handshake-angle" style="color: #A0153E;"></i> Help</a>
-                    </router-link>
-                    </ul>
-                    
+                      </li>
+                      <li>
+                        <router-link to="/help" class="nav-link link-body-emphasis">
+                            <i class="fa-solid fa-handshake-angle me-2" ></i> Help
+                        </router-link>
+                      </li>
+                      <li>
+                        <router-link to="/notifications" class="nav-link link-body-emphasis">
+                          <i class="fa-solid fa-bell me-2"></i> Notifications
+                        </router-link>
+                      </li>
+                    </ul>  
                     </div>
                 </div>
       </div>

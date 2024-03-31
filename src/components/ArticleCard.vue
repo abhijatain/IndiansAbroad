@@ -6,9 +6,11 @@
         <div class="container ">
             <div class="row d-flex justify-content-center" >  
                 <div class="card  mb-5 shadow-lg"  v-for="(art,index) in articles" :key="index" style="max-width: 95%;">
+                  
                     <div class="card-header">
                         Featured
                     </div>
+                    
                     <img v-if="art.category == 'stats'" :src="art.youtube" class="card-img">
                     <iframe v-else style="height: 30vh"  class="embed-responsive-item" :src="art.youtube" allowfullscreen></iframe>
                     

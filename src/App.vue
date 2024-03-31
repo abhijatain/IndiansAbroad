@@ -2,6 +2,7 @@
 import { useStore } from 'vuex'
 import { useRoute, RouterView } from 'vue-router'
 import Navbar from './components/NavBar.vue'
+
 import {ref, watch, onMounted} from 'vue'
 const store = useStore()
 
@@ -26,5 +27,6 @@ watch(route,(to,from) => {
 <template  >
   <Navbar :key='has_changed'/>
   <RouterView :key='has_changed_route'/>
+ 
 </template>
 
