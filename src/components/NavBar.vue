@@ -10,11 +10,11 @@ const router = useRouter()
 let content = ref('')
 let darkMode = ref(false)
 
-onMounted(() => {
-  if(isDark) {
-    document.getElementById("checkbox").click()
-  }
-})
+//onMounted(() => {
+//  if(isDark) {
+//   document.getElementById("checkbox").click()
+//  }
+//})
 
 function logout() {
   localStorage.removeItem('auth-token')
