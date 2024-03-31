@@ -69,7 +69,7 @@ function share(art) {
 </script>
 
 <template>
-   <div class="container" style="margin-top:4rem">
+   <div class="container" style="margin-top:4rem;padding:0px 6px">
     <div class="d-flex align-items-center justify-content-between p-2">
 	<AddDiscusion />
     <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
@@ -95,68 +95,10 @@ function share(art) {
 			<Loader />
 		</div>
 					
-					
-		<ul class="list-group list-group-flush" style="margin-top: 1rem;padding:0" >
-			<li class="list-group-item" v-for="(d,index) in discusions" :key="index" style="margin-bottom: 1rem;padding: 12px 0px">
-				<div class="d-flex flex-row justify-content-between align-items-center">
-				<div>
-						<div class="col d-flex flex-column position-static">
-							<div class="d-flex align-items-center justify-content-between">
-							<div class="d-flex align-items-center mb-2">
-								<!-- Avatar -->
-								<div class="avatar avatar-story me-2 ">
-									<a href="#!"> <img class="avatar-img rounded-circle"  height="42px"  src="https://images.unsplash.com/photo-1510227272981-87123e259b17?ixlib=rb-0.3.5&q=80&fm=jpg&crop=faces&fit=crop&h=200&w=200&s=3759e09a5b9fbe53088b23c615b6312e" alt=""> </a>
-								</div>
-								<!-- Info -->
-								<div>
-									<div class="">
-										<h6 class="card-title mb-0">Abhijeet Singh</h6>
-										<span class="nav-item small" > 28 March 2024</span>
-									</div>
-									
-								</div>
-							</div>
-							
-							<!-- Card feed action dropdown END -->
-						</div>
-                        
-						<router-link :to="`/discusion/${d.id}`" class=" p-2">
-							<h5 class="barlow-semibold">
-								{{ d.title }}
-							</h5>
-							
-							
-						</router-link>
-						</div>
-				</div>
-				<div class="">
-					<img v-if="index%2 != 0" src="https://miro.medium.com/v2/resize:fill:200:200/1*TYNsHKGvELRsgalw4UwIdg.png" height="100" width="100">
-					<img v-else src="https://miro.medium.com/v2/da:true/resize:fill:400:268/0*axOYB0WNLkM2gS0q" height="100" width="100">
-				</div>
-				</div>
-						<!-- Card img -->
-						
-						<div class="d-flex justify-content-between"> 
-                                <div>
-									<div class="p-2">
-										<span class="badge" style="margin-right: .5rem;background-color: #5E1675;">canada</span>
-                            <span class="badge" style="margin-right: .5rem;background-color: #EE4266;">abroad</span>
-                            <span class="badge" style="margin-right: .5rem;background-color: #e1b216;">success</span>
-                            <span class="badge" style="margin-right: .5rem;background-color: #337357;">info</span>
-								
-							</div>
-                                </div>
-                            <div class="p-2">
-								<i class="fa-solid fa-share p-2 fa-lg" @click='share(d)'></i>
-                                <i  class="fa-solid fa-bookmark p-2 fa-lg" ></i>
-                            </div>
-                        </div>
-			</li>
-			
-		</ul>
-   <div class="card border  border-3 shadow rounded" style="margin-bottom: 1rem;margin-top: 1rem;" v-for="(d,index) in discusions" :key="index">
+				
+		<div class="card border-0 shadow-lg rounded" style="margin-bottom: 1rem;margin-top: 1rem;" v-for="(d,index) in discusions" :key="index">
 					<!-- Card body START -->
-		<div class="card-body">
+		<div class="card-body" style="padding:12px">
 			
 			<div class="d-flex flex-row justify-content-between align-items-center">
 				<div>
@@ -165,13 +107,13 @@ function share(art) {
 							<div class="d-flex align-items-center mb-2">
 								<!-- Avatar -->
 								<div class="avatar avatar-story me-2 ">
-									<a href="#!"> <img class="avatar-img rounded-circle"  height="42px"  src="https://images.unsplash.com/photo-1510227272981-87123e259b17?ixlib=rb-0.3.5&q=80&fm=jpg&crop=faces&fit=crop&h=200&w=200&s=3759e09a5b9fbe53088b23c615b6312e" alt=""> </a>
+									<a href="#!"> <img class="avatar-img rounded-circle"  height="36px"  src="https://images.unsplash.com/photo-1510227272981-87123e259b17?ixlib=rb-0.3.5&q=80&fm=jpg&crop=faces&fit=crop&h=200&w=200&s=3759e09a5b9fbe53088b23c615b6312e" alt=""> </a>
 								</div>
 								<!-- Info -->
 								<div>
 									<div class="">
 										<h6 class="card-title mb-0">Abhijeet Singh</h6>
-										<span class="nav-item small" > 28 March 2024</span>
+										<span class="nav-item small text-body-secondary" > 28 March 2024</span>
 									</div>
 									
 								</div>
@@ -202,7 +144,7 @@ function share(art) {
 										<span class="badge" style="margin-right: .5rem;background-color: #5E1675;">canada</span>
                             <span class="badge" style="margin-right: .5rem;background-color: #EE4266;">abroad</span>
                             <span class="badge" style="margin-right: .5rem;background-color: #e1b216;">success</span>
-                            <span class="badge" style="margin-right: .5rem;background-color: #337357;">info</span>
+                            <span class="badge" style="margin-right: .5rem;background-color: #337357;">religion</span>
 								
 							</div>
                                 </div>
@@ -217,7 +159,65 @@ function share(art) {
 					
 					
 					
+				</div>		
+		<ul class="list-group list-group-flush" style="margin-top: 1rem;" >
+			<li class="list-group-item" v-for="(d,index) in discusions" :key="index" style="margin-bottom: 1rem;padding: 12px 4px">
+				<div class="d-flex flex-row justify-content-between align-items-center">
+				<div>
+						<div class="col d-flex flex-column position-static">
+							<div class="d-flex align-items-center justify-content-between">
+							<div class="d-flex align-items-center mb-2">
+								<!-- Avatar -->
+								<div class="avatar avatar-story me-2 ">
+									<a href="#!"> <img class="avatar-img rounded-circle"  height="36px"  src="https://images.unsplash.com/photo-1510227272981-87123e259b17?ixlib=rb-0.3.5&q=80&fm=jpg&crop=faces&fit=crop&h=200&w=200&s=3759e09a5b9fbe53088b23c615b6312e" alt=""> </a>
+								</div>
+								<!-- Info -->
+								<div>
+									<div class="">
+										<h6 class="card-title mb-0">Abhijeet Singh</h6>
+										<span class="nav-item small" > 28 March 2024</span>
+									</div>
+									
+								</div>
+							</div>
+							
+							<!-- Card feed action dropdown END -->
+						</div>
+                        
+						<router-link :to="`/discusion/${d.id}`" class=" p-2">
+							<h5 class="barlow-semibold">
+								{{ d.title }}
+							</h5>
+							
+							
+						</router-link>
+						</div>
 				</div>
+				<div class="">
+					<img v-if="index%2 != 0" src="https://miro.medium.com/v2/resize:fill:200:200/1*TYNsHKGvELRsgalw4UwIdg.png" height="100" width="100">
+					<img v-else src="https://miro.medium.com/v2/da:true/resize:fill:400:268/0*axOYB0WNLkM2gS0q" height="100" width="100">
+				</div>
+				</div>
+						<!-- Card img -->
+						
+						<div class="d-flex justify-content-between"> 
+                                <div>
+									<div class="p-2">
+										<span class="badge" style="margin-right: .5rem;background-color: #5E1675;">canada</span>
+                            <span class="badge" style="margin-right: .5rem;background-color: #EE4266;">abroad</span>
+                            <span class="badge" style="margin-right: .5rem;background-color: #e1b216;">success</span>
+                            <span class="badge" style="margin-right: .5rem;background-color: #337357;">religion</span>
+								
+							</div>
+                                </div>
+                            <div class="p-2">
+								<i class="fa-solid fa-share p-2 fa-lg" @click='share(d)'></i>
+                                <i  class="fa-solid fa-bookmark p-2 fa-lg" ></i>
+                            </div>
+                        </div>
+			</li>
+		</ul>
+	
 				<div class="card border  border-3 shadow rounded" style="margin-bottom: 1rem;margin-top: 1rem;">
 					<!-- Card body START -->
 					<div class="card-body ">
@@ -591,35 +591,9 @@ a {
   text-decoration: none; /* Remove underline */
 }
 
-.barlow-thin {
-  font-family: "Barlow", sans-serif;
-  font-weight: 100;
-  font-style: normal;
-}
 
-.barlow-extralight {
-  font-family: "Barlow", sans-serif;
-  font-weight: 200;
-  font-style: normal;
-}
 
-.barlow-light {
-  font-family: "Barlow", sans-serif;
-  font-weight: 300;
-  font-style: normal;
-}
 
-.barlow-regular {
-  font-family: "Barlow", sans-serif;
-  font-weight: 400;
-  font-style: normal;
-}
-
-.barlow-medium {
-  font-family: "Barlow", sans-serif;
-  font-weight: 500;
-  font-style: normal;
-}
 
 .barlow-semibold {
   font-family: "Barlow", sans-serif;
@@ -645,59 +619,6 @@ a {
   font-style: normal;
 }
 
-.barlow-thin-italic {
-  font-family: "Barlow", sans-serif;
-  font-weight: 100;
-  font-style: italic;
-}
-
-.barlow-extralight-italic {
-  font-family: "Barlow", sans-serif;
-  font-weight: 200;
-  font-style: italic;
-}
-
-.barlow-light-italic {
-  font-family: "Barlow", sans-serif;
-  font-weight: 300;
-  font-style: italic;
-}
-
-.barlow-regular-italic {
-  font-family: "Barlow", sans-serif;
-  font-weight: 400;
-  font-style: italic;
-}
-
-.barlow-medium-italic {
-  font-family: "Barlow", sans-serif;
-  font-weight: 500;
-  font-style: italic;
-}
-
-.barlow-semibold-italic {
-  font-family: "Barlow", sans-serif;
-  font-weight: 600;
-  font-style: italic;
-}
-
-.barlow-bold-italic {
-  font-family: "Barlow", sans-serif;
-  font-weight: 700;
-  font-style: italic;
-}
-
-.barlow-extrabold-italic {
-  font-family: "Barlow", sans-serif;
-  font-weight: 800;
-  font-style: italic;
-}
-
-.barlow-black-italic {
-  font-family: "Barlow", sans-serif;
-  font-weight: 900;
-  font-style: italic;
-}
 
 </style>
 

@@ -49,6 +49,7 @@ async function save(id,index) {
             <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
             <label class="btn btn-outline-warning" for="btnradio2">Discusions</label>
         </div>
+        
         <div class="card  mt-3" v-for="(s,index) in saved" :key="index">
         <div class="card-body">
                 <div class="text-section">
