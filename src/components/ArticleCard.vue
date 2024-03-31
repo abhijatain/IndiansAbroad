@@ -22,12 +22,11 @@
                         <div class="d-flex justify-content-between"> 
                             <div>
                                 
-                                <i v-if="art.has_liked" class="fa-solid fa-heart p-2 fa-lg" @click="like(art.id,index)" style="color: red;"></i>
+                                <i v-if="art.has_liked" class="fa-solid fa-heart p-2 fa-lg" @click="like(art.id,index)" style="color: #FB6D48;"></i>
                                 <i v-else class="fa-regular fa-heart p-2 fa-lg" @click="like(art.id,index)"></i>
                                 <i data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom" aria-controls="offcanvasBottom" class="fa-regular fa-comment fa-lg p-2"></i>
                                 <div class="offcanvas offcanvas-bottom" tabindex="-1" id="offcanvasBottom" aria-labelledby="offcanvasBottomLabel" style="height: 70vh">
                                 <div class="offcanvas-header">
-                                    <h5 class="offcanvas-title" id="offcanvasBottomLabel">Comments</h5>
                                     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                                 </div>
                                 <div class="offcanvas-body small" style="padding: 0;">

@@ -21,14 +21,6 @@ function logout() {
   localStorage.removeItem('role')
 }
 
-function search() {
-  if (content.value.length > 0 ) {
-    router.push(`/search/${content.value}`)
-  }else{
-    alert('To search add content')
-  }
-}
-
 
 function lightTheme() {  
     darkMode.value = !darkMode.value
@@ -134,6 +126,17 @@ function changeTheme() {
                           <i class="fa-solid fa-bell me-2"></i> Notifications
                         </router-link>
                       </li>
+                      <li>
+                        <router-link to="/article/all" class="nav-link link-body-emphasis">
+                          <i class="fa-solid fa-address-card me-2"></i> About Us
+                        </router-link>
+                      </li>
+                      <li>
+                        <router-link to="/article/all" class="nav-link link-body-emphasis">
+                          <i class="fa-solid fa-address-book me-2"></i> Contact Us
+                        </router-link>
+                      </li>
+                      
                     </ul>  
                     </div>
                 </div>
