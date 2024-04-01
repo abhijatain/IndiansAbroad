@@ -73,6 +73,8 @@ function share(art) {
 
 <template>
    <div class="container" style="margin-top:4rem;padding:0px 6px">
+	
+	
     <div class="d-flex align-items-center justify-content-between p-2">
 	<AddDiscusion />
     <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
@@ -85,8 +87,11 @@ function share(art) {
 		<div v-if="!loaded" class="card border  border-3 shadow p-2" style="margin-bottom: 1rem;margin-top: 1rem;" v-for="number in 6" >
 			<Loader />
 		</div>
-					
-		<Carousel />
+		<TransitionGroup name="list" >
+			<Carousel />	
+		</TransitionGroup>
+			
+		<TransitionGroup name="list" >
 		<div class="card border-0 shadow-lg rounded" style="margin-bottom: 1rem;margin-top: 1rem;" v-for="(d,index) in discusions" :key="index">
 					<!-- Card body START -->
 		<div class="card-body" style="padding:12px">
@@ -151,7 +156,7 @@ function share(art) {
 					
 					
 				</div>	
-				<Carousel />	
+			</TransitionGroup>
 		<ul class="list-group list-group-flush" style="margin-top: 1rem;" >
 			<li class="list-group-item" v-for="(d,index) in discusions" :key="index" style="margin-bottom: 1rem;padding: 12px 4px">
 				<div class="d-flex flex-row justify-content-between align-items-center">
@@ -583,7 +588,12 @@ a {
   text-decoration: none; /* Remove underline */
 }
 
-
+.list-enter-active, .list-leave-active {
+  transition: opacity 0.5s;
+}
+.list-enter, .list-leave-to {
+  opacity: 0;
+}
 
 
 
