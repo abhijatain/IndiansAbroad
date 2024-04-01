@@ -89,7 +89,7 @@ function share(art) {
 		</div>
 	
 			<Carousel />	
-			<div class="col m-2" v-for="(d,index) in discusions" :key="index">
+			<div class="col " v-for="(d,index) in discusions" :key="index" style="margin:8px 4px">
         <div class="card card-cover overflow-hidden  rounded-4 shadow-lg" style="background-image: url('');" >
           <div class="d-flex flex-column h-100 p-3   text-shadow-1">
             <ul class="d-flex list-unstyled mb-2">
@@ -106,7 +106,7 @@ function share(art) {
                 <i  class="fa-solid fa-bookmark p-2 " ></i>
               </li>
             </ul>
-			<ul class="d-flex list-unstyled mb-2">
+			<ul class="d-flex list-unstyled mb-3">
               <li class="me-auto">
                 <span class="badge" style="margin-right: .5rem;background-color: #5E1675;">canada</span>
                 <span class="badge" style="margin-right: .5rem;background-color: #EE4266;">abroad</span>
@@ -116,13 +116,13 @@ function share(art) {
             </ul>
 			
 			<router-link :to="`/discusion/${d.id}`" >
-				<h5 class="mb-2 display-7 lh-1 fw-bold" >{{ d.title }}</h5>		
+				<h5 class="mb-2 display-6 lh-1 fw-bold" >{{ d.title }}</h5>		
 			</router-link>
 			
           </div>
         </div>
       </div>
-			<div class="col m-2" v-for="(d,index) in discusions" :key="index">
+			<div class="col" v-for="(d,index) in discusions" :key="index" style="margin:8px 4px">
         <div class="card card-cover overflow-hidden  rounded-4 shadow-lg" style="background-image: url('');" >
           <div class="d-flex flex-column h-100 p-3   text-shadow-1">
             <ul class="d-flex list-unstyled mb-2">
@@ -139,7 +139,7 @@ function share(art) {
                 <i  class="fa-solid fa-bookmark p-2 " ></i>
               </li>
             </ul>
-			<ul class="d-flex list-unstyled mb-2">
+			<ul class="d-flex list-unstyled mb-3">
               <li class="m-0">
                 <span class="badge" style="margin-right: .5rem;background-color: #5E1675;">canada</span>
                 <span class="badge" style="margin-right: .5rem;background-color: #EE4266;">abroad</span>
@@ -148,7 +148,7 @@ function share(art) {
               </li>
             </ul>
 			<div class="d-flex flex-row justify-content-between align-items-top">
-			<router-link :to="`/discusion/${d.id}`" class="p-2">
+			<router-link :to="`/discusion/${d.id}`" class="">
 				<h5 class="mb-4 display-7 lh-1 fw-bold" >{{ d.title }}</h5>		
 			</router-link>
 			<img v-if="index%2 != 0" src="https://miro.medium.com/v2/resize:fill:200:200/1*TYNsHKGvELRsgalw4UwIdg.png" height="60" width="60">
