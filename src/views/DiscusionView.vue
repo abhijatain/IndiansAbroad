@@ -88,7 +88,47 @@ function share(art) {
 			<Loader />
 		</div>
 	
-			<Carousel />	
+			<Carousel />
+			<div class="col" v-for="(d,index) in discusions" :key="index" style="margin:8px 4px">
+        <div class="card card-cover overflow-hidden  rounded-4 shadow-lg" style="background-image: url('');" >
+          <div class="d-flex flex-column h-100 p-3   text-shadow-1">
+            <ul class="d-flex list-unstyled mb-2">
+              <li class="me-auto">
+                <img src="../assets/BharatGuildLogo.jpg" alt="Bootstrap" width="32" height="32" class="rounded-circle border border-white">
+                <small class="p-1">Abhijeet Singh</small>
+                <small class="p-1">3d</small>
+				<router-link :to="`/discusion/${d.id}`" >
+				<h5 class="mt-3 display-7 lh-1 fw-bold" >{{ d.title }}</h5>		
+				</router-link>
+              </li>
+			  
+              <li class="d-flex align-items-center me-3">
+              
+              </li>
+              <li class="d-flex align-items-center">
+				<img v-if="index%2 != 0" src="https://miro.medium.com/v2/resize:fill:200:200/1*TYNsHKGvELRsgalw4UwIdg.png" height="80" width="80">
+				<img v-else src="https://miro.medium.com/v2/da:true/resize:fill:400:268/0*axOYB0WNLkM2gS0q" height="80" width="80">
+                
+              </li>
+            </ul>
+			
+			<div class="d-flex flex-row justify-content-between align-items-end">
+				<div class="p-2">
+					<span class="badge" style="margin-right: .5rem;background-color: #5E1675;">canada</span>
+                <span class="badge" style="margin-right: .5rem;background-color: #EE4266;">abroad</span>
+                <span class="badge" style="margin-right: .5rem;background-color: #e1b216;">success</span>
+                <span class="badge" style="margin-right: .5rem;background-color: #337357;">religion</span>
+								
+							</div>
+			
+			<i  class="fa-solid fa-bookmark p-2 " ></i>
+			
+		</div>
+            
+            
+          </div>
+        </div>
+      		</div>	
 			<div class="col " v-for="(d,index) in discusions" :key="index" style="margin:8px 4px">
         <div class="card card-cover overflow-hidden  rounded-4 shadow-lg" style="background-image: url('');" >
           <div class="d-flex flex-column h-100 p-3   text-shadow-1">
@@ -116,50 +156,13 @@ function share(art) {
             </ul>
 			
 			<router-link :to="`/discusion/${d.id}`" >
-				<h5 class="mb-2 display-6 lh-1 fw-bold" >{{ d.title }}</h5>		
+				<h5 class="mb-2 display-7 lh-1 fw-bold" >{{ d.title }}</h5>		
 			</router-link>
 			
           </div>
         </div>
-      </div>
-			<div class="col" v-for="(d,index) in discusions" :key="index" style="margin:8px 4px">
-        <div class="card card-cover overflow-hidden  rounded-4 shadow-lg" style="background-image: url('');" >
-          <div class="d-flex flex-column h-100 p-3   text-shadow-1">
-            <ul class="d-flex list-unstyled mb-2">
-              <li class="me-auto">
-                <img src="../assets/BharatGuildLogo.jpg" alt="Bootstrap" width="32" height="32" class="rounded-circle border border-white">
-                <small class="p-1">Abhijeet Singh</small>
-                <small class="p-1">3d</small>
-              </li>
-			  
-              <li class="d-flex align-items-center me-3">
-                
-              </li>
-              <li class="d-flex align-items-center">
-                <i  class="fa-solid fa-bookmark p-2 " ></i>
-              </li>
-            </ul>
-			<ul class="d-flex list-unstyled mb-3">
-              <li class="m-0">
-                <span class="badge" style="margin-right: .5rem;background-color: #5E1675;">canada</span>
-                <span class="badge" style="margin-right: .5rem;background-color: #EE4266;">abroad</span>
-                <span class="badge" style="margin-right: .5rem;background-color: #e1b216;">success</span>
-                <span class="badge" style="margin-right: .5rem;background-color: #337357;">religion</span>
-              </li>
-            </ul>
-			<div class="d-flex flex-row justify-content-between align-items-top">
-			<router-link :to="`/discusion/${d.id}`" class="">
-				<h5 class="mb-4 display-7 lh-1 fw-bold" >{{ d.title }}</h5>		
-			</router-link>
-			<img v-if="index%2 != 0" src="https://miro.medium.com/v2/resize:fill:200:200/1*TYNsHKGvELRsgalw4UwIdg.png" height="60" width="60">
-			<img v-else src="https://miro.medium.com/v2/da:true/resize:fill:400:268/0*axOYB0WNLkM2gS0q" height="60" width="60">
+     		 </div>
 			
-		</div>
-            
-            
-          </div>
-        </div>
-      		</div>
 		
 		<div class="card border-0 shadow-lg rounded" style="margin-bottom: 1rem;margin-top: 1rem;" v-for="(d,index) in discusions" :key="index">
 					<!-- Card body START -->
