@@ -5,6 +5,7 @@ import { useRoute } from 'vue-router'
 import Loader from '../components/LoadingCard.vue'
 import { useStore } from 'vuex'
 import { useTimeAgo } from '@vueuse/core'
+import Carousel from '../components/CarouselCard.vue'
 
 
 let discusions = ref([])
@@ -85,7 +86,7 @@ function share(art) {
 			<Loader />
 		</div>
 					
-			
+		<Carousel />
 		<div class="card border-0 shadow-lg rounded" style="margin-bottom: 1rem;margin-top: 1rem;" v-for="(d,index) in discusions" :key="index">
 					<!-- Card body START -->
 		<div class="card-body" style="padding:12px">
@@ -149,7 +150,8 @@ function share(art) {
 					
 					
 					
-				</div>		
+				</div>	
+				<Carousel />	
 		<ul class="list-group list-group-flush" style="margin-top: 1rem;" >
 			<li class="list-group-item" v-for="(d,index) in discusions" :key="index" style="margin-bottom: 1rem;padding: 12px 4px">
 				<div class="d-flex flex-row justify-content-between align-items-center">

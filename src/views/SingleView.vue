@@ -1,5 +1,5 @@
 <script setup>
-import CommentSection from '../components/CommentSection.vue'
+import Comments from '../components/CommentSection.vue'
 import Editor from 'primevue/editor';
 import 'quill/dist/quill.core.css';
 import 'quill/dist/quill.snow.css';
@@ -73,6 +73,10 @@ function sanitizeHtml(html){
             
         <div  v-html="d.content" class="ql-editor card border-0">
             
+        </div>
+        <h3>Comments Section</h3>
+        <div class="border">
+          <Comments />
         </div>
         
     </div>

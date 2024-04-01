@@ -1,21 +1,16 @@
 <template>
     <div class="container">
         <ul class="list-group list-group-flush">
-            <li class="list-group-item mt-1 p-1">
+            <li class="list-group-item mt-2 p-1">
                 <div class="d-flex flex-row justify-content-between align-items-center">
 				<div>
 					<div class="col d-flex flex-column position-static">
 						<Content name="Abhijeet Singh" time="2 days ago" content="Some placeholder content for the collapse component. This panel is hidden by default but revealed when the user activates the relevant trigger."/>
-						<div class="d-flex justify-content-between "> 
-                            <div>
-								<div class="ms-4 align-items-center">
-										<i v-if="true" class="fa-solid fa-heart p-2 fa-lg"  style="color: #ea3e13;"></i>
-                                        <i v-else class="fa-regular fa-heart p-2 fa-lg" ></i>
-                                        <span>100</span>
-                                        <span class="badge" style="margin-left: .5rem;background-color: #48b6fb;" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">View Replies</span>
-                                </div>
+						<div class="d-flex justify-content-around "> 
+                            <div>	
+                                <small class="opacity-50 text-nowrap" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">--- View 3 more replies</small>
                             </div>
-                            <span style="height: 18px;" @click="reply('Abhijeet',1)">Reply</span>
+                            <small class="opacity-75 text-nowrap ms-2" @click="reply('Abhijeet',1)">Reply</small>
                         </div>
                         <div class="collapse mt-2" id="collapseExample">
                                             
@@ -26,18 +21,23 @@
                                         <div>
                                             <div class="col d-flex flex-column position-static">
                                                 <Content name="Vansh Singh" time="2 days ago" content="Some placeholder content for the collapse component."/>
-                                                <div class="d-flex justify-content-between "> 
-                                                        <div>
-                                                            <div class="ms-4 align-items-center">
-                                                                <i v-if="true" class="fa-solid fa-heart p-2 fa-lg"  style="color: #ea3e13;"></i>
-                                                                <i v-else class="fa-regular fa-heart p-2 fa-lg" ></i>
-                                                                <span>100</span>
-                                                            </div>
-                                                        </div>
-                                                        
-                                                            <span>Reply</span>
-                                                        
-                                                </div>
+                                                
+                                                        <small class=" opacity-75 text-nowrap " @click="reply('Abhijeet',1)" style="margin-left: 50px;">Reply</small>
+                                                 
+                                            </div>
+                                        </div>
+                                    </div>			
+                                        
+                            </div>
+                            <div class="card-body ms-4 " style="padding:12px">
+                                    
+                                    <div class="d-flex flex-row justify-content-between align-items-center">
+                                        <div>
+                                            <div class="col d-flex flex-column position-static">
+                                                <Content name="Vansh Singh" time="2 days ago" content="Some placeholder content for the collapse component."/>
+                                                
+                                                        <small class=" opacity-75 text-nowrap " @click="reply('Abhijeet',1)" style="margin-left: 50px;">Reply</small>
+                                                 
                                             </div>
                                         </div>
                                     </div>			
@@ -48,115 +48,16 @@
 				</div>
 			</div>
             </li>  
-            <li class="list-group-item mt-1 p-1">
+            <li class="list-group-item mt-2 p-1">
                 <div class="d-flex flex-row justify-content-between align-items-center">
 				<div>
 					<div class="col d-flex flex-column position-static">
 						<Content name="Abhijeet Singh" time="2 days ago" content="Some placeholder content for the collapse component. This panel is hidden by default but revealed when the user activates the relevant trigger."/>
-						<div class="d-flex justify-content-between "> 
-                            <div>
-								<div class="ms-4 align-items-center">
-										<i v-if="true" class="fa-solid fa-heart p-2 fa-lg"  style="color: #FB6D48;"></i>
-                                        <i v-else class="fa-regular fa-heart p-2 fa-lg" ></i>
-                                        <span>100</span>
-                                        <span class="badge" style="margin-left: .5rem;background-color: #FB6D48;" data-bs-toggle="collapse" href="#collapseExample2" role="button" aria-expanded="false" aria-controls="collapseExample2">View Replies</span>
-                                </div>
+						<div class="d-flex justify-content-around "> 
+                            <div>	
+                                <small class="opacity-50 text-nowrap" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">--- View 3 more replies</small>
                             </div>
-                            <span style="height: 18px;" @click="reply('Vansh',1)">Reply</span>
-                        </div>
-                        <div class="collapse mt-2" id="collapseExample2">
-                                            
-                                            <!-- Card body START -->
-                                <div class="card-body ms-4 " style="padding:12px">
-                                    
-                                    <div class="d-flex flex-row justify-content-between align-items-center">
-                                        <div>
-                                            <div class="col d-flex flex-column position-static">
-                                                <Content name="Abhijeet Singh" time="2 days ago" content="Some placeholder content for the collapse component. This panel is hidden by default but revealed when the user activates the relevant trigger."/>
-                                                <div class="d-flex justify-content-between "> 
-                                                        <div>
-                                                            <div class="ms-4 align-items-center">
-                                                                <i v-if="true" class="fa-solid fa-heart p-2 fa-lg"  style="color: red;"></i>
-                                                                <i v-else class="fa-regular fa-heart p-2 fa-lg" ></i>
-                                                                <span>100</span>
-                                                            </div>
-                                                        </div>
-                                                        
-                                                            <span>Reply</span>
-                                                        
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>			
-                                        
-                            </div>
-                        </div>
-					</div>
-				</div>
-			</div>
-            </li> 
-            <li class="list-group-item mt-1 p-1">
-                <div class="d-flex flex-row justify-content-between align-items-center">
-				<div>
-					<div class="col d-flex flex-column position-static">
-						<Content name="Abhijeet Singh" time="2 days ago" content="Some placeholder content for the collapse component. This panel is hidden by default but revealed when the user activates the relevant trigger."/>
-						<div class="d-flex justify-content-between "> 
-                            <div>
-								<div class="ms-4 align-items-center">
-										<i v-if="true" class="fa-solid fa-heart p-2 fa-lg"  style="color: #FB6D48;"></i>
-                                        <i v-else class="fa-regular fa-heart p-2 fa-lg" ></i>
-                                        <span>100</span>
-                                        <span class="badge" style="margin-left: .5rem;background-color: #FB6D48;" data-bs-toggle="collapse" href="#collapseExample3" role="button" aria-expanded="false" aria-controls="collapseExample3">View Replies</span>
-                                </div>
-                            </div>
-                            <span style="height: 18px;" @click="reply('Abhinav',1)">Reply</span>
-                        </div>
-                        <div class="collapse mt-2" id="collapseExample3">
-                                            
-                                            <!-- Card body START -->
-                                <div class="card-body ms-4 " style="padding:12px">
-                                    
-                                    <div class="d-flex flex-row justify-content-between align-items-center">
-                                        <div>
-                                            <div class="col d-flex flex-column position-static">
-                                                <Content name="Abhijeet Singh" time="2 days ago" content="Some placeholder content for the collapse component. This panel is hidden by default but revealed when the user activates the relevant trigger."/>
-                                                <div class="d-flex justify-content-between "> 
-                                                        <div>
-                                                            <div class="ms-4 align-items-center">
-                                                                <i v-if="true" class="fa-solid fa-heart p-2 fa-lg"  style="color: #FB6D48;"></i>
-                                                                <i v-else class="fa-regular fa-heart p-2 fa-lg" ></i>
-                                                                <span>100</span>
-                                                            </div>
-                                                        </div>
-                                                        
-                                                            <span>Reply</span>
-                                                        
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>			
-                                        
-                            </div>
-                        </div>
-					</div>
-				</div>
-			</div>
-            </li>  
-            <li class="list-group-item mt-1 p-1">
-                <div class="d-flex flex-row justify-content-between align-items-center">
-				<div>
-					<div class="col d-flex flex-column position-static">
-						<Content name="Abhijeet Singh" time="2 days ago" content="Some placeholder content for the collapse component. This panel is hidden by default but revealed when the user activates the relevant trigger."/>
-						<div class="d-flex justify-content-between "> 
-                            <div>
-								<div class="ms-4 align-items-center">
-										<i v-if="true" class="fa-solid fa-heart p-2 fa-lg"  style="color: #ea3e13;"></i>
-                                        <i v-else class="fa-regular fa-heart p-2 fa-lg" ></i>
-                                        <span>100</span>
-                                        <span class="badge" style="margin-left: .5rem;background-color: #48b6fb;" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">View Replies</span>
-                                </div>
-                            </div>
-                            <span style="height: 18px;" @click="reply('Rishabh',1)">Reply</span>
+                            <small class="opacity-75 text-nowrap ms-2" @click="reply('Abhijeet',1)">Reply</small>
                         </div>
                         <div class="collapse mt-2" id="collapseExample">
                                             
@@ -167,65 +68,23 @@
                                         <div>
                                             <div class="col d-flex flex-column position-static">
                                                 <Content name="Vansh Singh" time="2 days ago" content="Some placeholder content for the collapse component."/>
-                                                <div class="d-flex justify-content-between "> 
-                                                        <div>
-                                                            <div class="ms-4 align-items-center">
-                                                                <i v-if="true" class="fa-solid fa-heart p-2 fa-lg"  style="color: #ea3e13;"></i>
-                                                                <i v-else class="fa-regular fa-heart p-2 fa-lg" ></i>
-                                                                <span>100</span>
-                                                            </div>
-                                                        </div>
-                                                        
-                                                            <span>Reply</span>
-                                                        
-                                                </div>
+                                                
+                                                        <small class=" opacity-75 text-nowrap " @click="reply('Abhijeet',1)" style="margin-left: 50px;">Reply</small>
+                                                 
                                             </div>
                                         </div>
                                     </div>			
                                         
                             </div>
-                        </div>
-					</div>
-				</div>
-			</div>
-            </li>  
-            <li class="list-group-item mt-1 p-1">
-                <div class="d-flex flex-row justify-content-between align-items-center">
-				<div>
-					<div class="col d-flex flex-column position-static">
-						<Content name="Abhijeet Singh" time="2 days ago" content="Some placeholder content for the collapse component. This panel is hidden by default but revealed when the user activates the relevant trigger."/>
-						<div class="d-flex justify-content-between "> 
-                            <div>
-								<div class="ms-4 align-items-center">
-										<i v-if="true" class="fa-solid fa-heart p-2 fa-lg"  style="color: #FB6D48;"></i>
-                                        <i v-else class="fa-regular fa-heart p-2 fa-lg" ></i>
-                                        <span>100</span>
-                                        <span class="badge" style="margin-left: .5rem;background-color: #FB6D48;" data-bs-toggle="collapse" href="#collapseExample2" role="button" aria-expanded="false" aria-controls="collapseExample2">View Replies</span>
-                                </div>
-                            </div>
-                            <span style="height: 18px;" @click="reply('Raghav',1)">Reply</span>
-                        </div>
-                        <div class="collapse mt-2" id="collapseExample2">
-                                            
-                                            <!-- Card body START -->
-                                <div class="card-body ms-4 " style="padding:12px">
+                            <div class="card-body ms-4 " style="padding:12px">
                                     
                                     <div class="d-flex flex-row justify-content-between align-items-center">
                                         <div>
                                             <div class="col d-flex flex-column position-static">
-                                                <Content name="Abhijeet Singh" time="2 days ago" content="Some placeholder content for the collapse component. This panel is hidden by default but revealed when the user activates the relevant trigger."/>
-                                                <div class="d-flex justify-content-between "> 
-                                                        <div>
-                                                            <div class="ms-4 align-items-center">
-                                                                <i v-if="true" class="fa-solid fa-heart p-2 fa-lg"  style="color: red;"></i>
-                                                                <i v-else class="fa-regular fa-heart p-2 fa-lg" ></i>
-                                                                <span>100</span>
-                                                            </div>
-                                                        </div>
-                                                        
-                                                            <span>Reply</span>
-                                                        
-                                                </div>
+                                                <Content name="Vansh Singh" time="2 days ago" content="Some placeholder content for the collapse component."/>
+                                                
+                                                        <small class=" opacity-75 text-nowrap " @click="reply('Abhijeet',1)" style="margin-left: 50px;">Reply</small>
+                                                 
                                             </div>
                                         </div>
                                     </div>			
@@ -236,23 +95,18 @@
 				</div>
 			</div>
             </li> 
-            <li class="list-group-item mt-1 p-1">
+            <li class="list-group-item mt-2 p-1">
                 <div class="d-flex flex-row justify-content-between align-items-center">
 				<div>
 					<div class="col d-flex flex-column position-static">
 						<Content name="Abhijeet Singh" time="2 days ago" content="Some placeholder content for the collapse component. This panel is hidden by default but revealed when the user activates the relevant trigger."/>
-						<div class="d-flex justify-content-between "> 
-                            <div>
-								<div class="ms-4 align-items-center">
-										<i v-if="true" class="fa-solid fa-heart p-2 fa-lg"  style="color: #FB6D48;"></i>
-                                        <i v-else class="fa-regular fa-heart p-2 fa-lg" ></i>
-                                        <span>100</span>
-                                        <span class="badge" style="margin-left: .5rem;background-color: #FB6D48;" data-bs-toggle="collapse" href="#collapseExample3" role="button" aria-expanded="false" aria-controls="collapseExample3">View Replies</span>
-                                </div>
+						<div class="d-flex justify-content-around "> 
+                            <div>	
+                                <small class="opacity-50 text-nowrap" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">--- View 3 more replies</small>
                             </div>
-                            <span style="height: 18px;">Reply</span>
+                            <small class="opacity-75 text-nowrap ms-2" @click="reply('Abhijeet',1)">Reply</small>
                         </div>
-                        <div class="collapse mt-2" id="collapseExample3">
+                        <div class="collapse mt-2" id="collapseExample">
                                             
                                             <!-- Card body START -->
                                 <div class="card-body ms-4 " style="padding:12px">
@@ -260,19 +114,24 @@
                                     <div class="d-flex flex-row justify-content-between align-items-center">
                                         <div>
                                             <div class="col d-flex flex-column position-static">
-                                                <Content name="Abhijeet Singh" time="2 days ago" content="Some placeholder content for the collapse component. This panel is hidden by default but revealed when the user activates the relevant trigger."/>
-                                                <div class="d-flex justify-content-between "> 
-                                                        <div>
-                                                            <div class="ms-4 align-items-center">
-                                                                <i v-if="true" class="fa-solid fa-heart p-2 fa-lg"  style="color: #FB6D48;"></i>
-                                                                <i v-else class="fa-regular fa-heart p-2 fa-lg" ></i>
-                                                                <span>100</span>
-                                                            </div>
-                                                        </div>
-                                                        
-                                                            <span>Reply</span>
-                                                        
-                                                </div>
+                                                <Content name="Vansh Singh" time="2 days ago" content="Some placeholder content for the collapse component."/>
+                                                
+                                                        <small class=" opacity-75 text-nowrap " @click="reply('Abhijeet',1)" style="margin-left: 50px;">Reply</small>
+                                                 
+                                            </div>
+                                        </div>
+                                    </div>			
+                                        
+                            </div>
+                            <div class="card-body ms-4 " style="padding:12px">
+                                    
+                                    <div class="d-flex flex-row justify-content-between align-items-center">
+                                        <div>
+                                            <div class="col d-flex flex-column position-static">
+                                                <Content name="Vansh Singh" time="2 days ago" content="Some placeholder content for the collapse component."/>
+                                                
+                                                        <small class=" opacity-75 text-nowrap " @click="reply('Abhijeet',1)" style="margin-left: 50px;">Reply</small>
+                                                 
                                             </div>
                                         </div>
                                     </div>			
@@ -282,9 +141,56 @@
 					</div>
 				</div>
 			</div>
-            </li>  
+            </li> 
+            <li class="list-group-item mt-2 p-1">
+                <div class="d-flex flex-row justify-content-between align-items-center">
+				<div>
+					<div class="col d-flex flex-column position-static">
+						<Content name="Abhijeet Singh" time="2 days ago" content="Some placeholder content for the collapse component. This panel is hidden by default but revealed when the user activates the relevant trigger."/>
+						<div class="d-flex justify-content-around "> 
+                            <div>	
+                                <small class="opacity-50 text-nowrap" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">--- View 3 more replies</small>
+                            </div>
+                            <small class="opacity-75 text-nowrap ms-2" @click="reply('Abhijeet',1)">Reply</small>
+                        </div>
+                        <div class="collapse mt-2" id="collapseExample">
+                                            
+                                            <!-- Card body START -->
+                                <div class="card-body ms-4 " style="padding:12px">
+                                    
+                                    <div class="d-flex flex-row justify-content-between align-items-center">
+                                        <div>
+                                            <div class="col d-flex flex-column position-static">
+                                                <Content name="Vansh Singh" time="2 days ago" content="Some placeholder content for the collapse component."/>
+                                                
+                                                        <small class=" opacity-75 text-nowrap " @click="reply('Abhijeet',1)" style="margin-left: 50px;">Reply</small>
+                                                 
+                                            </div>
+                                        </div>
+                                    </div>			
+                                        
+                            </div>
+                            <div class="card-body ms-4 " style="padding:12px">
+                                    
+                                    <div class="d-flex flex-row justify-content-between align-items-center">
+                                        <div>
+                                            <div class="col d-flex flex-column position-static">
+                                                <Content name="Vansh Singh" time="2 days ago" content="Some placeholder content for the collapse component."/>
+                                                
+                                                        <small class=" opacity-75 text-nowrap " @click="reply('Abhijeet',1)" style="margin-left: 50px;">Reply</small>
+                                                 
+                                            </div>
+                                        </div>
+                                    </div>			
+                                        
+                            </div>
+                        </div>
+					</div>
+				</div>
+			</div>
+            </li> 
         </ul>
-        <div class="fixed-bottom card ">
+        <div class="fixed-bottom card p-0">
                 <div class="p-4">
                     <Transition>
                     <div class="alert alert-dark alert-dismissible m-0 p-1" role="alert" v-if="!hidden" key="alert">
