@@ -10,8 +10,8 @@ let input = ref('')
 
 async function search() {
 	discussions.value = []
-	if (searchOn) {
-		const res = await fetch(`https://community-app-india.onrender.com/search/discussion`, {
+	if (searchOn.value) {
+		const res = await fetch(`https://community-app-india.onrender.com/search/discussions`, {
                 method: "POST",
                 Allow: ['GET', 'POST'],
                 headers : {
@@ -27,7 +27,7 @@ async function search() {
 		}
 	}else{
 		const res = await fetch(`https://community-app-india.onrender.com/search/news`, {
-                method: "GET",
+                method: "POST",
                 Allow: ['GET', 'POST'],
                 headers : {
                         'Content-Type': 'application/json'
@@ -43,6 +43,7 @@ async function search() {
 	}
 	
 }
+
 </script>
 
 
@@ -50,10 +51,10 @@ async function search() {
    <div class="container" style="margin-top: 4rem;">
 		
 	   	<div class="btn-group mb-3" role="group" aria-label="Basic radio toggle button group">
-            <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked @click="searchOn = true">
+            <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked @click="searchOn=true">
             <label class="btn btn-outline-secondary" for="btnradio1">Discussions</label>
 
-            <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off" @click="searchOn = false">
+            <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off" @click="searchOn=false">
             <label class="btn btn-outline-secondary" for="btnradio2">News</label>
         </div>
 		<form class="d-flex" role="search" @submit.prevent="search">
