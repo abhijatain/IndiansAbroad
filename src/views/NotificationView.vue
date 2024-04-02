@@ -1,8 +1,8 @@
 <template>
     <div class="container" style="margin-top: 4rem;">
-        <div class="d-flex flex-column flex-md-row  gap-4 py-md-5 align-items-center justify-content-center">
+        <div class="d-flex flex-column flex-md-row  gap-4 py-md-5 align-items-center justify-content-center ">
             <div class="list-group">
-                <a href="#" class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">
+                <a href="#" class="list-group-item list-group-item-action d-flex gap-3 py-3 border-0 border-bottom" aria-current="true">
                 <img src="../assets/BharatGuildLogo.jpg" alt="twbs" width="32" height="32" class="rounded-circle flex-shrink-0">
                 <div class="d-flex gap-2 w-100 justify-content-between">
                     <div>
@@ -12,7 +12,7 @@
                     <small class="opacity-50 text-nowrap">now</small>
                 </div>
                 </a>
-                <a href="#" class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">
+                <a href="#" class="list-group-item list-group-item-action d-flex gap-3 py-3 border-0 border-bottom" aria-current="true">
                 <img src="https://github.com/twbs.png" alt="twbs" width="32" height="32" class="rounded-circle flex-shrink-0">
                 <div class="d-flex gap-2 w-100 justify-content-between">
                     <div>
@@ -22,7 +22,7 @@
                     <small class="opacity-50 text-nowrap">3d</small>
                 </div>
                 </a>
-                <a href="#" class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">
+                <a href="#" class="list-group-item list-group-item-action d-flex gap-3 py-3 border-0 border-bottom" aria-current="true">
                 <img src="https://github.com/twbs.png" alt="twbs" width="32" height="32" class="rounded-circle flex-shrink-0">
                 <div class="d-flex gap-2 w-100 justify-content-between">
                     <div>
@@ -32,7 +32,7 @@
                     <small class="opacity-50 text-nowrap">1w</small>
                 </div>
                 </a>
-                <a href="#" class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">
+                <a href="#" class="list-group-item list-group-item-action d-flex gap-3 py-3 border-0 border-bottom" aria-current="true">
                 <img src="../assets/BharatGuildLogo.jpg" alt="twbs" width="32" height="32" class="rounded-circle flex-shrink-0">
                 <div class="d-flex gap-2 w-100 justify-content-between">
                     <div>
@@ -42,7 +42,7 @@
                     <small class="opacity-50 text-nowrap">now</small>
                 </div>
                 </a>
-                <a href="#" class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">
+                <a href="#" class="list-group-item list-group-item-action d-flex gap-3 py-3 border-0 border-bottom" aria-current="true">
                 <img src="../assets/BharatGuildLogo.jpg" alt="twbs" width="32" height="32" class="rounded-circle flex-shrink-0">
                 <div class="d-flex gap-2 w-100 justify-content-between">
                     <div>
@@ -52,7 +52,7 @@
                     <small class="opacity-50 text-nowrap">now</small>
                 </div>
                 </a>
-                <a href="#" class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">
+                <a href="#" class="list-group-item list-group-item-action d-flex gap-3 py-3 border-0 border-bottom" aria-current="true">
                 <img src="../assets/BharatGuildLogo.jpg" alt="twbs" width="32" height="32" class="rounded-circle flex-shrink-0">
                 <div class="d-flex gap-2 w-100 justify-content-between">
                     <div>
@@ -62,7 +62,7 @@
                     <small class="opacity-50 text-nowrap">now</small>
                 </div>
                 </a>
-                <a href="#" class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">
+                <a href="#" class="list-group-item list-group-item-action d-flex gap-3 py-3 border-0 border-bottom" aria-current="true">
                 <img src="../assets/BharatGuildLogo.jpg" alt="twbs" width="32" height="32" class="rounded-circle flex-shrink-0">
                 <div class="d-flex gap-2 w-100 justify-content-between">
                     <div>

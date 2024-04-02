@@ -43,7 +43,12 @@ const router = createRouter({
       component: () => import('../views/SavedView.vue')
     },
     {
-      path: '/article/:id',
+      path: '/search',
+      name: 'search',
+      component: () => import('../views/SearchView.vue')
+    },
+    {
+      path: '/article/:id/:title',
       name: 'article',
       component: HomeView
     },
@@ -53,7 +58,7 @@ const router = createRouter({
       component: () => import('../views/DiscusionView.vue')
     },
     {
-      path: '/discusion/:id',
+      path: '/discusion/:id/:title',
       name: 'single',
       component: () => import('../views/SingleView.vue')
     },

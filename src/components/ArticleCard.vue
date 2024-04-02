@@ -17,7 +17,7 @@
 
                     <div class="card-body">
                         <h3 class="barlow-semibold">{{art.title}}</h3>
-                        <p class="card-text barlow-regular">{{art.summary}} <a href="" >Read More</a>
+                        <p class="card-text barlow-regular">{{art.summary}} <router-link :to="`article/${art.id}/${art.title}`" >Read More</router-link>
                         </p><br>
                         <div class="d-flex justify-content-between"> 
                             <div>
@@ -98,7 +98,7 @@ onMounted(async () => {
         const intervalId = setInterval(updateData, 1000); // Execute updateData every 5 seconds (5000 milliseconds)
 
         
-    }else if (p != 'all' ) {
+    }else  {
         const token = localStorage.getItem('auth-token')
         const res = await fetch(`https://community-app-india.onrender.com/api/article/${p}`, {
                     method: "GET",
@@ -115,16 +115,6 @@ onMounted(async () => {
             original_articles.value.push(...data)  
             loaded.value = true
         }
-    }else{
-        function updateData() {
-            if (store.state.isDataLoaded) {
-                articles.value.push(...store.state.articles)
-                original_articles.value.push(...store.state.articles)
-                clearInterval(intervalId);
-                loaded.value = true
-            }
-        }
-        const intervalId = setInterval(updateData, 50);
     }
 
     

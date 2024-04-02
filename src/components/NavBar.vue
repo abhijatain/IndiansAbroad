@@ -67,10 +67,11 @@ function changeTheme() {
       <div class="d-flex align-items-center ">
 
             <span class="input-group-text me-3" style="padding:1px 6px">
-              <router-link to="/help" class=" link-body-emphasis">
+              <router-link to="/search" class=" link-body-emphasis">
                 <i class="fa-solid fa-magnifying-glass"></i>
               </router-link>
             </span>
+            
             <span class="input-group-text me-3" style="padding:1px 6px">
               <router-link to="/notifications" class=" link-body-emphasis">
                   <i class="fa-solid fa-bell"></i>
@@ -99,6 +100,11 @@ function changeTheme() {
                         <button type="button" class="btn btn-outline-secondary mt-2" style="width: 100%">Login</button>
                     </router-link><hr>
                     <ul class="nav nav-pills flex-column mb-auto">
+                      <li>
+                        <router-link to="/" class="nav-link link-body-emphasis">
+                          <i class="fa-regular fa-newspaper me-2" ></i> News
+                        </router-link>
+                      </li>
                       <li class="nav-item">
                         <router-link to="/discusion" class="nav-link link-body-emphasis">
                             <i class="fa-regular fa-comments me-2" ></i>
@@ -106,11 +112,7 @@ function changeTheme() {
                         </router-link>
                         
                       </li>
-                      <li>
-                        <router-link to="/article/all" class="nav-link link-body-emphasis">
-                          <i class="fa-regular fa-newspaper me-2" ></i> News
-                        </router-link>
-                      </li>
+                      
                       <li>
                         <router-link to="/saved" class="nav-link link-body-emphasis" v-if="islogin">
                             <i class="fa-solid fa-bookmark me-2" ></i> Saved
@@ -119,11 +121,6 @@ function changeTheme() {
                       <li>
                         <router-link to="/help" class="nav-link link-body-emphasis">
                             <i class="fa-solid fa-handshake-angle me-2" ></i> Help
-                        </router-link>
-                      </li>
-                      <li>
-                        <router-link to="/notifications" class="nav-link link-body-emphasis">
-                          <i class="fa-solid fa-bell me-2"></i> Notifications
                         </router-link>
                       </li>
                       <li>
