@@ -2,8 +2,13 @@
 import { useStore } from 'vuex'
 import { useRoute, RouterView } from 'vue-router'
 import Navbar from './components/NavBar.vue'
-
+import NavBody from './components/NavBody.vue'
+import Suggestions from './components/SuggestionCard.vue'
+ 
 import {ref, watch, onMounted} from 'vue'
+import { useWindowSize } from '@vueuse/core'
+
+const { width, height } = useWindowSize()
 const store = useStore()
 
 const route = useRoute()
@@ -25,8 +30,15 @@ watch(route,(to,from) => {
 </script>
 
 <template  >
-  <Navbar :key='has_changed'/>
-  <RouterView :key='has_changed_route'/>
+  <Navbar :key='has_changed' />
+  <div v-if="width>849" class="d-flex justify-content-center m-auto">
+    <NavBody style="margin-top: 6rem;" :key='has_changed'/>
+    
+    <RouterView :key='has_changed_route' style="width:650px"/>
+    <Suggestions style="margin-top: 6rem;"/>
+   
+  </div>
+  <RouterView :key='has_changed_route' v-else/>
  
 </template>
 

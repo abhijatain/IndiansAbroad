@@ -2,6 +2,9 @@
 import {ref,onMounted} from 'vue'
 import { useRouter } from 'vue-router'
 import { usePreferredDark } from '@vueuse/core'
+import { useWindowSize } from '@vueuse/core'
+
+const { width, height } = useWindowSize()
 
 const isDark = usePreferredDark()
 
@@ -44,7 +47,7 @@ function changeTheme() {
 
 <template>
     <nav class="navbar shadow fixed-top p-2 border-bottom" style="background-color: #000000;">
-    <div class="container-fluid  align-items-center" style="grid-template-columns: 1fr 2fr;">
+    <div class="container  align-items-center" style="grid-template-columns: 1fr 2fr;">
         
        <div class="d-flex align-items-center">
         <router-link to="/" style="margin-right: 1rem;"> 
@@ -78,7 +81,7 @@ function changeTheme() {
               </router-link>
             </span>
 
-        <button class="rounded border-0" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation"><i class="fa-solid fa-bars" ></i></button>
+        <button class="rounded border-0" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation" v-if="width <850"><i class="fa-solid fa-bars" ></i></button>
                 <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel" style="width: 60vw">
                     <div class="offcanvas-header" >
                      
@@ -144,6 +147,11 @@ function changeTheme() {
 </template>
 
 <style scoped>
+.container {
+  max-width: 1250px; /* Set the maximum width as per your requirement */
+  /* You can adjust the value (1200px) according to your design needs */
+  margin: 0px auto
+}
 .checkbox {
   opacity: 0;
   position: absolute;

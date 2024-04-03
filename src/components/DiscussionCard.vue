@@ -26,10 +26,10 @@
 			
 			<div class="d-flex flex-row justify-content-between align-items-end">
 				<div class="p-2">
-					<span class="badge" style="margin-right: .5rem;background-color: #5E1675;">canada</span>
-                <span class="badge" style="margin-right: .5rem;background-color: #EE4266;">abroad</span>
-                <span class="badge" style="margin-right: .5rem;background-color: #e1b216;">success</span>
-                <span class="badge" style="margin-right: .5rem;background-color: #337357;">religion</span>
+					<span class="badge bg-success-subtle text-success m-1" >canada</span>
+                <span class="badge bg-warning-subtle text-warning m-1">abroad</span>
+                <span class="badge bg-danger-subtle text-danger m-1">success</span>
+                <span class="badge bg-primary-subtle text-primary m-1">religion</span>
 								
 							</div>
 			
