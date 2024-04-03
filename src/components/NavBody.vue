@@ -1,5 +1,5 @@
 <template>
-    <div class="container" style="margin:0px;width:250px">
+    <div class="container" style="margin:0px;">
                     <p class="arvo-regular">Your Gateway to Global Opportunities: Exploring Abroad Made Simple</p>
                     <router-link to="/" v-if="islogin">
                         <button type="button" class="btn btn-outline-primary" style="width: 100%">Profile</button>
@@ -52,7 +52,7 @@
                     </div>
 </template>
 
-<script>
+<script setup>
 let islogin = localStorage.getItem('auth-token')
 
 function logout() {
