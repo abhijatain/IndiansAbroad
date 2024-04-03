@@ -62,7 +62,7 @@ function changeTheme() {
             </div>
         </div>
        </div>
-       <h3 class="text-white p-0 m-0">Bharat Guild</h3>
+       <h3 class="text-white p-0 m-0" v-if="width >849">Bharat Guild</h3>
        
       <div class="d-flex align-items-center ">
 
