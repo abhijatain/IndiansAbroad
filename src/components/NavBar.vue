@@ -85,7 +85,7 @@ function changeTheme() {
                     <h4 class="offcanvas-title arvo-bold" id="offcanvasNavbarLabel">Bharat Guild</h4>
                     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                     </div>
-                    <div class="offcanvas-body">
+                    <div class="offcanvas-body p-1">
                       <NavBody />
                     </div>
                 </div>
