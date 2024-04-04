@@ -2,7 +2,7 @@
     <div class="container p-0" style="margin:0px;">
       <div class="card p-2 border-success border-4 m-1">
         <h4><strong>We are a community of Indians Abroad</strong></h4>
-                    <p class="arvo-regular">We're a place where coders share, stay up-to-date and grow their careers.</p>
+                    <p class="arvo-regular">Join us, and let’s make the world a smaller, more connected place for Indians everywhere.</p>
                     <router-link to="/profile" v-if="islogin">
                         <button type="button" class="btn btn-outline-primary" style="width: 100%">Profile</button>
                     </router-link>
@@ -41,12 +41,12 @@
                         </router-link>
                       </li>
                       <li>
-                        <router-link to="/article/all" class="nav-link link-body-emphasis">
+                        <router-link to="/about" class="nav-link link-body-emphasis">
                           <i class="fa-solid fa-address-card me-2" style="color:#FFD23F"></i> About
                         </router-link>
                       </li>
                       <li>
-                        <router-link to="/article/all" class="nav-link link-body-emphasis">
+                        <router-link to="/" class="nav-link link-body-emphasis">
                           <i class="fa-solid fa-address-book me-2" style="color:#5E1675"></i> Contact
                         </router-link>
                       </li>

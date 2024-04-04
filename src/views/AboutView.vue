@@ -1,221 +1,67 @@
 <template>
-<div class="container ">
-  <div class="card dark">
-    <img src="https://codingyaar.com/wp-content/uploads/chair-image.jpg" class="card-img-top" alt="...">
-    <div class="card-body">
-      <div class="text-section">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">Some quick example text to build on the card's
-          content.</p>
+  <div class="container" style="margin-top:4.5rem">
+  <div class="p-3">
+      <h1 class="text-body-emphasis"><strong>About Bharat Guild</strong></h1>
+      <p class="p-2">
+        Welcome to BharatGuild, your dedicated hub for the vibrant Indian community across the globe. Founded by two passionate individuals from Chandigarh, India, our mission is to bridge the gap between Indians abroad and those aspiring to explore opportunities overseas.
+      </p>
+      <h3><strong>Our Vision</strong></h3>
+      <p class="p-2">
+          Our Vision is to create a supportive ecosystem that not only keeps you connected with your roots but also empowers you with the knowledge and resources to thrive in a foreign land.
+      </p><p class="p-2">
+        As we grow, we remain committed to the idea that no Indian should feel alone in a foreign country. Our platform is more than just a service; it’s a companion on your journey abroad.
+        Join us, and let’s make the world a smaller, more connected place for Indians everywhere.
+      </p>
+      <button class="btn btn-success rounded-pill px-3 mb-3" type="button">Join us</button>
+    <div class="mb-3">
+      <h3><strong>Features</strong></h3>
+      <div class="d-flex align-items-start mb-2">
+          
+            <i class="fa-regular fa-newspaper me-2 p-2" style="color:#337357" ></i>
+          
+          <div>
+            <h5 class="">News</h5>
+            <p>Engage in meaningful conversations, share experiences, and seek advice from fellow Indians spread across continents.</p>
+            <a href="#" class="btn bg-warning-subtle text-warning">
+              Read News
+            </a>
+          </div>
+        </div>
+        <div class="d-flex align-items-start mb-2">
+          
+          <i class="fa-regular fa-comments me-2 p-2" style="color:#EE4266"></i>
+        
+        <div>
+          <h5 class="">Discussions</h5>
+          <p> Engage in meaningful conversations, share experiences, and seek advice from fellow Indians spread across continents.</p>
+          <a href="#" class="btn bg-primary-subtle text-primary">
+            Contribute
+          </a>
+        </div>
       </div>
-      <div class="cta-section">
-        <div>$129.00</div>
-        <a href="#" class="btn btn-light">Buy Now</a>
-      </div>
-    </div>
-  </div>
-  <div class="card bg-light-subtle mt-4">
-    <img src="https://codingyaar.com/wp-content/uploads/chair-image.jpg" class="card-img-top" alt="...">
-    <div class="card-body">
-      <div class="text-section">
-        <h5 class="card-title fw-bold">Card title</h5>
-        <p class="card-text">Some quick example text to build on the card's content.</p>
-      </div>
-      <div class="cta-section">
-        <div>$129.00</div>
-        <a href="#" class="btn btn-dark">Buy Now</a>
-      </div>
-    </div>
-  </div>
-  <div class="card bg-danger-subtle mt-4">
-    <img src="https://codingyaar.com/wp-content/uploads/chair-image.jpg" class="card-img-top" alt="...">
-    <div class="card-body">
-      <div class="text-section">
-        <h5 class="card-title fw-bold">Card title</h5>
-        <p class="card-text">Some quick example text to build on the card's content.</p>
-      </div>
-      <div class="cta-section">
-        <div>$129.00</div>
-        <a href="#" class="btn btn-dark">Buy Now</a>
-      </div>
-    </div>
-  </div>
-  <div class="card bg-primary-subtle mt-4">
-    <img src="https://codingyaar.com/wp-content/uploads/chair-image.jpg" class="card-img-top" alt="...">
-    <div class="card-body">
-      <div class="text-section">
-        <h5 class="card-title fw-bold">Card title</h5>
-        <p class="card-text">Some quick example text to build on the card's content.</p>
-      </div>
-      <div class="cta-section">
-        <div>$129.00</div>
-        <a href="#" class="btn btn-dark">Buy Now</a>
-      </div>
-    </div>
-  </div>
-  <div class="card bg-success-subtle mt-4">
-    <img src="https://codingyaar.com/wp-content/uploads/chair-image.jpg" class="card-img-top" alt="...">
-    <div class="card-body">
-      <div class="text-section">
-        <h5 class="card-title fw-bold">Card title</h5>
-        <p class="card-text">Some quick example text to build on the card's content.</p>
-      </div>
-      <div class="cta-section">
-        <div>$129.00</div>
-        <a href="#" class="btn btn-dark">Buy Now</a>
+      <div class="d-flex align-items-start mb-2">
+          
+        <i class="fa-solid fa-handshake-angle me-2 p-2" style="color:#FFD23F"></i>
+        
+        <div>
+          <h5 class="">Help</h5>
+          <p>A dedicated assistance portal to guide you through various challenges of living abroad, from legal advice to local community support.</p>
+          <a href="#" class="btn btn-primary disabled">
+            Help
+          </a>
+        </div>
       </div>
     </div>
+    <h3><strong>Leadership</strong></h3>
+    <p class="p-2">Bharat Guild is lead by co-founders <a href="https://www.instagram.com/abhijatain?igsh=MW0wa2l1a2FlMWEwOQ%3D%3D&utm_source=qr" target="_blank">Abhijeet Singh</a> and <a href="https://www.instagram.com/vanshsingh.23?igsh=bmswdzhwcWUzem8=" target="_blank">Vansh Singh Thakur</a></p>
   </div>
-  <div class="card bg-warning-subtle mt-4">
-    <img src="https://codingyaar.com/wp-content/uploads/chair-image.jpg" class="card-img-top" alt="...">
-    <div class="card-body">
-      <div class="text-section">
-        <h5 class="card-title fw-bold">Card title</h5>
-        <p class="card-text">Some quick example text to build on the card's content.</p>
-      </div>
-      <div class="cta-section">
-        <div>$129.00</div>
-        <a href="#" class="btn btn-dark">Buy Now</a>
-      </div>
-    </div>
-  </div>
-  <div class="card bg-info-subtle mt-4">
-    <img src="https://codingyaar.com/wp-content/uploads/chair-image.jpg" class="card-img-top" alt="...">
-    <div class="card-body">
-      <div class="text-section">
-        <h5 class="card-title fw-bold">Card title</h5>
-        <p class="card-text">Some quick example text to build on the card's content.</p>
-      </div>
-      <div class="cta-section">
-        <div>$129.00</div>
-        <a href="#" class="btn btn-dark">Buy Now</a>
-      </div>
-    </div>
-  </div>
-  <div class="card bg-dark mt-4">
-    <img src="https://codingyaar.com/wp-content/uploads/chair-image.jpg" class="card-img-top" alt="...">
-    <div class="card-body">
-      <div class="text-section">
-        <h5 class="card-title fw-bold text-white">Card title</h5>
-        <p class="card-text text-white">Some quick example text to build on the card's content.</p>
-      </div>
-      <div class="cta-section">
-        <div class="text-white">$129.00</div>
-        <a href="#" class="btn btn-light">Buy Now</a>
-      </div>
-    </div>
-  </div>
-  <div class="card bg-warning mt-4">
-    <img src="https://codingyaar.com/wp-content/uploads/chair-image.jpg" class="card-img-top" alt="...">
-    <div class="card-body">
-      <div class="text-section">
-        <h5 class="card-title fw-bold">Card title</h5>
-        <p class="card-text">Some quick example text to build on the card's content.</p>
-      </div>
-      <div class="cta-section">
-        <div>$129.00</div>
-        <a href="#" class="btn btn-dark">Buy Now</a>
-      </div>
-    </div>
-  </div>
-  <div class="card bg-info mt-4">
-    <img src="https://codingyaar.com/wp-content/uploads/chair-image.jpg" class="card-img-top" alt="...">
-    <div class="card-body">
-      <div class="text-section">
-        <h5 class="card-title fw-bold text-white">Card title</h5>
-        <p class="card-text text-white">Some quick example text to build on the card's content.</p>
-      </div>
-      <div class="cta-section">
-        <div class="text-white">$129.00</div>
-        <a href="#" class="btn btn-light">Buy Now</a>
-      </div>
-    </div>
-  </div>
-  <div class="card bg-dark-subtle mt-4">
-    <img src="https://codingyaar.com/wp-content/uploads/chair-image.jpg" class="card-img-top" alt="...">
-    <div class="card-body">
-      <div class="text-section">
-        <h5 class="card-title fw-bold">Card title</h5>
-        <p class="card-text">Some quick example text to build on the card's content.</p>
-      </div>
-      <div class="cta-section">
-        <div>$129.00</div>
-        <a href="#" class="btn btn-dark">Buy Now</a>
-      </div>
-    </div>
-  </div>
-  <div class="card bg-success mt-4">
-    <img src="https://codingyaar.com/wp-content/uploads/chair-image.jpg" class="card-img-top" alt="...">
-    <div class="card-body">
-      <div class="text-section">
-        <h5 class="card-title fw-bold text-white">Card title</h5>
-        <p class="card-text text-white">Some quick example text to build on the card's content.</p>
-      </div>
-      <div class="cta-section">
-        <div class="text-white">$129.00</div>
-        <a href="#" class="btn btn-light">Buy Now</a>
-      </div>
-    </div>
-  </div>
+  
 </div>
 
-  </template>
-  
-  <style scoped>
- body {
-  background-color: mintcream;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-}
-.card {
-  max-width: 30em;
-  flex-direction: row;
-  background-color: #696969;
-  border: 0;
-  box-shadow: 0 7px 7px rgba(0, 0, 0, 0.18);
-  margin: 3em auto;
-}
-.card.dark {
-  color: #fff;
-}
-.card.card.bg-light-subtle .card-title {
-  color: dimgrey;
-}
+    
 
-.card img {
-  max-width: 25%;
-  margin: auto;
-  padding: 0.5em;
-  border-radius: 0.7em;
-}
-.card-body {
-  display: flex;
-  justify-content: space-between;
-}
-.text-section {
-  max-width: 60%;
-}
-.cta-section {
-  max-width: 40%;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  justify-content: space-between;
-}
-.cta-section .btn {
-  padding: 0.3em 0.5em;
-  /* color: #696969; */
-}
-.card.bg-light-subtle .cta-section .btn {
-  background-color: #898989;
-  border-color: #898989;
-}
-@media screen and (max-width: 475px) {
-  .card {
-    font-size: 0.9em;
-  }
-}
-  </style>
+
+</template>
+  
+
 
