@@ -1,17 +1,15 @@
 <template>
   <div class="container" style="margin-top:4.5rem">
   <div class="p-3">
-      <h1 class="text-body-emphasis"><strong>About Bharat Guild</strong></h1>
+      <h1 class="text-body-emphasis"><strong>About Us</strong></h1>
       <p class="p-2">
-        Welcome to BharatGuild, your dedicated hub for the vibrant Indian community across the globe. Founded by two passionate individuals from Chandigarh, India, our mission is to bridge the gap between Indians abroad and those aspiring to explore opportunities overseas.
+        Welcome to BharatGuild, we are committed to the idea that no Indian should feel alone in a foreign country. Our platform is more than just a service; it’s a companion on your journey abroad.
+       
       </p>
-      <h3><strong>Our Vision</strong></h3>
       <p class="p-2">
-          Our Vision is to create a supportive ecosystem that not only keeps you connected with your roots but also empowers you with the knowledge and resources to thrive in a foreign land.
-      </p><p class="p-2">
-        As we grow, we remain committed to the idea that no Indian should feel alone in a foreign country. Our platform is more than just a service; it’s a companion on your journey abroad.
         Join us, and let’s make the world a smaller, more connected place for Indians everywhere.
       </p>
+    
       <button class="btn btn-success rounded-pill px-3 mb-3" type="button">Join us</button>
     <div class="mb-3">
       <h3><strong>Features</strong></h3>

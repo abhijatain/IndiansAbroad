@@ -32,10 +32,10 @@ watch(route,(to,from) => {
 <template  >
   <Navbar :key='has_changed' />
   <div v-if="width>849" class="d-flex justify-content-center m-auto">
-    <NavBody style="margin-top: 6rem;width:250px" :key='has_changed'/>
+    <NavBody style="margin-top: 6rem;width:250px;height:100vh;overflow-y: scroll;" :key='has_changed' />
     
-    <RouterView :key='has_changed_route' style="width:650px"/>
-    <Suggestions style="margin-top: 6rem;"/>
+    <RouterView :key='has_changed_route' style="width:650px;height:100vh;overflow-y: scroll;" />
+    <Suggestions style="margin-top: 6rem;height:100vh;overflow-y: scroll;" />
    
   </div>
   <RouterView :key='has_changed_route' v-else/>

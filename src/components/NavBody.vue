@@ -1,6 +1,6 @@
 <template>
     <div class="container p-0" style="margin:0px;">
-      <div class="card p-2 border-success border-4 m-1">
+      <div class="card p-2 border-success border-1 m-1">
         <h4><strong>We are a community of Indians Abroad</strong></h4>
                     <p class="arvo-regular">Join us, and let’s make the world a smaller, more connected place for Indians everywhere.</p>
                     <router-link to="/profile" v-if="islogin">
