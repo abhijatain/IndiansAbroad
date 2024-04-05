@@ -16,7 +16,7 @@
             <i class="fa-brands fa-facebook"></i>
             Sign in with Facebook
           </button>
-          <button class="w-100 py-2 mb-2 btn btn-outline-success rounded-3" type="submit">
+          <button class="w-100 py-2 mb-2 btn btn-outline-success rounded-3" type="submit" @click="google_login">
             <i class="fa-brands fa-google"></i>
             Sign in with Google
           </button>
@@ -66,6 +66,28 @@ async function login() {
             })
             if (res.ok) {
               clicked.value = false
+                const data = await res.json()
+                if (data.state == 0 ){
+                    localStorage.setItem('auth-token', data.token)
+                    localStorage.setItem('role', data.role)
+                    router.go(-1)
+                }else {
+                    success = false
+                    msg = data.msg
+                }
+            }
+
+}
+
+async function google_login() {
+    const res = await fetch(`https://community-app-india.onrender.com/google/login`,{
+                method:'GET',
+                Allow: ['GET', 'POST'],
+                headers: {
+                    'Content-type': 'application/json'
+                }
+            })
+            if (res.ok) {
                 const data = await res.json()
                 if (data.state == 0 ){
                     localStorage.setItem('auth-token', data.token)

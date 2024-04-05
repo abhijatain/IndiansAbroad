@@ -12,15 +12,15 @@
     
       <button class="btn btn-success rounded-pill px-3 mb-3" type="button">Join us</button>
     <div class="mb-3">
-      <h3><strong>Features</strong></h3>
+      <h3 class="mb-3"><strong>Features</strong></h3>
       <div class="d-flex align-items-start mb-2">
           
             <i class="fa-regular fa-newspaper me-2 p-2" style="color:#337357" ></i>
           
           <div>
             <h5 class="">News</h5>
-            <p>Engage in meaningful conversations, share experiences, and seek advice from fellow Indians spread across continents.</p>
-            <a href="#" class="btn bg-warning-subtle text-warning">
+            <p>Stay updated with the latest happenings within the Indian community worldwide and back home.</p>
+            <a href="#" class="btn bg-warning-subtle text-warning mb-3">
               Read News
             </a>
           </div>
@@ -32,7 +32,7 @@
         <div>
           <h5 class="">Discussions</h5>
           <p> Engage in meaningful conversations, share experiences, and seek advice from fellow Indians spread across continents.</p>
-          <a href="#" class="btn bg-primary-subtle text-primary">
+          <a href="#" class="btn bg-primary-subtle text-primary mb-3">
             Contribute
           </a>
         </div>
@@ -44,7 +44,7 @@
         <div>
           <h5 class="">Help</h5>
           <p>A dedicated assistance portal to guide you through various challenges of living abroad, from legal advice to local community support.</p>
-          <a href="#" class="btn btn-primary disabled">
+          <a href="#" class="btn btn-primary disabled mb-3">
             Help
           </a>
         </div>
