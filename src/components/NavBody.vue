@@ -61,7 +61,7 @@ const googleSignIn = () => {
   const provider = new GoogleAuthProvider()
   signInWithPopup(getAuth(),provider).then((result) =>{
     console.log(result.user)
-    fetch('http://127.0.0.1:5000/google/login',{
+    fetch('https://community-app-india.onrender.com/google/login',{
                 method:'POST',
                 mode: 'cors', 
                 Allow: ['GET', 'POST','OPTIONS'],
@@ -85,7 +85,8 @@ const googleSignIn = () => {
       if (data.state == 0 ){
                     localStorage.setItem('auth-token', data.token)
                     localStorage.setItem('role', data.role)
-                    router.go(-1)
+                    alert('Logged In')
+                    router.go('/')
       }
     })
     // Handle any errors that occur during the fetch request
