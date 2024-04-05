@@ -6,15 +6,13 @@
                     <router-link to="/profile" v-if="islogin">
                         <button type="button" class="btn btn-outline-primary" style="width: 100%">Profile</button>
                     </router-link>
+                    <GoogleLogin :callback="callback" prompt/>
                     <router-link to="/login" v-if="islogin">
-                        <button type="button" class="btn btn-outline-secondary mt-2" style="width: 100%" @click="logout">Logout</button>
+                      <button type="button" class="btn btn-outline-secondary mt-2" style="width: 100%" @click="logout">Logout</button>
                     </router-link>
-                    <router-link to="/register" v-if="!islogin">
-                        <button type="button" class="btn btn-outline-primary" style="width: 100%">Create Account</button>
-                    </router-link>
-                    <router-link to="/login" v-if="!islogin">
-                        <button type="button" class="btn btn-outline-secondary mt-2" style="width: 100%">Login</button>
-                    </router-link>
+                    <button type="button" class="login-with-google-btn" style="width: 100%" @click="googleSignIn" v-if="!islogin">
+                      Sign in with Google
+                    </button>
                   </div><hr>
                     <ul class="nav nav-pills flex-column mb-auto">
                       <li>
@@ -57,9 +55,93 @@
 
 <script setup>
 let islogin = localStorage.getItem('auth-token')
+import { getAuth,GoogleAuthProvider, signInWithPopup} from 'firebase/auth'
+
+const googleSignIn = () => {
+  const provider = new GoogleAuthProvider()
+  signInWithPopup(getAuth(),provider).then((result) =>{
+    console.log(result.user)
+    fetch('http://127.0.0.1:5000/google/login',{
+                method:'POST',
+                mode: 'cors', 
+                Allow: ['GET', 'POST','OPTIONS'],
+                headers: {
+                    'Content-type': 'application/json'
+                },
+                body : JSON.stringify({
+                        "token" : result.user.accessToken
+                      }), })
+    .then(response => {
+      // Check if the response is successful
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      // Parse the response JSON data
+      return response.json();
+    })
+    // Handle the parsed JSON data in the next then block
+    .then(data => {
+      // Use the data received from the server
+      if (data.state == 0 ){
+                    localStorage.setItem('auth-token', data.token)
+                    localStorage.setItem('role', data.role)
+                    router.go(-1)
+      }
+    })
+    // Handle any errors that occur during the fetch request
+    .catch(error => {
+      console.error('There was a problem with the fetch operation:', error);
+    });
+    
+  })
+}
 
 function logout() {
   localStorage.removeItem('auth-token')
   localStorage.removeItem('role')
 }
 </script>
+
+<style scoped>
+.login-with-google-btn {
+  transition: background-color .3s, box-shadow .3s;
+    
+  padding: 12px 16px 12px 42px;
+  border: none;
+  border-radius: 3px;
+  box-shadow: 0 -1px 0 rgba(0, 0, 0, .04), 0 1px 1px rgba(0, 0, 0, .25);
+  
+  color: #757575;
+  font-size: 14px;
+  font-weight: 500;
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Fira Sans","Droid Sans","Helvetica Neue",sans-serif;
+  
+  background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTgiIGhlaWdodD0iMTgiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGcgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj48cGF0aCBkPSJNMTcuNiA5LjJsLS4xLTEuOEg5djMuNGg0LjhDMTMuNiAxMiAxMyAxMyAxMiAxMy42djIuMmgzYTguOCA4LjggMCAwIDAgMi42LTYuNnoiIGZpbGw9IiM0Mjg1RjQiIGZpbGwtcnVsZT0ibm9uemVybyIvPjxwYXRoIGQ9Ik05IDE4YzIuNCAwIDQuNS0uOCA2LTIuMmwtMy0yLjJhNS40IDUuNCAwIDAgMS04LTIuOUgxVjEzYTkgOSAwIDAgMCA4IDV6IiBmaWxsPSIjMzRBODUzIiBmaWxsLXJ1bGU9Im5vbnplcm8iLz48cGF0aCBkPSJNNCAxMC43YTUuNCA1LjQgMCAwIDEgMC0zLjRWNUgxYTkgOSAwIDAgMCAwIDhsMy0yLjN6IiBmaWxsPSIjRkJCQzA1IiBmaWxsLXJ1bGU9Im5vbnplcm8iLz48cGF0aCBkPSJNOSAzLjZjMS4zIDAgMi41LjQgMy40IDEuM0wxNSAyLjNBOSA5IDAgMCAwIDEgNWwzIDIuNGE1LjQgNS40IDAgMCAxIDUtMy43eiIgZmlsbD0iI0VBNDMzNSIgZmlsbC1ydWxlPSJub256ZXJvIi8+PHBhdGggZD0iTTAgMGgxOHYxOEgweiIvPjwvZz48L3N2Zz4=);
+  background-color: white;
+  background-repeat: no-repeat;
+  background-position: 12px 11px;
+  
+  &:hover {
+    box-shadow: 0 -1px 0 rgba(0, 0, 0, .04), 0 2px 4px rgba(0, 0, 0, .25);
+  }
+  
+  &:active {
+    background-color: #eeeeee;
+  }
+  
+  &:focus {
+    outline: none;
+    box-shadow: 
+      0 -1px 0 rgba(0, 0, 0, .04),
+      0 2px 4px rgba(0, 0, 0, .25),
+      0 0 0 3px #c8dafc;
+  }
+  
+  &:disabled {
+    filter: grayscale(100%);
+    background-color: #ebebeb;
+    box-shadow: 0 -1px 0 rgba(0, 0, 0, .04), 0 1px 1px rgba(0, 0, 0, .25);
+    cursor: not-allowed;
+  }
+}
+</style>

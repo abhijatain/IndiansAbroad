@@ -76,3 +76,13 @@
         </div>  
     </div>
 </template>
+<script setup>
+import {ref,onMounted} from 'vue'
+
+let notifications = ref([])
+
+onMounted(async() => {
+    
+})
+
+</script>
