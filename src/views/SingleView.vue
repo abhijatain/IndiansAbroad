@@ -10,7 +10,7 @@ const route = useRoute()
 onMounted(async () => {
     const p = route.params.id
     const token = localStorage.getItem('auth-token')
-        const res = await fetch(`https://community-app-india.onrender.com/api/discusion/${p}`, {
+        const res = await fetch(`https://test-am3oxfhvvq-em.a.run.app/api/discusion/${p}`, {
                     method: "GET",
                     Allow: ['GET', 'POST'],
                     headers : {

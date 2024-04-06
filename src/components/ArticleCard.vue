@@ -101,7 +101,7 @@ onMounted(async () => {
         
     }else  {
         const token = localStorage.getItem('auth-token')
-        const res = await fetch(`https://community-app-india.onrender.com/api/article/${p}`, {
+        const res = await fetch(`https://test-am3oxfhvvq-em.a.run.app/api/article/${p}`, {
                     method: "GET",
                     Allow: ['GET', 'POST'],
                     headers : {

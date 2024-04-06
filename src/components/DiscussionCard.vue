@@ -96,7 +96,7 @@ const props = defineProps({
 
 async function save(id,index) {
     const token = localStorage.getItem('auth-token')
-    await fetch('https://community-app-india.onrender.com/save/discusion',{
+    await fetch('https://test-am3oxfhvvq-em.a.run.app/save/discusion',{
                 method:"POST",
                 Allow: ['GET', 'POST'],
                 headers: {

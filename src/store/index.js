@@ -35,7 +35,7 @@ export default createStore({
 
     async getArticles({ commit,state }) {
       // Simulate async operation
-      const res = await fetch(`https://community-app-india.onrender.com/api/article/all`, {
+      const res = await fetch(`https://test-am3oxfhvvq-em.a.run.app/api/article/all`, {
                 method: "GET",
                 Allow: ['GET', 'POST'],
                 headers : {
@@ -52,7 +52,7 @@ export default createStore({
 
     async likeArticle({ commit,state },id) {
       // Simulate async operation
-      await fetch('https://community-app-india.onrender.com/like/article',{
+      await fetch('https://test-am3oxfhvvq-em.a.run.app/like/article',{
                 method:'POST',
                 Allow: ['GET', 'POST'],
                 headers: {
@@ -68,7 +68,7 @@ export default createStore({
 
     async saveArticle({ commit,state },id) {
       // Simulate async operation
-      await fetch('https://community-app-india.onrender.com/save',{
+      await fetch('https://test-am3oxfhvvq-em.a.run.app/save',{
                 method:"POST",
                 Allow: ['GET', 'POST'],
                 headers: {
@@ -86,7 +86,7 @@ export default createStore({
      // Discussion async operation
     async getDiscusions({ commit,state }) {
      
-      const res = await fetch(`https://community-app-india.onrender.com/api/discusion/all`, {
+      const res = await fetch(`https://test-am3oxfhvvq-em.a.run.app/api/discusion/all`, {
                 method: "GET",
                 Allow: ['GET', 'POST'],
                 headers : {
@@ -103,7 +103,7 @@ export default createStore({
 
     async likeDiscusion({ commit,state },id) {
       // Simulate async operation
-      await fetch('https://community-app-india.onrender.com/like/discusion',{
+      await fetch('https://test-am3oxfhvvq-em.a.run.app/like/discusion',{
                 method:'POST',
                 Allow: ['GET', 'POST'],
                 headers: {
@@ -119,7 +119,7 @@ export default createStore({
 
     async saveDiscusion({ commit,state },id) {
       // Simulate async operation
-      await fetch('https://community-app-india.onrender.com/save/discusion',{
+      await fetch('https://test-am3oxfhvvq-em.a.run.app/save/discusion',{
                 method:"POST",
                 Allow: ['GET', 'POST'],
                 headers: {

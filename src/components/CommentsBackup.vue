@@ -138,7 +138,7 @@
     const token = localStorage.getItem('auth-token')
     
     async function get_comments() {
-        const url = `https://community-app-india.onrender.com/article/comments/${id.id}`
+        const url = `https://test-am3oxfhvvq-em.a.run.app/article/comments/${id.id}`
         const res = await fetch(url, {
                     method: "GET",
                     Allow: ['GET', 'POST'],
@@ -167,7 +167,7 @@
     }
     
     async function comment() {
-        await fetch('https://community-app-india.onrender.com/comment',{
+        await fetch('https://test-am3oxfhvvq-em.a.run.app/comment',{
                     method:'POST',
                     headers: {
                         "Authentication-Token" : token ,

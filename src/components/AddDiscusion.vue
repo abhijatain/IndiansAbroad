@@ -9,7 +9,7 @@ let value = ref('Type Your Content here')
 let fileInput = ref(null)
 
 async function add() {
-    const res = await fetch(`https://community-app-india.onrender.com/api/discusion`, {
+    const res = await fetch(`https://test-am3oxfhvvq-em.a.run.app/api/discusion`, {
                     method: "POST",
                     Allow: ['GET', 'POST'],
                     headers : {
@@ -38,7 +38,7 @@ async function handleFileChange() {
   const file = fileInput.value.files[0];
   
   if (file) {
-    const res = await fetch(`https://community-app-india.onrender.com/upload/image`, {
+    const res = await fetch(`https://test-am3oxfhvvq-em.a.run.app/upload/image`, {
                     method: "POST",
                     Allow: ['GET', 'POST'],
                     headers : {
