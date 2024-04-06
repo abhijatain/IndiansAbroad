@@ -65,7 +65,7 @@ let source = ref(null)
 let id = ref(null)
 
 onMounted(async() => {
-    const res = await fetch(`https://community-app-india.onrender.com/api/category`, {
+    const res = await fetch(`https://indiansabroad.el.r.appspot.com/api/category`, {
                     method: "GET",
                     Allow: ['GET', 'POST'],
                     headers : {
@@ -94,7 +94,7 @@ async function add_article() {
         console.log(iframeLink)
     } 
     done3.value = false
-  const res = await fetch(`https://community-app-india.onrender.com/api/article`, {
+  const res = await fetch(`https://indiansabroad.el.r.appspot.com/api/article`, {
                     method: "POST",
                     Allow: ['GET', 'POST'],
                     headers : {
@@ -119,7 +119,7 @@ if (res.ok){
 async function add_category() {
     done2.value = false
     if (categories.value.filter(item => item.name != category.value)){
-        const res = await fetch(`https://community-app-india.onrender.com/api/category`, {
+        const res = await fetch(`https://indiansabroad.el.r.appspot.com/api/category`, {
                     method: "POST",
                     Allow: ['GET', 'POST'],
                     headers : {
@@ -144,7 +144,7 @@ async function add_category() {
 
 async function add_tag() {
     done1.value = false
-        const res = await fetch(`https://community-app-india.onrender.com/create/tag`, {
+        const res = await fetch(`https://indiansabroad.el.r.appspot.com/create/tag`, {
                     method: "POST",
                     Allow: ['GET', 'POST'],
                     headers : {

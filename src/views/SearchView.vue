@@ -11,7 +11,7 @@ let input = ref('')
 async function search() {
 	discussions.value = []
 	if (searchOn.value) {
-		const res = await fetch(`https://community-app-india.onrender.com/search/discussions`, {
+		const res = await fetch(`https://indiansabroad.el.r.appspot.com/search/discussions`, {
                 method: "POST",
                 Allow: ['GET', 'POST'],
                 headers : {
@@ -26,7 +26,7 @@ async function search() {
 			discussions.value.push(...data)
 		}
 	}else{
-		const res = await fetch(`https://community-app-india.onrender.com/search/news`, {
+		const res = await fetch(`https://indiansabroad.el.r.appspot.com/search/news`, {
                 method: "POST",
                 Allow: ['GET', 'POST'],
                 headers : {
