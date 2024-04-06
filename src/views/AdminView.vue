@@ -1,6 +1,6 @@
 <template>
     <div class="container mt-5 p-5" >
-        <div class="spinner-border" role="status" v-if="!done">
+        <div class="spinner-border" role="status" v-if="!done1">
             <span class="visually-hidden">Loading...</span>
         </div>
         <h1>Tags</h1>
@@ -15,6 +15,9 @@
         <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com" v-model="category">
         </div>
         <button @click="add_category" class="mb-5">Add</button>
+        <div class="spinner-border" role="status" v-if="!done2">
+            <span class="visually-hidden">Loading...</span>
+        </div>
         <h1>Article</h1>
         <div class="mb-3">
         <label for="exampleFormControlInput1" class="form-label">Title</label>
@@ -38,6 +41,9 @@
             <option :value="c.id" v-for="c in categories">{{c.name}}</option>
         </select>
         </div>
+        <div class="spinner-border" role="status" v-if="!done3">
+            <span class="visually-hidden">Loading...</span>
+        </div>
         <button @click="add_article" >Add</button>
     </div>
 </template>
@@ -45,7 +51,10 @@
 <script setup>
 import { ref, onMounted } from 'vue'
 
-let done = ref(true)
+let done1 = ref(true)
+let done2 = ref(true)
+let done3 = ref(true)
+
 let categories = ref([])
 let tag = ref(null)
 let category = ref(null)
@@ -71,7 +80,20 @@ onMounted(async() => {
 })
 
 async function add_article() {
-    done.value = false
+    if (id.value != 1) {
+        function convertYouTubeLinkToEmbed(link) {
+            const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
+            const match = link.match(regExp);
+            return (match && match[2].length === 11) ? 'https://www.youtube.com/embed/' + match[2] : null;
+        }
+
+        // Example usage:
+        const youtubeLink = youtube.value;
+        const iframeLink = convertYouTubeLinkToEmbed(youtubeLink);
+        youtube.value = iframeLink
+        console.log(iframeLink)
+    } 
+    done3.value = false
   const res = await fetch(`https://community-app-india.onrender.com/api/article`, {
                     method: "POST",
                     Allow: ['GET', 'POST'],
@@ -89,13 +111,13 @@ async function add_article() {
                 })
 const data = await res.json()
 if (res.ok){
-    done.value = true
+    done3.value = true
     alert(data.msg)
 }
 }
 
 async function add_category() {
-    done.value = false
+    done2.value = false
     if (categories.value.filter(item => item.name != category.value)){
         const res = await fetch(`https://community-app-india.onrender.com/api/category`, {
                     method: "POST",
@@ -111,7 +133,7 @@ async function add_category() {
                 const data = await res.json()
     if (res.ok){
         categories.value.push(data)
-        done.value = true
+        done2.value = true
         alert('added')
     }
     }else{
@@ -121,7 +143,7 @@ async function add_category() {
 }
 
 async function add_tag() {
-    done.value = false
+    done1.value = false
         const res = await fetch(`https://community-app-india.onrender.com/create/tag`, {
                     method: "POST",
                     Allow: ['GET', 'POST'],
@@ -135,7 +157,7 @@ async function add_tag() {
                 })
                 const data = await res.json()
     if (res.ok){
-        done.value = true
+        done1.value = true
         alert(data.message)
         
     }

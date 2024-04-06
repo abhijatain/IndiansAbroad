@@ -111,7 +111,7 @@ function logout() {
   localStorage.removeItem('name')
   localStorage.removeItem('image')
   localStorage.removeItem('email')
-  islogin.value = false
+  islogin.value = null
   store.state.image = null
 
 }
