@@ -1,40 +1,45 @@
 <script setup>
 import {ref,onMounted} from 'vue'
-import { useRouter } from 'vue-router'
 import { usePreferredDark } from '@vueuse/core'
 import { useWindowSize } from '@vueuse/core'
 import NavBody from './NavBody.vue'
+import { useStore } from 'vuex'
+
+const store = useStore()
 
 const { width, height } = useWindowSize()
-
 const isDark = usePreferredDark()
-let darkMode = ref(false)
 
 onMounted(() => {
-  if(isDark) {
-   document.getElementById("checkbox").click()
+  const mode = localStorage.getItem('mode')
+  if (mode){
+    if (mode == 'dark'){
+      document.getElementById("checkbox").click()
+    }
+  }else{
+    if(isDark) {
+      document.getElementById("checkbox").click()
+    }else{
+      localStorage.setItem('mode','light')
+    }
   }
 })
 
-function logout() {
-  localStorage.removeItem('auth-token')
-  localStorage.removeItem('role')
-}
 
 
 function lightTheme() {  
-    darkMode.value = !darkMode.value
+    localStorage.setItem('mode','light')
     let bodyTag = document.querySelector('body');
     bodyTag.dataset.bsTheme = 'light'
 }
 function darkTheme() {  
-    darkMode.value = !darkMode.value
+  localStorage.setItem('mode','dark')
     let bodyTag = document.querySelector('body');
     bodyTag.dataset.bsTheme = 'dark'
 }
 
 function changeTheme() {
-  if (darkMode.value){
+  if (localStorage.getItem('mode') == 'dark'){
     lightTheme()
   }else{
     darkTheme()
@@ -48,7 +53,9 @@ function changeTheme() {
         
        <div class="d-flex align-items-center">
         <router-link to="/" style="margin-right: 1rem;"> 
-          <img class="avatar-img rounded-circle"  height="38px"  src="../assets/BharatGuildLogo.jpg" alt="Bharat Guild" >
+          
+          <img class="avatar-img rounded-circle"  height="38px"  :src="store.state.image" alt="Bharat Guild"  v-if="store.state.image" >
+          <img class="avatar-img rounded-circle"  height="38px"  src="../assets/BharatGuildLogo.jpg" alt="Bharat Guild" v-else>
         </router-link>
         <div class="flex-shrink-0 " style="margin-right: 1rem;">
             
@@ -62,7 +69,7 @@ function changeTheme() {
             </div>
         </div>
        </div>
-       <h3 class="text-white p-0 m-0" v-if="width >849">Bharat Guild</h3>
+       
        
       <div class="d-flex align-items-center ">
 
@@ -82,7 +89,7 @@ function changeTheme() {
                 <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel" style="width: 60vw">
                     <div class="offcanvas-header" >
                      
-                    <h4 class="offcanvas-title arvo-bold" id="offcanvasNavbarLabel">Bharat Guild</h4>
+                    <h4 class="offcanvas-title" id="offcanvasNavbarLabel"><strong>Bharat Guild</strong></h4>
                     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                     </div>
                     <div class="offcanvas-body p-1">
@@ -138,15 +145,5 @@ function changeTheme() {
   transform: translateX(24px);
 }
 
-.arvo-regular {
-  font-family: "Arvo", serif;
-  font-weight: 400;
-  font-style: normal;
-}
 
-.arvo-bold {
-  font-family: "Arvo", serif;
-  font-weight: 700;
-  font-style: normal;
-}
 </style>

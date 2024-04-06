@@ -1,16 +1,16 @@
 <template>
     <div class="container p-0" style="margin:0px;">
-      <div class="card p-2 border-success border-1 m-1">
+      <div class="card p-2 shadow border-0 m-1">
         <h4><strong>We are a community of Indians Abroad</strong></h4>
                     <p class="arvo-regular">Join us, and let’s make the world a smaller, more connected place for Indians everywhere.</p>
                     <router-link to="/profile" v-if="islogin">
                         <button type="button" class="btn btn-outline-primary" style="width: 100%">Profile</button>
                     </router-link>
-                    <GoogleLogin :callback="callback" prompt/>
-                    <router-link to="/login" v-if="islogin">
-                      <button type="button" class="btn btn-outline-secondary mt-2" style="width: 100%" @click="logout">Logout</button>
-                    </router-link>
-                    <button type="button" class="login-with-google-btn" style="width: 100%" @click="googleSignIn" v-if="!islogin">
+                  
+                    
+                      <button type="button" class="btn btn-outline-secondary mt-2" style="width: 100%" @click="logout" v-if="islogin">Logout</button>
+                    
+                    <button type="button" class="login-with-google-btn shadow" style="width: 100%" @click="googleSignIn" v-if="!islogin">
                       Sign in with Google
                     </button>
                   </div><hr>
@@ -54,16 +54,24 @@
 </template>
 
 <script setup>
-let islogin = localStorage.getItem('auth-token')
+import { ref} from 'vue'
 import { getAuth,GoogleAuthProvider, signInWithPopup} from 'firebase/auth'
+import { useStore } from 'vuex'
+
+const store = useStore()
+let islogin = ref(localStorage.getItem('auth-token'))
+
 
 const googleSignIn = () => {
   const provider = new GoogleAuthProvider()
   signInWithPopup(getAuth(),provider).then((result) =>{
-    console.log(result.user)
+    localStorage.setItem('name',result.user.displayName)
+    localStorage.setItem('image',result.user.photoURL)
+    localStorage.setItem('email',result.user.email)
+    store.state.image = result.user.photoURL
     fetch('https://community-app-india.onrender.com/google/login',{
                 method:'POST',
-                mode: 'cors', 
+
                 Allow: ['GET', 'POST','OPTIONS'],
                 headers: {
                     'Content-type': 'application/json'
@@ -86,7 +94,7 @@ const googleSignIn = () => {
                     localStorage.setItem('auth-token', data.token)
                     localStorage.setItem('role', data.role)
                     alert('Logged In')
-                    router.go('/')
+                    islogin.value = true
       }
     })
     // Handle any errors that occur during the fetch request
@@ -100,6 +108,12 @@ const googleSignIn = () => {
 function logout() {
   localStorage.removeItem('auth-token')
   localStorage.removeItem('role')
+  localStorage.removeItem('name')
+  localStorage.removeItem('image')
+  localStorage.removeItem('email')
+  islogin.value = false
+  store.state.image = null
+
 }
 </script>
 

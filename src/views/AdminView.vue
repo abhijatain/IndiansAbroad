@@ -1,5 +1,8 @@
 <template>
     <div class="container mt-5 p-5" >
+        <div class="spinner-border" role="status" v-if="!done">
+            <span class="visually-hidden">Loading...</span>
+        </div>
         <h1>Tags</h1>
         <div class="mb-3">
         <label for="exampleFormControlInput1" class="form-label">Name</label>
@@ -41,6 +44,8 @@
 
 <script setup>
 import { ref, onMounted } from 'vue'
+
+let done = ref(true)
 let categories = ref([])
 let tag = ref(null)
 let category = ref(null)
@@ -66,6 +71,7 @@ onMounted(async() => {
 })
 
 async function add_article() {
+    done.value = false
   const res = await fetch(`https://community-app-india.onrender.com/api/article`, {
                     method: "POST",
                     Allow: ['GET', 'POST'],
@@ -83,11 +89,13 @@ async function add_article() {
                 })
 const data = await res.json()
 if (res.ok){
+    done.value = true
     alert(data.msg)
 }
 }
 
 async function add_category() {
+    done.value = false
     if (categories.value.filter(item => item.name != category.value)){
         const res = await fetch(`https://community-app-india.onrender.com/api/category`, {
                     method: "POST",
@@ -103,6 +111,8 @@ async function add_category() {
                 const data = await res.json()
     if (res.ok){
         categories.value.push(data)
+        done.value = true
+        alert('added')
     }
     }else{
         alert('exists category')
@@ -111,7 +121,7 @@ async function add_category() {
 }
 
 async function add_tag() {
-    
+    done.value = false
         const res = await fetch(`https://community-app-india.onrender.com/create/tag`, {
                     method: "POST",
                     Allow: ['GET', 'POST'],
@@ -125,7 +135,9 @@ async function add_tag() {
                 })
                 const data = await res.json()
     if (res.ok){
+        done.value = true
         alert(data.message)
+        
     }
     
 }

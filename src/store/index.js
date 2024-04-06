@@ -3,6 +3,7 @@ import { createStore } from 'vuex';
 export default createStore({
   state() {
     return {
+      image: null,
       articles: [],
       discusions:[],
       token : localStorage.getItem('auth-token'),
