@@ -138,7 +138,7 @@
     const token = localStorage.getItem('auth-token')
     
     async function get_comments() {
-        const url = `https://indiansabroad.el.r.appspot.com/article/comments/${id.id}`
+        const url = `https://community-app-india.onrender.com/article/comments/${id.id}`
         const res = await fetch(url, {
                     method: "GET",
                     Allow: ['GET', 'POST'],
@@ -167,7 +167,7 @@
     }
     
     async function comment() {
-        await fetch('http://127.0.0.1:5000/comment',{
+        await fetch('https://community-app-india.onrender.com/comment',{
                     method:'POST',
                     headers: {
                         "Authentication-Token" : token ,

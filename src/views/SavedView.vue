@@ -5,7 +5,7 @@ let saved = ref([])
 
 onMounted(async () => {
     const token = localStorage.getItem('auth-token')
-    const res = await fetch(`https://indiansabroad.el.r.appspot.com/get/save`, {
+    const res = await fetch(`https://community-app-india.onrender.com/get/save`, {
                 method: "GET",
                 Allow: ['GET', 'POST'],
                 headers : {
@@ -22,7 +22,7 @@ onMounted(async () => {
 
 async function save(id,index) {
     const token = localStorage.getItem('auth-token')
-    await fetch('https://indiansabroad.el.r.appspot.com/save',{
+    await fetch('https://community-app-india.onrender.com/save',{
                 method:"POST",
                 Allow: ['GET', 'POST'],
                 headers: {

@@ -69,7 +69,7 @@ const googleSignIn = () => {
     localStorage.setItem('image',result.user.photoURL)
     localStorage.setItem('email',result.user.email)
     store.state.image = result.user.photoURL
-    fetch('https://indiansabroad.el.r.appspot.com/google/login',{
+    fetch('https://community-app-india.onrender.com/google/login',{
                 method:'POST',
 
                 Allow: ['GET', 'POST','OPTIONS'],

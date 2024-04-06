@@ -28,7 +28,7 @@ onMounted(async() => {
 
 
 async function like(id,index) {
-    await fetch('https://indiansabroad.el.r.appspot.com/like/discusion',{
+    await fetch('https://community-app-india.onrender.com/like/discusion',{
                 method:'POST',
                 Allow: ['GET', 'POST'],
                 headers: {
