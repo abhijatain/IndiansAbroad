@@ -22,7 +22,6 @@ async function add() {
                       }),
                 })
                 const data = await res.json()
-                console.log(data)
 }
 
 function clicked() {

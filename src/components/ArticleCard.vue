@@ -8,8 +8,8 @@
             <div class="row d-flex justify-content-center" >  
                 <div class="card  mb-3 shadow-lg"  v-for="(art,index) in store.state.articles" :key="index" style="max-width: 95%;">
                   
-                    <div class="card-header">
-                        Featured
+                    <div class="card-header ">
+                        <strong class="p-1 bg-info-subtle rounded-4 ">{{art.category}}</strong>
                     </div>
                     
                     <img v-if="art.category == 'stats'" :src="art.youtube" class="card-img">

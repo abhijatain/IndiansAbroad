@@ -7,7 +7,7 @@
                 <img src="../assets/BharatGuildLogo.jpg" alt="Bootstrap" width="32" height="32" class="rounded-circle border border-white">
                 <small class="p-1">Abhijeet Singh</small>
                 <small class="p-1">3d</small>
-				<router-link :to="`/discusion/${d.id}/${d.title}`" >
+				<router-link :to="{path:`/discusion/${d.id}/${d.title}`}" >
 				<h5 class="mt-3 display-7 lh-1 fw-bold" >{{ d.title }}</h5>		
 				</router-link>
               </li>

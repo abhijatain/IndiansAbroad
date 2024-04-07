@@ -52,6 +52,7 @@ const router = createRouter({
     {
       path: '/discusion/:id/:title',
       name: 'single',
+      props: true,
       component: () => import('../views/SingleView.vue')
     },
     {

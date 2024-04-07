@@ -15,12 +15,6 @@ export default createStore({
     add_articles(state,data) {
       state.articles = data
     },
-    like_article(state,id) { 
-      state.articles.filter(art => art.id == id)[0].has_liked = !state.articles.filter(art => art.id == id)[0].has_liked
-    },
-    save_article(state,id) {
-      state.articles.filter(art => art.id == id)[0].has_saved = !state.articles.filter(art => art.id == id)[0].has_saved
-    },
     add_discusions(state,data) {
       state.discusions = data
     },

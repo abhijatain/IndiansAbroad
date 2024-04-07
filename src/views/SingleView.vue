@@ -2,13 +2,20 @@
 import Comments from '../components/CommentSection.vue'
 import { ref,onMounted } from 'vue'
 import { useRoute } from 'vue-router'
+import { useStore } from 'vuex'
+
+
+const store = useStore()
 
 let discusions = ref([])
 
 const route = useRoute()
 
 onMounted(async () => {
-    const p = route.params.id
+  const p = route.params.id
+  if (store.state.discusions.filter(art => art.id == p).length >0){
+    discusions.value = store.state.discusions.filter(art => art.id == p)
+  }else{
     const token = localStorage.getItem('auth-token')
         const res = await fetch(`https://test-am3oxfhvvq-em.a.run.app/api/discusion/${p}`, {
                     method: "GET",
@@ -23,6 +30,8 @@ onMounted(async () => {
             discusions.value.push(...data)
             
         }
+  }
+    
 })
 
 </script>

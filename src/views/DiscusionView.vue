@@ -19,6 +19,7 @@ onMounted(async() => {
 	function updateData() {
             if (store.state.isDiscusionLoaded) {
                 discusions.value.push(...store.state.discusions)
+                console.log(discusions)
                 clearInterval(intervalId);
                 loaded.value = true
             }

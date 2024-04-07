@@ -181,22 +181,7 @@
                 })
     }
     
-    async function get_nested_comments(parent) {
-        const res = await fetch('/comment',{
-                    method:'POST',
-                    headers: {
-                        'Content-type': 'application/json'
-                    },
-                    body : JSON.stringify({
-                        'parent' : parent,
-                    }),
-                })
-        const data = await res.json()
-        if (res.ok) {
-            nested_comments.value.push(...data)
-            
-        }
-    }
+    
     
     </script>
     
