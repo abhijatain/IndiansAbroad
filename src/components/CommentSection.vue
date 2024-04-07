@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-        <ul class="list-group list-group-flush " style="margin-bottom: 8rem;">
+        <ul class="list-group list-group-flush " style="margin-bottom: 2rem;">
             <li class="list-group-item mt-2 p-1" v-for="(comment,index) in comments" :key="index">
                 <div class="d-flex flex-row justify-content-between align-items-center">
 				<div>
@@ -10,7 +10,7 @@
                             <div>	
                                 <a class="opacity-50 text-nowrap"  @click="get_nested_comments(comment.id)">--- View 3 more replies</a>
                             </div>
-                            <small class="opacity-75 text-nowrap ms-2" @click="reply(comment.username,comment.id)">Reply</small>
+                            <small class="opacity-75 text-nowrap ms-2" @click="reply(comment.username,comment.id)" data-bs-toggle="modal" data-bs-target="#exampleModal">Reply</small>
                         </div>
                         
                                             
@@ -22,7 +22,7 @@
                                             <div class="col d-flex flex-column position-static" >
                                                 <Content :name="c.username" time="2 days ago" :content="c.content"/>
                                                 
-                                                <small class=" opacity-75 text-nowrap " @click="reply(c.username,comment.id)" style="margin-left: 50px;">Reply</small>
+                                                <small class=" opacity-75 text-nowrap " @click="reply(c.username,comment.id)" style="margin-left: 50px;" data-bs-toggle="modal" data-bs-target="#exampleModal">Reply</small>
                                                  
                                             </div>
                                         </div>
@@ -37,18 +37,30 @@
             </li>  
             
         </ul>
-        <div class="fixed-bottom card p-0 mt-5">
-                <div class="p-4">
-                    
-                    <div class="alert alert-dark alert-dismissible m-0 p-1" role="alert" v-if="!hidden" key="alert">
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Comment Here</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="alert alert-dark alert-dismissible m-0 p-1" role="alert" v-if="!hidden" key="alert">
                         <span class="ms-1">Replying to {{ name }}</span>
                         <span class="btn-close p-2"   @click="hidden=true;name='';parent=-1"></span>
-                    </div>
-                    
-                    <textarea type="text" class=" border-0" placeholder="Comment Here"  v-model="content"/>
-                    <button @click="comment">comment</button>
-                    </div>
                 </div>
+                    
+                <textarea type="text" class="w-100 border-0" placeholder="Comment Here"  v-model="content"/>
+               
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" @click="comment">Comment</button>
+            </div>
+            </div>
+        </div>
+        </div>
+        
     </div>
 </template>
 

@@ -50,6 +50,11 @@ const router = createRouter({
       component: () => import('../views/DiscusionView.vue')
     },
     {
+      path: '/add/discussion',
+      name: 'add',
+      component: () => import('../views/AddView.vue')
+    },
+    {
       path: '/discusion/:id/:title',
       name: 'single',
       props: true,

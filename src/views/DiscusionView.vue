@@ -65,7 +65,8 @@ function share(art) {
 	
 	<TopScroller />
     <div class="d-flex align-items-center justify-content-between p-2">
-	<AddDiscusion />
+	
+    <router-link to="/add/discussion" class="btn btn-outline-success" type="button"><i class="fa-solid fa-pen-to-square" style="color: #337357;"></i></router-link>
     <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
             <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked>
             <label class="btn btn-outline-secondary" for="btnradio1">Latest</label>

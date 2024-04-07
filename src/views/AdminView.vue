@@ -37,9 +37,7 @@
         </div>
         <div class="mb-3">
         <label for="exampleFormControlInput1" class="form-label">Category</label>
-        <select class="form-select" aria-label="Default select example" v-model="id" >
-            <option :value="c.id" v-for="c in categories">{{c.name}}</option>
-        </select>
+        <Listbox v-model="id" :options="categories" filter optionLabel="name" :virtualScrollerOptions="{ itemSize: 38 }" class="w-full md:w-14rem" listStyle="height:150px" />
         </div>
         <div class="spinner-border" role="status" v-if="!done3">
             <span class="visually-hidden">Loading...</span>
@@ -50,6 +48,7 @@
 
 <script setup>
 import { ref, onMounted } from 'vue'
+import Listbox from 'primevue/listbox';
 
 let done1 = ref(true)
 let done2 = ref(true)
