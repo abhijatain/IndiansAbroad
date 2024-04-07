@@ -206,9 +206,11 @@
 
 <script setup>
 import Content from './CommentCard.vue'
-import {ref} from 'vue'
+import { ref,onMounted } from 'vue'
 
-let discusion = ref([])
+const id = defineProps(['id'])
+let comments = ref([])
+let nested_comments = ref([])
 let name = ref('')
 let parent = ref('')
 let hidden = ref(true)
@@ -218,6 +220,24 @@ function reply(user,id){
     parent.value = id
     hidden.value = false
 }
+
+onMounted(async () => {
+    const url = `https://test-am3oxfhvvq-em.a.run.app/article/comments/${id.id}`
+        const res = await fetch(url, {
+                    method: "GET",
+                    Allow: ['GET', 'POST'],
+                    headers : {
+                            //"Authentication-Token" : this.token,
+                            'Content-Type': 'application/json'
+                        }
+                    })
+        const data = await res.json()
+        if (res.ok) {
+            comments.value.push(...data)
+            console.log(data)
+            
+        }
+})  
 </script>
 
 <style scoped>

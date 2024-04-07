@@ -63,7 +63,7 @@ export default createStore({
                         "id" : id
                 }),
             })
-      commit('like_article',id)
+     
     },
 
     async saveArticle({ commit,state },id) {
@@ -76,10 +76,10 @@ export default createStore({
                     "Content-type": "application/json"
                 },
                 body :JSON.stringify({
-                        "id" : id.id
+                        "id" : id
                 }),
             })
-      commit('save_article',id.id)
+      
     },
 
 

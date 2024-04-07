@@ -6,7 +6,7 @@
           <TopScroller v-if="route.params.id == 'all' || !route.params.id"/>
         <CheckBox @filter-data="(data) => filter_articles(data)" v-if="route.params.id == 'all' || !route.params.id"/>
             <div class="row d-flex justify-content-center" >  
-                <div class="card  mb-5 shadow-lg"  v-for="(art,index) in articles" :key="index" style="max-width: 95%;">
+                <div class="card  mb-3 shadow-lg"  v-for="(art,index) in store.state.articles" :key="index" style="max-width: 95%;">
                   
                     <div class="card-header">
                         Featured
@@ -25,7 +25,7 @@
                                 
                                 <i v-if="art.has_liked" class="fa-solid fa-heart p-2 fa-lg" @click="like(art.id,index)" style="color: #FB6D48;"></i>
                                 <i v-else class="fa-regular fa-heart p-2 fa-lg" @click="like(art.id,index)"></i>
-                                <i data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom" aria-controls="offcanvasBottom" class="fa-regular fa-comment fa-lg p-2"></i>
+                                <i data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom" aria-controls="offcanvasBottom" class="fa-regular fa-comment fa-lg p-2" @click="open = !open"></i>
                                 <div class="offcanvas offcanvas-bottom" tabindex="-1" id="offcanvasBottom" aria-labelledby="offcanvasBottomLabel" style="height: 90vh">
                                 <div class="offcanvas-header">
                                     <div></div>
@@ -33,7 +33,7 @@
                                     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                                 </div>
                                 <div class="offcanvas-body small" style="padding: 0;">
-                                    <CommentSection :id="art.id" />  
+                                    <CommentSection :id="art.id" v-if="open"/>  
                                 </div>
 
                                 </div>
@@ -43,8 +43,8 @@
                                 <LoginModel v-if="!login">
                                     <i  class="fa-regular fa-bookmark p-2 fa-lg"></i>
                                 </LoginModel>
-                                <i v-else-if="art.has_saved" class="fa-solid fa-bookmark p-2 fa-lg" @click="save(art,index)"></i>
-                                <i v-else class="fa-regular fa-bookmark p-2 fa-lg" @click="save(art,index)"></i>
+                                <i v-else-if="art.has_saved" class="fa-solid fa-bookmark p-2 fa-lg" @click="save(art.id,index)"></i>
+                                <i v-else class="fa-regular fa-bookmark p-2 fa-lg" @click="save(art.id,index)"></i>
                             </div>
                         </div>
                     </div>
@@ -80,60 +80,57 @@ const store = useStore()
 let articles = ref([])
 let original_articles = ref([])
 const route = useRoute()
-let id = ref('')
+let open = ref(false)
 let login = localStorage.getItem('auth-token')
 let loaded = ref(false)
 
 onMounted(async () => {
-    console.log(loaded.value)
-    const p = route.params.id
-    if (!p){
+    //console.log(loaded.value)
+    //const p = route.params.id
+    //if (!p){
         function updateData() {
             if (store.state.isDataLoaded) {
-                articles.value.push(...store.state.articles)
-                original_articles.value.push(...store.state.articles)
+                //articles.value.push(...store.state.articles)
+                //original_articles.value.push(...store.state.articles)
+                console.log(store.state.articles)
                 clearInterval(intervalId);
                 loaded.value = true
             }
         }
-        const intervalId = setInterval(updateData, 10); // Execute updateData every 5 seconds (5000 milliseconds)
+        const intervalId = setInterval(updateData, 50); // Execute updateData every 5 seconds (5000 milliseconds)
 
         
-    }else  {
-        const token = localStorage.getItem('auth-token')
-        const res = await fetch(`https://test-am3oxfhvvq-em.a.run.app/api/article/${p}`, {
-                    method: "GET",
-                    Allow: ['GET', 'POST'],
-                    headers : {
-                            "Authentication-Token" : token,
-                            'Content-Type': 'application/json'
-                        }
-                    })
-        const data = await res.json()
-        if (res.ok) {
-            
-            articles.value.push(...data)
-            original_articles.value.push(...data)  
-            loaded.value = true
-        }
-    }
-
-    
-    console.log(loaded.value)
-    
+    //}else  {
+    //    const token = localStorage.getItem('auth-token')
+    //    const res = await fetch(`https://test-am3oxfhvvq-em.a.run.app/api/article/${p}`, {
+     //               method: "GET",
+     //               Allow: ['GET', 'POST'],
+     //               headers : {
+     //                       "Authentication-Token" : token,
+     //                       'Content-Type': 'application/json'
+     //                   }
+     //               })
+      //  const data = await res.json()
+      //  if (res.ok) {
+       //     
+       //     articles.value.push(...data)
+       //     original_articles.value.push(...data)  
+       //     loaded.value = true
+       // }
 })
 
-async function like(id,index) {
+async function like(id) {
+    store.state.articles.filter(art => art.id == id)[0].has_liked = !store.state.articles.filter(art => art.id == id)[0].has_liked
     await store.dispatch('likeArticle',id).then(() => {
-        console.log(1)
-        articles.filter(art => art.id == id)[0].has_liked = !articles.filter(art => art.id == id)[0].has_liked
+        //articles.filter(art => art.id == id)[0].has_liked = !articles.filter(art => art.id == id)[0].has_liked
     })
     
 }
 
-async function save(id,index) {
+async function save(id) {
+    store.state.articles.filter(art => art.id == id)[0].has_saved = !store.state.articles.filter(art => art.id == id)[0].has_saved
     await store.dispatch('saveArticle',id).then(() => {
-        articles.filter(art => art.id == id)[0].has_saved = !articles.filter(art => art.id == id)[0].has_saved
+        //articles.filter(art => art.id == id)[0].has_saved = !articles.filter(art => art.id == id)[0].has_saved
     })
 }
 
@@ -142,7 +139,7 @@ function share(art) {
         navigator.share({
         text: art.title,
         url : `https://abhijatain.github.io/Indians/article/${art.id}`,
-        title : 'Independent'
+        title : 'Bharat Guild'
     })
     }else{
         navigator.clipboard.writeText(`https://abhijatain.github.io/Indians/article/${art.id}`)
