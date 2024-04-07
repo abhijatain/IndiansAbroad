@@ -23,7 +23,7 @@ onMounted(async() => {
                 loaded.value = true
             }
         }
-    const intervalId = setInterval(updateData, 1000);
+    const intervalId = setInterval(updateData, 10);
 })
 
 

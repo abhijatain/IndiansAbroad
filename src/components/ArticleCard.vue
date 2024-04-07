@@ -96,7 +96,7 @@ onMounted(async () => {
                 loaded.value = true
             }
         }
-        const intervalId = setInterval(updateData, 1000); // Execute updateData every 5 seconds (5000 milliseconds)
+        const intervalId = setInterval(updateData, 10); // Execute updateData every 5 seconds (5000 milliseconds)
 
         
     }else  {

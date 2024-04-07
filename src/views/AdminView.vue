@@ -117,6 +117,7 @@ if (res.ok){
 }
 
 async function add_category() {
+    const start = performance.now()
     done2.value = false
     if (categories.value.filter(item => item.name != category.value)){
         const res = await fetch(`https://test-am3oxfhvvq-em.a.run.app/api/category`, {
@@ -134,11 +135,13 @@ async function add_category() {
     if (res.ok){
         categories.value.push(data)
         done2.value = true
-        alert('added')
+        //alert('added')
     }
     }else{
         alert('exists category')
     }
+    const end = performance.now()
+    alert(`${end - start}`)
   
 }
 
