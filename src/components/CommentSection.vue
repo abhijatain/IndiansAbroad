@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-        <ul class="list-group list-group-flush">
+        <ul class="list-group list-group-flush " style="margin-bottom: 8rem;">
             <li class="list-group-item mt-2 p-1" v-for="(comment,index) in comments" :key="index">
                 <div class="d-flex flex-row justify-content-between align-items-center">
 				<div>
@@ -8,41 +8,28 @@
 						<Content :name="comment.username" time="2 days ago" :content="comment.content"/>
 						<div class="d-flex justify-content-around "> 
                             <div>	
-                                <small class="opacity-50 text-nowrap" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample" @click="get_nested_comments(1)">--- View 3 more replies</small>
+                                <a class="opacity-50 text-nowrap"  @click="get_nested_comments(comment.id)">--- View 3 more replies</a>
                             </div>
                             <small class="opacity-75 text-nowrap ms-2" @click="reply(comment.username,comment.id)">Reply</small>
                         </div>
-                        <div class="collapse mt-2" id="collapseExample">
+                        
                                             
                                             <!-- Card body START -->
-                                <div class="card-body ms-4 " style="padding:12px">
+                                <div class="card-body ms-4 " style="padding:12px" v-for="(c) in comment.replies" :key="c.content">
                                     
                                     <div class="d-flex flex-row justify-content-between align-items-center">
-                                        <div>
-                                            <div class="col d-flex flex-column position-static">
-                                                <Content :name="comment.username" time="2 days ago" :content="comment.content"/>
+                                        <div >
+                                            <div class="col d-flex flex-column position-static" >
+                                                <Content :name="c.username" time="2 days ago" :content="c.content"/>
                                                 
-                                                        <small class=" opacity-75 text-nowrap " @click="reply('Abhijeet',1)" style="margin-left: 50px;">Reply</small>
+                                                <small class=" opacity-75 text-nowrap " @click="reply(c.username,comment.id)" style="margin-left: 50px;">Reply</small>
                                                  
                                             </div>
                                         </div>
                                     </div>			
                                         
-                            </div>
-                            <div class="card-body ms-4 " style="padding:12px">
-                                    
-                                    <div class="d-flex flex-row justify-content-between align-items-center">
-                                        <div>
-                                            <div class="col d-flex flex-column position-static">
-                                                <Content name="Vansh Singh" time="2 days ago" content="Some placeholder content for the collapse component."/>
-                                                
-                                                        <small class=" opacity-75 text-nowrap " @click="reply('Abhijeet',1)" style="margin-left: 50px;">Reply</small>
-                                                 
-                                            </div>
-                                        </div>
-                                    </div>			
-                                        
-                            </div>
+                          
+                        
                         </div>
 					</div>
 				</div>
@@ -50,7 +37,7 @@
             </li>  
             
         </ul>
-        <div class="fixed-bottom card p-0">
+        <div class="fixed-bottom card p-0 mt-5">
                 <div class="p-4">
                     
                     <div class="alert alert-dark alert-dismissible m-0 p-1" role="alert" v-if="!hidden" key="alert">
@@ -58,7 +45,8 @@
                         <span class="btn-close p-2"   @click="hidden=true;name='';parent=-1"></span>
                     </div>
                     
-                    <textarea type="text" class="w-100 border-0" placeholder="Comment Here" @keyup.enter="comment" v-model="content"/>
+                    <textarea type="text" class=" border-0" placeholder="Comment Here"  v-model="content"/>
+                    <button @click="comment">comment</button>
                     </div>
                 </div>
     </div>
@@ -70,7 +58,6 @@ import { ref,onMounted } from 'vue'
 
 const id = defineProps(['id'])
 let comments = ref([])
-let nested_comments = ref([])
 let name = ref('')
 let content = ref('')
 let parent = ref(-1)
@@ -94,15 +81,27 @@ onMounted(async () => {
                     })
         const data = await res.json()
         if (res.ok) {
-            comments.value.push(...data)
+            for (const c of data) {
+                comments.value.push({
+                    'id':c.id,
+                    'content':c.content,
+                    'likes_count':c.likes_count,
+                    'username':c.username,
+                    'image':c.image,
+                    'replies':[]
+                })
+            }
+            
             console.log(comments)
             
         }
 })  
 
 async function comment() {
-
-    const url = `https://test-am3oxfhvvq-em.a.run.app/comment`
+    if (comment.value == ''){
+        alert('type first')
+    }else{
+        const url = `https://test-am3oxfhvvq-em.a.run.app/comment`
         const res = await fetch(url, {
                     method: "POST",
                     Allow: ['GET', 'POST'],
@@ -118,14 +117,29 @@ async function comment() {
                     })
         const data = await res.json()
         if (res.ok) {
-            comments.value.push(...data)
+            if (parent != -1) {
+                comments.value.filter(art => art.id == parent)[0].replies.push({'content':content.value,
+            'likes_count':0,
+            'username':localStorage.getItem('name'),
+            'image':localStorage.getItem('image')})
+            }else{
+                comments.value.push({
+                    'id':id.id,
+                    'content':content.value,
+                    'likes_count':0,
+                    'username':localStorage.getItem('name'),
+                    'image':localStorage.getItem('image')
+                })
+            }
             
         }
+    }
+    
 }
 
-async function get_nested_comments(parent) {
-    
-        const res = await fetch(`https://test-am3oxfhvvq-em.a.run.app/nested/comments/${parent}`,{
+async function get_nested_comments(parent2) {
+
+        const res = await fetch(`https://test-am3oxfhvvq-em.a.run.app/nested/comments/${parent2}`,{
                     method:'GET',
                     headers: {
                         'Content-type': 'application/json'
@@ -133,9 +147,7 @@ async function get_nested_comments(parent) {
                 })
         const data = await res.json()
         if (res.ok) {
-            nested_comments.value.push(...data)
-            console.log(nested_comments)
-            
+            comments.value.filter(art => art.id == parent2)[0].replies = data        
         }
     }
 </script>
