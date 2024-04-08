@@ -1,14 +1,24 @@
 <template>
     <div class="container">
+        <button class="button bg-success-subtle border-0 rounded p-2"  data-bs-toggle="modal" data-bs-target="#exampleModal">Share Your Thoughts</button>
         <ul class="list-group list-group-flush " style="margin-bottom: 2rem;">
             <li class="list-group-item mt-2 p-1" v-for="(comment,index) in comments" :key="index">
-                <div class="d-flex flex-row justify-content-between align-items-center">
+                <div class="">
 				<div>
 					<div class="col d-flex flex-column position-static">
 						<Content :name="comment.username" time="2 days ago" :content="comment.content"/>
-						<div class="d-flex justify-content-around "> 
-                            <div>	
-                                <a class="opacity-50 text-nowrap"  @click="get_nested_comments(comment.id)">--- View 3 more replies</a>
+						<div class="d-flex justify-content-between "> 
+                            <div class="ms-3">	
+                                <button class="border-0 bg-transparent">
+                                <i v-if="true" class="fa-solid fa-heart p-1"  style="color: #ea3e13; "></i>
+                                <i v-else class="fa-regular fa-heart p-1" ></i>
+                                <small class="opacity-75 text-nowrap p-1">100</small>
+                                </button>
+                                <button class="border-0 bg-transparent" @click="get_nested_comments(comment.id)">
+                                    <i class="fa-regular fa-comment ms-1" ></i>
+                                    <small class="opacity-75 text-nowrap p-1">100</small>
+                                </button>
+                               
                             </div>
                             <small class="opacity-75 text-nowrap ms-2" @click="reply(comment.username,comment.id)" data-bs-toggle="modal" data-bs-target="#exampleModal">Reply</small>
                         </div>
@@ -17,7 +27,7 @@
                                             <!-- Card body START -->
                                 <div class="card-body ms-4 " style="padding:12px" v-for="(c) in comment.replies" :key="c.content">
                                     
-                                    <div class="d-flex flex-row justify-content-between align-items-center">
+                                  
                                         <div >
                                             <div class="col d-flex flex-column position-static" >
                                                 <Content :name="c.username" time="2 days ago" :content="c.content"/>
@@ -25,7 +35,7 @@
                                                 <small class=" opacity-75 text-nowrap " @click="reply(c.username,comment.id)" style="margin-left: 50px;" data-bs-toggle="modal" data-bs-target="#exampleModal">Reply</small>
                                                  
                                             </div>
-                                        </div>
+                                      
                                     </div>			
                                         
                           
@@ -46,7 +56,7 @@
                         <span class="ms-1">Replying to {{ name }}</span>
                         <span class="btn-close p-2"   @click="hidden=true;name='';parent=-1"></span>
                 </div>
-                <Editor v-model="value" editorStyle="height: 25vh;" >
+                <Editor v-model="content" editorStyle="height: 25vh;" >
                 <template v-slot:toolbar>
                   <span class="ql-formats">
                     <select class="ql-font"></select>
@@ -62,6 +72,7 @@
                   </span>
                   
                   <span class="ql-formats">
+                    <button class="ql-video"></button>
                     <button class="ql-link"></button>
                     <button class="ql-clean"></button>
                   </span>

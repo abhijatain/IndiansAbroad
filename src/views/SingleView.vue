@@ -38,11 +38,13 @@ onMounted(async () => {
 
 <template>
     
-<div class="container " style="margin-top:4rem">
+<div class="" style="margin-top:3.5rem">
     
     <div v-for="d in discusions">
-        <div class="card border-0 shadow bg-primary-subtle ">
-                <div class="d-flex align-items-center mb-2" style="padding:12px 15px">
+        
+            <img src='https://media.istockphoto.com/id/533297303/photo/lion-mother-with-cub.jpg?s=612x612&w=0&k=20&c=W-8_Yb__gWrDFePNhEOBtVQ8ND6qsNb5X8AB00apkvk=' width="100%">
+            <div>
+                <div class="d-flex align-items-center mb-2 mt-2" style="padding:12px 15px">
 								<!-- Avatar -->
 								<div class="avatar avatar-story me-2">
 									<a href="#!"> <img class="avatar-img rounded-circle"  height="42px"  src="https://randomuser.me/api/portraits/men/86.jpg" alt=""> </a>
@@ -51,49 +53,21 @@ onMounted(async () => {
 								<div>
 									<div class=" " >
 										<h6 class="card-title mb-0 ">Abhijeet Singh </h6>
-										<span class=" text-body-secondary" style="font-size: 12px;">Posted on March 2022</span>
+										<span class=" text-body-secondary" style="font-size: 12px;">Posted 9 days ago</span>
 									</div>
 									
 								</div>
 							</div>
                                          
             </div>
-        <div >
-            <h1 class="barlow-bold p-2 ">{{d.title}}</h1>
-        </div>
-        
-        <div style="padding:12px 15px">
-            <span class="badge" style="margin-right: .5rem;background-color: #FF204E;">canada</span>
-                            <span class="badge" style="margin-right: .5rem;background-color: #A0153E;">abroad</span>
-                            <span class="badge" style="margin-right: .5rem;background-color: #5D0E41;">success</span>
-                            <span class="badge" style="margin-right: .5rem;background-color: #00224D;">info</span>
-                        </div>
-        <div  v-html="d.content" class="ql-editor card border-0 " style="margin-bottom:4.5rem">
-            
-        </div>
-        <h4>Comments</h4>
-        <Comments id="1" />  
-        
-        
-    </div>
-    <div class="fixed-bottom p-3 card " >
-        <div class="d-flex justify-content-between"> 
+            <div class="d-flex justify-content-between p-2 align-items-center"> 
                             <div>
                                 <i  class="fa-solid fa-heart p-2 fa-lg"  style="color: red;"></i><span> 63</span>
                             </div>
                             <div>
-                                <i data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom" aria-controls="offcanvasBottom" class="fa-regular fa-comment fa-lg p-2"></i>
+                                <i class="fa-regular fa-comment fa-lg p-2"></i>
                                 <span> 23</span>
-                                <div class="offcanvas offcanvas-bottom" tabindex="-1" id="offcanvasBottom" aria-labelledby="offcanvasBottomLabel" style="height: 70vh">
-                                <div class="offcanvas-header">
-                                    <h5 class="offcanvas-title" id="offcanvasBottomLabel">Comments</h5>
-                                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                                </div>
-                                <div class="offcanvas-body small" style="padding: 0;">
-                                   
-                                </div>
-
-                                </div>
+                                
                             </div>
                            
                             <div>
@@ -105,7 +79,31 @@ onMounted(async () => {
                             <i  class="fa-regular fa-bookmark p-2 fa-lg"></i>
                         
                     </div>
+                  
+
+        <div style="padding:10px 8px">
+            <span class="barlow-bold p-1  ">{{d.title}}</span>
+        </div>
+        
+        <div style="padding:0px 15px">
+          <span class="badge bg-success-subtle text-success m-1" >canada</span>
+                <span class="badge bg-warning-subtle text-warning m-1">abroad</span>
+                <span class="badge bg-danger-subtle text-danger m-1">success</span>
+                <span class="badge bg-primary-subtle text-primary m-1">religion</span>
+								
+							
+        </div>
+        <div  v-html="d.content" class="ql-editor card border-0 " style="margin-bottom:2rem">
+            
+        </div>
+        <div style="padding:10px 8px">
+            <h3 class=" p-1  barlow-semibold">Comments</h3>
+        </div>
+        <Comments id="2" />  
+        
+        
     </div>
+    
 </div>
 </template>
 
@@ -176,6 +174,7 @@ onMounted(async () => {
   font-family: "Barlow", sans-serif;
   font-weight: 700;
   font-style: normal;
+  font-size: 36px;
 }
 
 .barlow-extrabold {

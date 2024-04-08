@@ -8,16 +8,12 @@
                                     <small class="opacity-50 text-nowrap ms-2">now</small>
                                 </div>
                             
-                            <p class="mb-0 opacity-75">{{ content }}</p>
+                            <p class="mb-0 opacity-75 ql-editor p-2" v-html="content"></p>
                             </div>
                             
                             
                         </div>
-                        <div class="d-flex row  justify-content-center p-2">
-                                <i v-if="true" class="fa-solid fa-heart p-1"  style="color: #ea3e13; "></i>
-                                <i v-else class="fa-regular fa-heart p-1" ></i>
-                                <small class="opacity-75 text-nowrap p-1">100</small>
-                            </div>
+                        
     </div>
                     <!--
     <div class="d-flex align-items-center justify-content-between">
