@@ -38,19 +38,37 @@
             
         </ul>
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
+        <div class="modal-dialog mt-5">
             <div class="modal-content">
-            <div class="modal-header">
-                <h1 class="modal-title fs-5" id="exampleModalLabel">Comment Here</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
+            
             <div class="modal-body">
-                <div class="alert alert-dark alert-dismissible m-0 p-1" role="alert" v-if="!hidden" key="alert">
+                <div class="alert alert-warning alert-dismissible m-0 p-1 mb-1" role="alert" v-if="!hidden" key="alert">
                         <span class="ms-1">Replying to {{ name }}</span>
                         <span class="btn-close p-2"   @click="hidden=true;name='';parent=-1"></span>
                 </div>
-                    
-                <textarea type="text" class="w-100 border-0" placeholder="Comment Here"  v-model="content"/>
+                <Editor v-model="value" editorStyle="height: 25vh;" >
+                <template v-slot:toolbar>
+                  <span class="ql-formats">
+                    <select class="ql-font"></select>
+                    <select class="ql-size"></select>
+                  </span>
+                  <span class="ql-formats">
+                    <button class="ql-bold"></button>
+                    <button class="ql-italic"></button>
+                  </span>
+                  <span class="ql-formats">
+                    <button class="ql-list" value="ordered"></button>
+                    <button class="ql-list" value="bullet"></button>
+                  </span>
+                  
+                  <span class="ql-formats">
+                    <button class="ql-link"></button>
+                    <button class="ql-clean"></button>
+                  </span>
+                  
+            
+                </template>
+            </Editor>
                
             </div>
             <div class="modal-footer">
@@ -67,6 +85,7 @@
 <script setup>
 import Content from './CommentCard.vue'
 import { ref,onMounted } from 'vue'
+import Editor from 'primevue/editor';
 
 const id = defineProps(['id'])
 let comments = ref([])
@@ -74,6 +93,7 @@ let name = ref('')
 let content = ref('')
 let parent = ref(-1)
 let hidden = ref(true)
+let value = ref('')
 
 function reply(user,id){
     name.value = user

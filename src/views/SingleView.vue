@@ -71,6 +71,8 @@ onMounted(async () => {
         <div  v-html="d.content" class="ql-editor card border-0 " style="margin-bottom:4.5rem">
             
         </div>
+        <h4>Comments</h4>
+        <Comments id="1" />  
         
         
     </div>
@@ -88,7 +90,7 @@ onMounted(async () => {
                                     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                                 </div>
                                 <div class="offcanvas-body small" style="padding: 0;">
-                                    <Comments id="1" />  
+                                   
                                 </div>
 
                                 </div>
