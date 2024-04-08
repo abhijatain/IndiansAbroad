@@ -8,14 +8,27 @@
             <small class="opacity-50 text-nowrap">now</small>
         </div>
     </div>
-    <p class="mb-0 r p-1" v-html="content"></p>
+    <div class="remove-style">
+    <p class="mb-0 r p-1 ql-editor" v-html="content" ></p>
+    </div>
 </template>
 <script setup>
+import { onMounted } from 'vue';
 defineProps({
   name: String,
   time: String,
   content:String
 })
 
+onMounted(()=>{
+    // Select the parent div and all of its child elements
+    var elements = document.querySelectorAll('.remove-style, .remove-style *');
 
+    // Loop through the NodeList and remove the 'style' attribute from each element
+    elements.forEach(function(element) {
+    element.removeAttribute('style');
+    });
+
+})
 </script>
+

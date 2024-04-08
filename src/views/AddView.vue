@@ -3,7 +3,7 @@ import { useTextareaAutosize } from '@vueuse/core'
 import Editor from 'primevue/editor';
 import {ref} from 'vue'
 import Chips from 'primevue/chips';
-
+import Textarea from 'primevue/textarea';
 import MultiSelect from 'primevue/multiselect';
 
 const selectedCities = ref();
@@ -85,12 +85,13 @@ async function handleFileChange() {
    
     <div class="mb-3">
             <h1>
-              <textarea
-                  ref="textarea"
+              <Textarea
                   v-model="title"
                   class=" border-0 arvo-bold p-2"
                   placeholder="Your Post Title"
+                  autoResize
                   
+                  style="width:100%"                  
                 />
             
           </h1>
@@ -121,7 +122,7 @@ async function handleFileChange() {
     
             <div class="mb-3">
              
-            <Editor v-model="value" editorStyle="height: 60vh;" >
+            <Editor v-model="value" editorStyle="height: 60vh" >
                 <template v-slot:toolbar>
                   <span class="ql-formats">
                     <select class="ql-font"></select>
