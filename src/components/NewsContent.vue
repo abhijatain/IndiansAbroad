@@ -21,11 +21,7 @@
                                 <i v-else class="fa-regular fa-heart p-2 fa-lg" @click="like(id)"></i>
                                 <i data-bs-toggle="offcanvas" :data-bs-target="`#${id}`" :aria-controls="id" class="fa-regular fa-comment fa-lg p-2" @click="open = !open"></i>
                                 <div class="offcanvas offcanvas-bottom" tabindex="-1" :id="id" aria-labelledby="offcanvasBottomLabel" style="height: 60vh">
-                                <div class="offcanvas-header">
-                                    <div></div>
-                                    <h5 class="offcanvas-title text-center" id="offcanvasBottomLabel"><strong>Comments</strong></h5>
-                                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                                </div>
+                                
                                 <div class="offcanvas-body small" style="padding: 0;">
                                     <CommentSection :id="id" v-if="open"/>  
                                     

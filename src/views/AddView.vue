@@ -2,6 +2,7 @@
 import { useTextareaAutosize } from '@vueuse/core'
 import Editor from 'primevue/editor';
 import {ref} from 'vue'
+import Chips from 'primevue/chips';
 
 import MultiSelect from 'primevue/multiselect';
 
@@ -17,6 +18,7 @@ const cities = ref([
 const { textarea, input } = useTextareaAutosize()
 let title = ref('')
 let value = ref('Type Your Content here')
+let customTag = ref()
 let fileInput = ref(null)
 
 async function add() {
@@ -95,7 +97,7 @@ async function handleFileChange() {
     </div>
     <div class="mb-5 ">
         
-
+      <label for="chips">Select Tags</label>
         <MultiSelect v-model="selectedCities" :options="cities" filter optionLabel="name" placeholder="Select Countries" display="chip" class=" w-100 md:w-20rem " :maxSelectedLabels="3">
             <template #option="slotProps">
                 <div class="flex align-items-center">
@@ -109,6 +111,12 @@ async function handleFileChange() {
                 </div>
             </template>
         </MultiSelect>
+
+        <div class=" p-fluid mt-2">
+          <label for="chips">Custom Tags</label>
+          <Chips v-model="customTag" />
+          
+      </div>
     </div>
     
             <div class="mb-3">
@@ -141,7 +149,7 @@ async function handleFileChange() {
                     <select class="ql-align"></select>
                   </span>
                   <span class="ql-formats">
-                    <button class="ql-video"></button>
+                    <button class="ql-video"></button> 
                     <button class="ql-link"></button>
                     <button  @click="clicked"> <i class="fa-solid fa-image"></i></button>
                     

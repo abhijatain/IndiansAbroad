@@ -96,10 +96,12 @@ onMounted(async () => {
         <div  v-html="d.content" class="ql-editor card border-0 " style="margin-bottom:2rem">
             
         </div>
-        <div style="padding:10px 8px">
-            <h3 class=" p-1  barlow-semibold">Comments</h3>
+      
+        <div class="card rounded  m-2 shadow">
+          
+          <Comments id="2" class="mt-1"/> 
         </div>
-        <Comments id="2" />  
+         
         
         
     </div>

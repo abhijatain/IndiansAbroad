@@ -1,45 +1,40 @@
 <template>
-    <div class="container">
-        <button class="button bg-success-subtle border-0 rounded p-2"  data-bs-toggle="modal" data-bs-target="#exampleModal">Share Your Thoughts</button>
+    <div class="p-2">
+        <div style="padding:10px 8px" class="d-flex justify-content-between">
+            <h3 class=" p-1  barlow-semibold">Comments</h3>
+            <button class="button bg-success-subtle border-0 rounded p-2 "  data-bs-toggle="modal" data-bs-target="#exampleModal">Add To Discussion</button>
+        </div>
+        
         <ul class="list-group list-group-flush " style="margin-bottom: 2rem;">
-            <li class="list-group-item mt-2 p-1" v-for="(comment,index) in comments" :key="index">
+            <li class="list-group-item mt-2 p-1 shadow-lg" v-for="(comment,index) in comments" :key="index">
                 <div class="">
 				<div>
 					<div class="col d-flex flex-column position-static">
 						<Content :name="comment.username" time="2 days ago" :content="comment.content"/>
 						<div class="d-flex justify-content-between "> 
-                            <div class="ms-3">	
+                            <div class="">	
                                 <button class="border-0 bg-transparent">
                                 <i v-if="true" class="fa-solid fa-heart p-1"  style="color: #ea3e13; "></i>
                                 <i v-else class="fa-regular fa-heart p-1" ></i>
                                 <small class="opacity-75 text-nowrap p-1">100</small>
                                 </button>
-                                <button class="border-0 bg-transparent" @click="get_nested_comments(comment.id)">
+                                <button class="border-0 bg-transparent" @click="get_nested_comments(comment.id)" data-bs-toggle="collapse" :href="`#nested${comment.id}`"  aria-expanded="false" :aria-controls="`nested${comment.id}`">
                                     <i class="fa-regular fa-comment ms-1" ></i>
                                     <small class="opacity-75 text-nowrap p-1">100</small>
                                 </button>
                                
                             </div>
-                            <small class="opacity-75 text-nowrap ms-2" @click="reply(comment.username,comment.id)" data-bs-toggle="modal" data-bs-target="#exampleModal">Reply</small>
+                            <small class="opacity-75 text-nowrap " @click="reply(comment.username,comment.id)" data-bs-toggle="modal" data-bs-target="#exampleModal">Reply</small>
                         </div>
-                        
-                                            
-                                            <!-- Card body START -->
-                                <div class="card-body ms-4 " style="padding:12px" v-for="(c) in comment.replies" :key="c.content">
-                                    
-                                  
-                                        <div >
-                                            <div class="col d-flex flex-column position-static" >
-                                                <Content :name="c.username" time="2 days ago" :content="c.content"/>
-                                                
-                                                <small class=" opacity-75 text-nowrap " @click="reply(c.username,comment.id)" style="margin-left: 50px;" data-bs-toggle="modal" data-bs-target="#exampleModal">Reply</small>
-                                                 
-                                            </div>
-                                      
-                                    </div>			
-                                        
-                          
-                        
+                        <div class="collapse" :id="`nested${comment.id}`">
+                            <div class="card-body ms-2 mt-2 " style="padding:12px" v-for="(c) in comment.replies" :key="c.content">
+                                <div >
+                                    <div class="col d-flex flex-column position-static" >
+                                        <Content :name="c.username" time="2 days ago" :content="c.content"/>
+                                        <small class=" opacity-75 text-nowrap m-0" @click="reply(c.username,comment.id)" data-bs-toggle="modal" data-bs-target="#exampleModal">Reply</small> 
+                                    </div>
+                                </div>			
+                            </div>
                         </div>
 					</div>
 				</div>
