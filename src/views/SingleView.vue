@@ -42,25 +42,12 @@ onMounted(async () => {
     
     <div v-for="d in discusions">
         
-            <img src='https://media.istockphoto.com/id/533297303/photo/lion-mother-with-cub.jpg?s=612x612&w=0&k=20&c=W-8_Yb__gWrDFePNhEOBtVQ8ND6qsNb5X8AB00apkvk=' width="100%">
-            <div>
-                <div class="d-flex align-items-center mb-2 mt-2" style="padding:12px 15px">
-								<!-- Avatar -->
-								<div class="avatar avatar-story me-2">
-									<a href="#!"> <img class="avatar-img rounded-circle"  height="42px"  src="https://randomuser.me/api/portraits/men/86.jpg" alt=""> </a>
-								</div>
-								<!-- Info -->
-								<div>
-									<div class=" " >
-										<h6 class="card-title mb-0 ">Abhijeet Singh </h6>
-										<span class=" text-body-secondary" style="font-size: 12px;">Posted 9 days ago</span>
-									</div>
-									
-								</div>
-							</div>
-                                         
-            </div>
-            <div class="d-flex justify-content-between p-2 align-items-center"> 
+            <img src='https://img.freepik.com/free-photo/wide-angle-shot-single-tree-growing-clouded-sky-during-sunset-surrounded-by-grass_181624-22807.jpg' width="100%" height="300px">
+            <div style="padding:6px 8px">
+            <h1 class="barlow-bold p-1 m-0">{{d.title}}</h1>
+            
+        </div>
+        <div class="d-flex justify-content-between p-2 align-items-center"> 
                             <div>
                                 <i  class="fa-solid fa-heart p-2 fa-lg"  style="color: red;"></i><span> 63</span>
                             </div>
@@ -79,13 +66,29 @@ onMounted(async () => {
                             <i  class="fa-regular fa-bookmark p-2 fa-lg"></i>
                         
                     </div>
+            <div>
+                <div class="d-flex align-items-center mb-1 mt-1" style="padding:8px 12px">
+								<!-- Avatar -->
+								<div class="avatar avatar-story me-2">
+									<a href="#!"> <img class="avatar-img rounded-circle"  height="42px"  src="https://randomuser.me/api/portraits/men/86.jpg" alt=""> </a>
+								</div>
+								<!-- Info -->
+								<div>
+									<div class=" " >
+										<h6 class="card-title mb-0 ">Abhijeet Singh </h6>
+										<span class=" text-body-secondary" style="font-size: 12px;">Posted 9 days ago</span>
+									</div>
+									
+								</div>
+							</div>
+                                         
+            </div>
+            
                   
 
-        <div style="padding:10px 8px">
-            <span class="barlow-bold p-1  ">{{d.title}}</span>
-        </div>
         
-        <div style="padding:0px 15px">
+        
+        <div style="padding:4px 10px">
           <span class="badge bg-success-subtle text-success m-1" >canada</span>
                 <span class="badge bg-warning-subtle text-warning m-1">abroad</span>
                 <span class="badge bg-danger-subtle text-danger m-1">success</span>
@@ -96,8 +99,8 @@ onMounted(async () => {
         <div  v-html="d.content" class="ql-editor card border-0 " style="margin-bottom:2rem">
             
         </div>
-      
-        <div class="card rounded  m-2 shadow">
+      <hr>
+        <div class="m-2 border-0">
           
           <Comments id="2" class="mt-1"/> 
         </div>
@@ -176,7 +179,7 @@ onMounted(async () => {
   font-family: "Barlow", sans-serif;
   font-weight: 700;
   font-style: normal;
-  font-size: 36px;
+  font-size: 32px;
 }
 
 .barlow-extrabold {

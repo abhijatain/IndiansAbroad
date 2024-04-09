@@ -6,12 +6,12 @@
         </div>
         
         <ul class="list-group list-group-flush " style="margin-bottom: 2rem;">
-            <li class="list-group-item mt-2 p-1 shadow-lg" v-for="(comment,index) in comments" :key="index">
+            <li class="list-group-item mt-2 p-1 " v-for="(comment,index) in comments" :key="index">
                 <div class="">
 				<div>
 					<div class="col d-flex flex-column position-static">
 						<Content :name="comment.username" time="2 days ago" :content="comment.content"/>
-						<div class="d-flex justify-content-between "> 
+						<div class="d-flex justify-content-between ms-5"> 
                             <div class="">	
                                 <button class="border-0 bg-transparent">
                                 <i v-if="true" class="fa-solid fa-heart p-1"  style="color: #ea3e13; "></i>
@@ -29,9 +29,21 @@
                         <div class="collapse" :id="`nested${comment.id}`">
                             <div class="card-body ms-2 mt-2 " style="padding:12px" v-for="(c) in comment.replies" :key="c.content">
                                 <div >
-                                    <div class="col d-flex flex-column position-static" >
+                                    <div class="col d-flex flex-column position-static " >
                                         <Content :name="c.username" time="2 days ago" :content="c.content"/>
-                                        <small class=" opacity-75 text-nowrap m-0" @click="reply(c.username,comment.id)" data-bs-toggle="modal" data-bs-target="#exampleModal">Reply</small> 
+                                        <div class="d-flex justify-content-between ms-5"> 
+                            <div class="">	
+                                <button class="border-0 bg-transparent">
+                                <i v-if="true" class="fa-solid fa-heart p-1"  style="color: #ea3e13; "></i>
+                                <i v-else class="fa-regular fa-heart p-1" ></i>
+                                <small class="opacity-75 text-nowrap p-1">100</small>
+                                </button>
+                               
+                               
+                            </div>
+                            <small class="opacity-75 text-nowrap " @click="reply(comment.username,comment.id)" data-bs-toggle="modal" data-bs-target="#exampleModal">Reply</small>
+                        </div>
+
                                     </div>
                                 </div>			
                             </div>
