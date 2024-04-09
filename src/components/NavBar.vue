@@ -13,13 +13,17 @@ const isDark = usePreferredDark()
 onMounted(() => {
   const mode = localStorage.getItem('mode')
   if (mode){
+    console.log(mode)
     if (mode == 'dark'){
-      document.getElementById("checkbox").click()
+      //document.getElementById("checkbox").click()
+      console.log(2)
     }
   }else{
     if(isDark) {
+      console.log(3)
       document.getElementById("checkbox").click()
     }else{
+      console.log(4)
       localStorage.setItem('mode','light')
     }
   }
@@ -33,7 +37,7 @@ function lightTheme() {
     bodyTag.dataset.bsTheme = 'light'
 }
 function darkTheme() {  
-  localStorage.setItem('mode','dark')
+    localStorage.setItem('mode','dark')
     let bodyTag = document.querySelector('body');
     bodyTag.dataset.bsTheme = 'dark'
 }

@@ -28,12 +28,58 @@ onMounted(async () => {
         const data = await res.json()
         if (res.ok) {
             discusions.value.push(...data)
+            console.log(discusions)
             
         }
   }
     
 })
 
+async function like(id) {
+  if (discusions.value[0].has_liked) {
+    discusions.value[0].has_liked = false
+    discusions.value[0].likes_count -=1
+   }else{
+    discusions.value[0].has_liked = true
+    discusions.value[0].likes_count +=1
+   }
+  if (store.state.discusions.filter(art => art.id == id).length >0) {
+    if (store.state.discusions.filter(art => art.id == id)[0].has_liked) {
+    store.state.discusions.filter(art => art.id == id)[0].has_liked = false
+    store.state.discusions.filter(art => art.id == id)[0].likes_count -=1
+   }else{
+    store.state.discusions.filter(art => art.id == id)[0].has_liked = true
+    store.state.discusions.filter(art => art.id == id)[0].likes_count +=1
+   }
+  }
+   
+    
+    await store.dispatch('likeDiscusion',id).then(() => {
+        //articles.filter(art => art.id == id)[0].has_liked = !articles.filter(art => art.id == id)[0].has_liked
+    })
+    
+}
+
+async function save(id) {
+    store.state.discusions.filter(art => art.id == id)[0].has_saved = !store.state.discusions.filter(art => art.id == id)[0].has_saved
+    await store.dispatch('saveDiscusion',id).then(() => {
+        //articles.filter(art => art.id == id)[0].has_saved = !articles.filter(art => art.id == id)[0].has_saved
+    })
+}
+
+function share() {
+    if(navigator.share) {
+        navigator.share({
+        text: title,
+        url : `https://abhijatain.github.io/Indians/article/${id}`,
+        title : 'Bharat Guild'
+    })
+    }else{
+        navigator.clipboard.writeText(`https://abhijatain.github.io/Indians/article/${id}`)
+        alert("Link Copied")
+    }
+    
+}
 </script>
 
 <template>
@@ -42,30 +88,39 @@ onMounted(async () => {
     
     <div v-for="d in discusions">
         
-            <img src='https://img.freepik.com/free-photo/wide-angle-shot-single-tree-growing-clouded-sky-during-sunset-surrounded-by-grass_181624-22807.jpg' width="100%" height="300px">
+      <img src='https://img.freepik.com/free-photo/wide-angle-shot-single-tree-growing-clouded-sky-during-sunset-surrounded-by-grass_181624-22807.jpg' width="100%" height="300px">
             <div style="padding:6px 8px">
-            <h1 class="barlow-bold p-1 m-0">{{d.title}}</h1>
+            <h1 class="lora-font p-1 m-0"><strong>{{d.title}}</strong></h1>
             
         </div>
         <div class="d-flex justify-content-between p-2 align-items-center"> 
                             <div>
-                                <i  class="fa-solid fa-heart p-2 fa-lg"  style="color: red;"></i><span> 63</span>
+                              <div v-if="d.has_liked" >
+                                <i  class="fa-solid fa-heart p-2 fa-lg" @click="like(d.id)" style="color: red;"></i><span> {{d.likes_count}}</span>
+                              </div>
+                              <div v-else >
+                                <i  class="fa-regular fa-heart p-2 fa-lg" @click="like(d.id)" ></i><span> {{d.likes_count}}</span>
+                              </div>
+                                
+                                
                             </div>
                             <div>
                                 <i class="fa-regular fa-comment fa-lg p-2"></i>
-                                <span> 23</span>
+                                <span>{{d.comments_count}}</span>
                                 
                             </div>
                            
                             <div>
                                 <i class="fa-solid fa-share p-2 fa-lg"></i>
-                                <span> 30</span>
+                                
                             </div>
                             
                         
                             <i  class="fa-regular fa-bookmark p-2 fa-lg"></i>
                         
                     </div>
+        
+          
             <div>
                 <div class="d-flex align-items-center mb-1 mt-1" style="padding:8px 12px">
 								<!-- Avatar -->
@@ -75,8 +130,8 @@ onMounted(async () => {
 								<!-- Info -->
 								<div>
 									<div class=" " >
-										<h6 class="card-title mb-0 ">Abhijeet Singh </h6>
-										<span class=" text-body-secondary" style="font-size: 12px;">Posted 9 days ago</span>
+										<h6 class="card-title mb-0 lora-regular">Abhijeet Singh </h6>
+										<span class=" text-body-secondary lora-regular" style="font-size: 12px;">Posted 9 days ago</span>
 									</div>
 									
 								</div>
@@ -86,9 +141,7 @@ onMounted(async () => {
             
                   
 
-        
-        
-        <div style="padding:4px 10px">
+            <div style="padding:4px 10px">
           <span class="badge bg-success-subtle text-success m-1" >canada</span>
                 <span class="badge bg-warning-subtle text-warning m-1">abroad</span>
                 <span class="badge bg-danger-subtle text-danger m-1">success</span>
@@ -96,7 +149,9 @@ onMounted(async () => {
 								
 							
         </div>
-        <div  v-html="d.content" class="ql-editor card border-0 " style="margin-bottom:2rem">
+         
+
+        <div  v-html="d.content" class="ql-editor card border-0 lora-regular" style="margin-bottom:2rem">
             
         </div>
       <hr>
@@ -115,136 +170,18 @@ onMounted(async () => {
 <style scoped>
 
 
-.arvo-regular {
-  font-family: "Arvo", serif;
-  font-weight: 550;
-  font-style: normal;
-}
-
-.arvo-bold {
-  font-family: "Arvo", serif;
-  font-weight: 700;
-  font-style: normal;
-}
-
-.arvo-regular-italic {
-  font-family: "Arvo", serif;
-  font-weight: 400;
-  font-style: italic;
-}
-
-.arvo-bold-italic {
-  font-family: "Arvo", serif;
-  font-weight: 700;
-  font-style: italic;
-}
-
-.barlow-thin {
-  font-family: "Barlow", sans-serif;
-  font-weight: 100;
-  font-style: normal;
-}
-
-.barlow-extralight {
-  font-family: "Barlow", sans-serif;
-  font-weight: 200;
-  font-style: normal;
-}
-
-.barlow-light {
-  font-family: "Barlow", sans-serif;
-  font-weight: 300;
-  font-style: normal;
-}
-
-.barlow-regular {
-  font-family: "Barlow", sans-serif;
-  font-weight: 400;
-  font-style: normal;
-}
-
-.barlow-medium {
-  font-family: "Barlow", sans-serif;
-  font-weight: 500;
-  font-style: normal;
-}
-
-.barlow-semibold {
-  font-family: "Barlow", sans-serif;
-  font-weight: 600;
-  font-style: normal;
-}
-
-.barlow-bold {
-  font-family: "Barlow", sans-serif;
+.lora-font {
+  font-family: "Lora", serif;
+  font-optical-sizing: auto;
   font-weight: 700;
   font-style: normal;
   font-size: 32px;
 }
 
-.barlow-extrabold {
-  font-family: "Barlow", sans-serif;
-  font-weight: 800;
-  font-style: normal;
-}
-
-.barlow-black {
-  font-family: "Barlow", sans-serif;
-  font-weight: 900;
-  font-style: normal;
-}
-
-.barlow-thin-italic {
-  font-family: "Barlow", sans-serif;
-  font-weight: 100;
-  font-style: italic;
-}
-
-.barlow-extralight-italic {
-  font-family: "Barlow", sans-serif;
-  font-weight: 200;
-  font-style: italic;
-}
-
-.barlow-light-italic {
-  font-family: "Barlow", sans-serif;
-  font-weight: 300;
-  font-style: italic;
-}
-
-.barlow-regular-italic {
-  font-family: "Barlow", sans-serif;
+.lora-regular {
+  font-family: "Lora", serif;
+  font-optical-sizing: auto;
   font-weight: 400;
-  font-style: italic;
-}
-
-.barlow-medium-italic {
-  font-family: "Barlow", sans-serif;
-  font-weight: 500;
-  font-style: italic;
-}
-
-.barlow-semibold-italic {
-  font-family: "Barlow", sans-serif;
-  font-weight: 600;
-  font-style: italic;
-}
-
-.barlow-bold-italic {
-  font-family: "Barlow", sans-serif;
-  font-weight: 700;
-  font-style: italic;
-}
-
-.barlow-extrabold-italic {
-  font-family: "Barlow", sans-serif;
-  font-weight: 800;
-  font-style: italic;
-}
-
-.barlow-black-italic {
-  font-family: "Barlow", sans-serif;
-  font-weight: 900;
-  font-style: italic;
+  font-style: normal;
 }
 </style>

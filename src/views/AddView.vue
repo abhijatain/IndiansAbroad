@@ -5,6 +5,7 @@ import {ref} from 'vue'
 import Chips from 'primevue/chips';
 import Textarea from 'primevue/textarea';
 import MultiSelect from 'primevue/multiselect';
+import Tiptap from '../components/TipTap.vue'
 
 const selectedCities = ref();
 const cities = ref([
@@ -121,8 +122,9 @@ async function handleFileChange() {
     </div>
     
             <div class="mb-3">
-             
-            <Editor v-model="value" editorStyle="height: 60vh" >
+              <Tiptap/>
+             <!--
+              <Editor v-model="value" editorStyle="height: 60vh" >
                 <template v-slot:toolbar>
                   <span class="ql-formats">
                     <select class="ql-font"></select>
@@ -152,7 +154,7 @@ async function handleFileChange() {
                   <span class="ql-formats">
                     <button class="ql-video"></button> 
                     <button class="ql-link"></button>
-                    <button  @click="clicked"> <i class="fa-solid fa-image"></i></button>
+                    <button  @click="clicked"> <i class="fa-solid fa-image" style="color: black;"></i></button>
                     
                   </span>
                   <span class="ql-formats">
@@ -163,6 +165,8 @@ async function handleFileChange() {
                 </template>
             </Editor>
             <input ref="fileInput"  type="file" id="formFile" accept="image/*" hidden @change="handleFileChange">
+             -->
+            
             </div>
            
               

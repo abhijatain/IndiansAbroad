@@ -24,12 +24,12 @@
               </li>
             </ul>
 			
-			<div class="d-flex flex-row justify-content-between align-items-end">
-				<div class="p-2">
-					<span class="badge bg-success-subtle text-success m-1" >canada</span>
-                <span class="badge bg-warning-subtle text-warning m-1">abroad</span>
-                <span class="badge bg-danger-subtle text-danger m-1">success</span>
-                <span class="badge bg-primary-subtle text-primary m-1">religion</span>
+			<div class="d-flex flex-row justify-content-between align-items-center">
+				<div class="p-1">
+					<span class="badge bg-success-subtle text-success me-1" >canada</span>
+                <span class="badge bg-warning-subtle text-warning me-1">abroad</span>
+                <span class="badge bg-danger-subtle text-danger me-1">success</span>
+                <span class="badge bg-primary-subtle text-primary ">religion</span>
 								
 							</div>
 			
@@ -51,9 +51,9 @@
                 <small class="p-1">Abhijeet Singh</small>
                 <small class="p-1">3d</small>
                 <router-link :to="`/discusion/${d.id}/${d.title}`" >
-                <h5 class="mt-3 display-7 lh-1 fw-bold p-1" >{{ d.title }}</h5>		
+                <h5 class="mt-3 display-7 lh-1 fw-bold p-1 ms-4" >{{ d.title }}</h5>		
                 </router-link>
-                <div class="p-2">
+                <div class="p-2 ms-4">
                   <span class="badge bg-success-subtle text-success m-1" >canada</span>
                   <span class="badge bg-warning-subtle text-warning m-1">abroad</span>
                   <span class="badge bg-danger-subtle text-danger m-1">success</span>

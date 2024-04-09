@@ -17,13 +17,7 @@ export default createStore({
     },
     add_discusions(state,data) {
       state.discusions = data
-    },
-    like_discusion(state,id) {
-      state.discusions.filter(art => art.id == id)[0].has_liked = !state.discusions.filter(art => art.id == id)[0].has_liked
-    },
-    save_discusion(state,id) {
-      state.discusions.filter(art => art.id == id)[0].has_saved = !state.discusions.filter(art => art.id == id)[0].has_saved
-    },
+    }
   },
   actions: {
 
@@ -108,7 +102,7 @@ export default createStore({
                         "id" : id
                 }),
             })
-      commit('like_discusion',id)
+      
     },
 
     async saveDiscusion({ commit,state },id) {
@@ -124,7 +118,6 @@ export default createStore({
                         "id" : id
                 }),
             })
-      commit('save_discusion',id)
     },
     
   },

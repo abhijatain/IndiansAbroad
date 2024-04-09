@@ -4,16 +4,14 @@
                         
                             
         <div class=" " >
-										<h6 class="card-title mb-0 ">Abhijeet Singh </h6>
-										<span class=" text-body-secondary" style="font-size: 12px;">Posted 9 days ago</span>
-									
-            <div class="remove-style">
-    <p class="mb-0 r p-1 ql-editor" v-html="content" ></p>
-    </div>
+				<h6 class="card-title mb-0 lora-regular">Abhijeet Singh </h6>
+				<span class=" text-body-secondary lora-regular" style="font-size: 12px;">Posted 9 days ago</span>
         </div>
         
     </div>
-    
+    <div class="remove-style">
+    <p class="mb-0 r p-1 ql-editor" v-html="content" ></p>
+    </div>
 </template>
 <script setup>
 import { onMounted } from 'vue';

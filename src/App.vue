@@ -34,7 +34,7 @@ watch(route,(to,from) => {
   <div v-if="width>849" class="d-flex justify-content-center m-auto">
     <NavBody style="margin-top: 6rem;width:250px" :key='has_changed' />
     
-    <RouterView :key='has_changed_route' style="width:650px;" />
+    <RouterView :key='has_changed_route' style="width:650px" />
     <Suggestions style="margin-top: 6rem" />
    
   </div>

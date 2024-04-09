@@ -1,40 +1,49 @@
 <template>
-    <div class="p-2">
+    <div class="p-0">
+        <h4 class="text-center ">Comments</h4>
         <div style="padding:10px 8px" class="d-flex justify-content-between">
-            <h3 class=" p-1  barlow-semibold">Comments</h3>
+            <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+            <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked>
+            <label class="btn btn-outline-secondary" for="btnradio1">Latest</label>
+
+            <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
+            <label class="btn btn-outline-secondary" for="btnradio2">Popular</label>
+        </div>
             <button class="button bg-success-subtle border-0 rounded p-2 "  data-bs-toggle="modal" data-bs-target="#exampleModal">Add To Discussion</button>
         </div>
         
         <ul class="list-group list-group-flush " style="margin-bottom: 2rem;">
-            <li class="list-group-item mt-2 p-1 " v-for="(comment,index) in comments" :key="index">
+            <li class="list-group-item mt-2 p-2 border rounded shadow" v-for="(comment,index) in comments" :key="index">
                 <div class="">
 				<div>
 					<div class="col d-flex flex-column position-static">
 						<Content :name="comment.username" time="2 days ago" :content="comment.content"/>
-						<div class="d-flex justify-content-between ms-5"> 
+						<div class="d-flex justify-content-between "> 
                             <div class="">	
                                 <button class="border-0 bg-transparent">
-                                <i v-if="true" class="fa-solid fa-heart p-1"  style="color: #ea3e13; "></i>
+                                    <i v-if="true" class="fa-solid fa-thumbs-up p-1"></i>
+                                
                                 <i v-else class="fa-regular fa-heart p-1" ></i>
                                 <small class="opacity-75 text-nowrap p-1">100</small>
                                 </button>
                                 <button class="border-0 bg-transparent" @click="get_nested_comments(comment.id)" data-bs-toggle="collapse" :href="`#nested${comment.id}`"  aria-expanded="false" :aria-controls="`nested${comment.id}`">
-                                    <i class="fa-regular fa-comment ms-1" ></i>
-                                    <small class="opacity-75 text-nowrap p-1">100</small>
+                                   
+                                    <small class="opacity-75 text-nowrap p-1">View Replies</small>
                                 </button>
                                
                             </div>
                             <small class="opacity-75 text-nowrap " @click="reply(comment.username,comment.id)" data-bs-toggle="modal" data-bs-target="#exampleModal">Reply</small>
                         </div>
                         <div class="collapse" :id="`nested${comment.id}`">
-                            <div class="card-body ms-2 mt-2 " style="padding:12px" v-for="(c) in comment.replies" :key="c.content">
+                            <div class="card-body ms-4 mt-2 border-start p-2  rounded"  v-for="(c) in comment.replies" :key="c.content">
                                 <div >
+                                    
                                     <div class="col d-flex flex-column position-static " >
                                         <Content :name="c.username" time="2 days ago" :content="c.content"/>
-                                        <div class="d-flex justify-content-between ms-5"> 
+                                        <div class="d-flex justify-content-between "> 
                             <div class="">	
                                 <button class="border-0 bg-transparent">
-                                <i v-if="true" class="fa-solid fa-heart p-1"  style="color: #ea3e13; "></i>
+                                    <i v-if="true" class="fa-solid fa-thumbs-up p-1"></i>
                                 <i v-else class="fa-regular fa-heart p-1" ></i>
                                 <small class="opacity-75 text-nowrap p-1">100</small>
                                 </button>
@@ -202,3 +211,8 @@ async function get_nested_comments(parent2) {
     }
 </script>
 
+<style scoped>
+.shadow-comment {
+  box-shadow: 0 0 12px rgba(145, 69, 18, 0.412); /* Example: Blue shadow with 50% opacity */
+}
+</style>
