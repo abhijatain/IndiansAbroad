@@ -6,6 +6,7 @@ import Chips from 'primevue/chips';
 import Textarea from 'primevue/textarea';
 import MultiSelect from 'primevue/multiselect';
 import Tiptap from '../components/TipTap.vue'
+import Tiptap2 from '../components/TipTap2.vue'
 
 const selectedCities = ref();
 const cities = ref([
@@ -123,6 +124,7 @@ async function handleFileChange() {
     
             <div class="mb-3">
               <Tiptap/>
+              
              <!--
               <Editor v-model="value" editorStyle="height: 60vh" >
                 <template v-slot:toolbar>

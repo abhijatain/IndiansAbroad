@@ -72,6 +72,8 @@
                         <span class="ms-1">Replying to {{ name }}</span>
                         <span class="btn-close p-2"   @click="hidden=true;name='';parent=-1"></span>
                 </div>
+                <Tiptap/>
+                <!--
                 <Editor v-model="content" editorStyle="height: 25vh;" >
                 <template v-slot:toolbar>
                   <span class="ql-formats">
@@ -95,7 +97,7 @@
                   
             
                 </template>
-            </Editor>
+            </Editor>-->
                
             </div>
             <div class="modal-footer">
@@ -113,6 +115,7 @@
 import Content from './CommentCard.vue'
 import { ref,onMounted } from 'vue'
 import Editor from 'primevue/editor';
+import Tiptap from'../components/TipTap.vue'
 
 const id = defineProps(['id'])
 let comments = ref([])
