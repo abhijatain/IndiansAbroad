@@ -114,7 +114,7 @@
 <script setup>
 import Content from './CommentCard.vue'
 import { ref,onMounted } from 'vue'
-import Editor from 'primevue/editor';
+
 import Tiptap from'../components/TipTap.vue'
 
 const id = defineProps(['id'])

@@ -1,12 +1,11 @@
 <script setup>
-import { useTextareaAutosize } from '@vueuse/core'
-import Editor from 'primevue/editor';
+//import { useTextareaAutosize } from '@vueuse/core'
 import {ref} from 'vue'
-import Chips from 'primevue/chips';
-import Textarea from 'primevue/textarea';
-import MultiSelect from 'primevue/multiselect';
+//import Chips from 'primevue/chips';
+//import Textarea from 'primevue/textarea';
+//import MultiSelect from 'primevue/multiselect';
 import Tiptap from '../components/TipTap.vue'
-import Tiptap2 from '../components/TipTap2.vue'
+
 
 const selectedCities = ref();
 const cities = ref([
@@ -17,9 +16,9 @@ const cities = ref([
     { name: 'Paris', code: 'PRS' }
 ]);
 
-const { textarea, input } = useTextareaAutosize()
+
 let title = ref('')
-let value = ref('Type Your Content here')
+let value = ref('<p>Type Your Content here</p>')
 let customTag = ref()
 let fileInput = ref(null)
 
@@ -39,35 +38,6 @@ async function add() {
                 const data = await res.json()
 }
 
-function clicked() {
-  document.getElementById("formFile").click()
-  //value.value += `<img src="https://cdn.statcdn.com/Infographic/images/normal/30803.jpeg" >`
-}
-
-async function handleFileChange() {
-  let data = value.value
-  value.value += `<br><h2>Uploading...., Wait for image to show and then type</h2>`
-  let formData = new FormData();
-  formData.append('image',fileInput.value.files[0]);
-  const file = fileInput.value.files[0];
-  
-  if (file) {
-    const res = await fetch(`https://test-am3oxfhvvq-em.a.run.app/upload/image`, {
-                    method: "POST",
-                    Allow: ['GET', 'POST'],
-                    headers : {
-                        "Authentication-Token" : localStorage.getItem('auth-token'),
-                        //'Content-Type': 'application/json'
-                    },
-                    body : formData
-                })
-    const data = await res.json()
-    if ( res.ok){
-      value.value = data.value
-      value.value += `<img src=${data.url} referrerpolicy="no-referrer">`
-    }
-      }
-}
 
 </script>
 
@@ -78,16 +48,12 @@ async function handleFileChange() {
 
   
   <div class="container" style="margin-top: 6rem;" >
-    <div class="mb-3">
-        <button type="button" class="btn btn-primary m-1" @click="add">Publish</button>
-        <button type="button" class="btn btn-secondary m-1" >Preview</button>
-        <button type="button" class="btn btn-secondary m-1" @click="add">Edit</button>
-    </div>
+    
     
    
-    <div class="mb-3">
+    <div class="">
             <h1>
-              <Textarea
+              <textarea
                   v-model="title"
                   class=" border-0 arvo-bold p-2"
                   placeholder="Your Post Title"
@@ -98,8 +64,9 @@ async function handleFileChange() {
             
           </h1>
     </div>
-    <div class="mb-5 ">
-        
+     
+    <div class=" ">
+       <!-- 
       <label for="chips">Select Tags</label>
         <MultiSelect v-model="selectedCities" :options="cities" filter optionLabel="name" placeholder="Select Countries" display="chip" class=" w-100 md:w-20rem " :maxSelectedLabels="3">
             <template #option="slotProps">
@@ -120,10 +87,17 @@ async function handleFileChange() {
           <Chips v-model="customTag" />
           
       </div>
+    -->
     </div>
     
-            <div class="mb-3">
-              <Tiptap/>
+            <div class="mb-2">
+              
+              <Tiptap v-model="value"  />
+              <div class="content">
+      <h3>Content</h3>
+      <p>{{ value }}</p>
+    </div>
+   
               
              <!--
               <Editor v-model="value" editorStyle="height: 60vh" >
@@ -170,8 +144,13 @@ async function handleFileChange() {
              -->
             
             </div>
+          
            
-              
+    <div class="mb-3 ">
+        <button type="button" class="btn btn-primary m-1" @click="add">Publish</button>
+        <button type="button" class="btn btn-secondary m-1" >Preview</button>
+        <button type="button" class="btn btn-secondary m-1" @click="add">Edit</button>
+    </div>
                 
               
             

@@ -1,5 +1,4 @@
 <script setup>
-import AddDiscusion from '../components/AddDiscusion.vue'
 import {ref , onMounted} from 'vue'
 import Loader from '../components/LoadingCard.vue'
 import Carousel from '../components/CarouselCard.vue'

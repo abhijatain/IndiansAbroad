@@ -1,19 +1,29 @@
 <template>
-    
-                <div class="card  mb-3 shadow-lg" style="max-width: 95%;">
-                  
-                    <div class="card-header ">
-                        <strong class="p-1 bg-info-subtle rounded-4 ">{{category}}</strong>
-                    </div>
-                    
-                    <img v-if="category == 'stats'" :src="image" class="card-img">
-                    <iframe v-else style="height: 30vh"  class="embed-responsive-item" :src="image" allowfullscreen></iframe>
-                    
-
-                    <div class="card-body">
-                        <h3 class="barlow-semibold">{{title}}</h3>
-                        <p class="card-text barlow-regular">{{content}} <router-link :to="`article/${id}/${title}`" >Read More</router-link>
-                        </p><br>
+        <div class="card border rounded-3  p-4 mb-4">
+					<div class="">
+						<div class="">
+							<!-- Categories -->
+							<div style="padding:4px 0px">
+                            <span class="badge bg-success-subtle text-success m-1" >{{category}}</span>
+               
+							</div>
+							<!-- Title -->
+							<h2 class="card-title mb-3">
+								<p  class=" text-reset ">{{title}}</p>
+							</h2>
+							<!-- Author info -->
+							
+						</div>
+						<!-- Detail -->
+						<div class="">
+							<p>{{content}} </p>
+						</div>
+						<!-- Image -->
+						<div class="card border-0">
+                            <img class="rounded-3" v-if="category == 'stats'" :src="image" >
+                            <iframe v-else height="312"  class="embed-responsive-item rounded-3" :src="image" allowfullscreen></iframe>
+						</div>
+                        <br>
                         <div class="d-flex justify-content-between"> 
                             <div>
                                 
@@ -38,14 +48,10 @@
                                 <i v-else class="fa-regular fa-bookmark p-2 fa-lg" @click="save(id)"></i>
                             </div>
                         </div>
-                    </div>
-                </div>
+					</div>
+				</div>
+    
                 
-          
-                
-       
-        
-  
 </template>
       
 <script setup>
@@ -104,3 +110,9 @@ function share() {
 
 
 </script>
+
+<style scoped>
+.news{
+    max-width: 200px;
+}
+</style>

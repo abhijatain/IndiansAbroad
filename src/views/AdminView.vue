@@ -37,7 +37,12 @@
         </div>
         <div class="mb-3">
         <label for="exampleFormControlInput1" class="form-label">Category</label>
-        <Listbox v-model="id" :options="categories" filter optionLabel="name" :virtualScrollerOptions="{ itemSize: 38 }" class="w-full md:w-14rem" listStyle="height:150px" />
+        <select class="form-select" v-model="id">
+            <option selected>Open this select menu</option>
+            <option :value="cat.id" v-for="(cat,index) in categories" :key="index">{{cat.name}}</option>
+   
+        </select>
+
         </div>
         <div class="spinner-border" role="status" v-if="!done3">
             <span class="visually-hidden">Loading...</span>
@@ -48,7 +53,7 @@
 
 <script setup>
 import { ref, onMounted } from 'vue'
-import Listbox from 'primevue/listbox';
+
 
 let done1 = ref(true)
 let done2 = ref(true)
