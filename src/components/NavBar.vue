@@ -13,10 +13,8 @@ const isDark = usePreferredDark()
 onMounted(() => {
   const mode = localStorage.getItem('mode')
   if (mode){
-    console.log(mode)
     if (mode == 'dark'){
-      //document.getElementById("checkbox").click()
-      console.log(2)
+      document.getElementById("checkbox").click()
     }
   }else{
     if(isDark) {

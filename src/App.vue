@@ -16,8 +16,7 @@ let has_changed = ref(true)
 let has_changed_route = ref(0)
 
 onMounted(async() => {
-  if (store.state.isDataLoaded == false){
-    //await store.dispatch('getArticles')
+  if (store.state.isDiscusionLoaded == false){
     await store.dispatch('getDiscusions')
   }
   
@@ -32,10 +31,10 @@ watch(route,(to,from) => {
 <template  >
   <Navbar :key='has_changed' />
   <div v-if="width>849" class="d-flex justify-content-center m-auto">
-    <NavBody style="margin-top: 6rem;width:250px" :key='has_changed' />
+    <NavBody style="margin-top: 6rem;width:250px;overflow: auto;height:100vh;margin-right: .75rem;" :key='has_changed' />
     
-    <RouterView :key='has_changed_route' style="width:650px" />
-    <Suggestions style="margin-top: 6rem" />
+    <RouterView :key='has_changed_route' style="width:650px;overflow: auto;height:100vh" />
+    <Suggestions style="margin-top: 6rem;overflow: auto;height:100vh" />
    
   </div>
   <RouterView :key='has_changed_route' v-else/>

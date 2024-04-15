@@ -1,5 +1,11 @@
 <template>
     <div class="container mt-5 p-5" >
+        <h1>Countries</h1>
+        <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Name</label>
+        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com" v-model="country">
+        </div>
+        <button @click="add_country" class="mb-5">Add</button>
         <div class="spinner-border" role="status" v-if="!done1">
             <span class="visually-hidden">Loading...</span>
         </div>
@@ -36,18 +42,27 @@
         <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com" v-model="source">
         </div>
         <div class="mb-3">
-        <label for="exampleFormControlInput1" class="form-label">Category</label>
-        <select class="form-select" v-model="id">
-            <option selected>Open this select menu</option>
-            <option :value="cat.id" v-for="(cat,index) in categories" :key="index">{{cat.name}}</option>
+        <label for="exampleFormControlInput1" class="form-label">Country</label>
+        <select class="form-select" v-model="country_id">
+            <option :value="cat1.id" v-for="(cat1,index) in countries" :key="index">{{cat1.name}}</option>
    
         </select>
 
         </div>
+        <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Category</label>
+        <select class="form-select" v-model="id">
+            <option :value="cat.id" v-for="(cat,index) in categories" :key="index">{{cat.name}}</option>
+   
+        </select>
         <div class="spinner-border" role="status" v-if="!done3">
             <span class="visually-hidden">Loading...</span>
         </div>
         <button @click="add_article" >Add</button>
+        </div>
+        
+        
+        
     </div>
 </template>
 
@@ -60,13 +75,16 @@ let done2 = ref(true)
 let done3 = ref(true)
 
 let categories = ref([])
+let countries = ref([])
 let tag = ref(null)
+let country = ref(null)
 let category = ref(null)
 let title = ref(null)
 let summary = ref(null)
 let youtube = ref(null)
 let source = ref(null)
 let id = ref(null)
+let country_id = ref(null)
 
 onMounted(async() => {
     const res = await fetch(`https://test-am3oxfhvvq-em.a.run.app/api/category`, {
@@ -81,10 +99,26 @@ onMounted(async() => {
     if (res.ok){
         categories.value.push(...data)
     }
+    const res2 = await fetch(`https://test-am3oxfhvvq-em.a.run.app/countries`, {
+                    method: "GET",
+                    Allow: ['GET', 'POST'],
+                    headers : {
+                        "Authentication-Token" : localStorage.getItem('auth-token'),
+                        'Content-Type': 'application/json'
+                    }
+                })
+                const data1 = await res2.json()
+    if (res2.ok){
+        countries.value.push(...data1)
+    }
 })
 
+function isImageLink(url) {
+    return /\.(jpeg|jpg|gif|png)$/.test(url)
+}
+
 async function add_article() {
-    if (id.value != 1) {
+    if (!isImageLink(youtube.value)) {
         function convertYouTubeLinkToEmbed(link) {
             const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
             const match = link.match(regExp);
@@ -110,7 +144,8 @@ async function add_article() {
                         "summary" : summary.value,
                         "youtube" : youtube.value,
                         "source" : source.value,
-                        "category_id" : id.value
+                        "category_id" : id.value,
+                        "country_id" : country_id.value
                       }),
                 })
 const data = await res.json()
@@ -167,6 +202,25 @@ async function add_tag() {
         done1.value = true
         alert(data.message)
         
+    }
+    
+}
+
+async function add_country() {
+        const res = await fetch(`https://test-am3oxfhvvq-em.a.run.app/create/country`, {
+                    method: "POST",
+                    Allow: ['GET', 'POST'],
+                    headers : {
+                        "Authentication-Token" : localStorage.getItem('auth-token'),
+                        'Content-Type': 'application/json'
+                    },
+                    body : JSON.stringify({
+                        "name" : country.value
+                      }),
+                })
+                const data = await res.json()
+    if (res.ok){
+        alert(data.message)    
     }
     
 }

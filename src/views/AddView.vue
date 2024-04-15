@@ -93,10 +93,7 @@ async function add() {
             <div class="mb-2">
               
               <Tiptap v-model="value"  />
-              <div class="content">
-      <h3>Content</h3>
-      <p>{{ value }}</p>
-    </div>
+          
    
               
              <!--

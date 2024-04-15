@@ -5,24 +5,25 @@
 							<!-- Categories -->
 							<div style="padding:4px 0px">
                             <span class="badge bg-success-subtle text-success m-1" >{{category}}</span>
-               
+                            <span class="badge bg-danger-subtle text-danger m-1" >{{country}}</span>
 							</div>
+                            <div class="card border-0 mb-3">
+                            <img class="rounded-3" v-if="isImageLink(image)" :src="image" >
+                            <iframe v-else height="250"  class="embed-responsive-item rounded-3" :src="image" allowfullscreen loading="lazy"></iframe>
+						</div>
 							<!-- Title -->
 							<h2 class="card-title mb-3">
-								<p  class=" text-reset ">{{title}}</p>
+								<p  class="montserrat-title text-reset ">{{title}}</p>
 							</h2>
 							<!-- Author info -->
 							
 						</div>
 						<!-- Detail -->
-						<div class="">
+						<div class="montserrat-summary">
 							<p>{{content}} </p>
 						</div>
 						<!-- Image -->
-						<div class="card border-0">
-                            <img class="rounded-3" v-if="category == 'stats'" :src="image" >
-                            <iframe v-else height="312"  class="embed-responsive-item rounded-3" :src="image" allowfullscreen></iframe>
-						</div>
+						
                         <br>
                         <div class="d-flex justify-content-between"> 
                             <div>
@@ -68,6 +69,7 @@ defineProps({
   content:String,
   source:String,
   category:String,
+  country:String,
   id:Number,
   has_liked:Boolean,
   has_saved:Boolean
@@ -108,11 +110,25 @@ function share() {
     
 }
 
-
+function isImageLink(url) {
+    return /\.(jpeg|jpg|gif|png)$/.test(url)
+}
 </script>
 
 <style scoped>
-.news{
-    max-width: 200px;
+.montserrat-title {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
 }
+
+.montserrat-summary {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 450;
+  font-style: normal;
+}
+
+
 </style>
